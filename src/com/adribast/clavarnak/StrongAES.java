@@ -12,8 +12,14 @@ import javax.crypto.spec.SecretKeySpec;
     {
                 String text = "Hello World";
                 String key = "Jecrisseizecarac"; // 128 bit key
-                public void keyGen (String key) {
-                    Key aesKey = new SecretKeySpec(key.getBytes(), "AES");
+
+                public Key keyGen (String key) {
+                    return new SecretKeySpec(key.getBytes(), "AES");
+
+                }
+
+                public void encrypt(Key aesKey) {
+
                     Cipher cipher = null;
                     try {
                         cipher = Cipher.getInstance("AES");
@@ -22,9 +28,7 @@ import javax.crypto.spec.SecretKeySpec;
                     } catch (NoSuchPaddingException e1) {
                         e1.printStackTrace();
                     }
-                }
 
-                public void encrypt(Cipher cipher , Key aesKey) {
                     try {
                         cipher.init(Cipher.ENCRYPT_MODE, aesKey);
                     } catch (InvalidKeyException e1) {
