@@ -31,7 +31,7 @@ public class Button extends JButton implements MouseListener{
 
         Dimension sizeButton = new Dimension(120, 30) ;
 
-        this.setPreferredSize(sizeButton);
+        this.setMaximumSize(sizeButton);
 
         try {
 

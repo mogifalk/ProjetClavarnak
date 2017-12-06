@@ -7,28 +7,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import static javax.swing.SwingConstants.CENTER;
 
 public class Window extends JFrame implements ActionListener {
 
     //this is the list which contains all connected users
     private UsersManager UM = new UsersManager() ;
 
-    private GraphicDisplay graphicDisplay = new GraphicDisplay() ;
 
-    private Box menu = Box.createVerticalBox();
-    private Box listUsersBox = Box.createVerticalBox();
-
+    private JPanel menu = new JPanel();
+    private JPanel usersListPanel = new JPanel();
 
     public Window (String name, int width, int height) throws VoidStringException, AliasAlreadyExistsException {
 
-        listUsersBox.setBackground(Color.DARK_GRAY);
-        listUsersBox.setPreferredSize(new Dimension(Integer.MAX_VALUE,200));
+        //definition des layouts pour chaque conteneur
+        menu.setLayout(new BoxLayout(menu, BoxLayout.PAGE_AXIS));
 
-        //listUsersPannel.setPreferredSize(new Dimension (this.getWidth(),this.getHeight()));
-
-        this.addButton("Clavarder",menu);
-        this.addButton("Changer pseudo",menu);
-        this.addButton("Chatter avec Bast",menu);
+        this.addMenuButton("Clavarder");
+        this.addMenuButton("Changer pseudo");
+        this.addMenuButton("Chatter avec Bast");
 
         User user1 = new User("Adri","Gonza","bite") ;
         User user2 = new User("Joseph","le noir","LeNoir") ;
@@ -54,17 +53,8 @@ public class Window extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel label = new JLabel();
-        this.menu.add(label) ;
-
-        //On prévient notre JFrame que notre JPanel sera son content pane
-
-        Pannel pan = new Pannel();
-        this.setContentPane(pan);
-
-
         //Ajout de la Box "menu" au content pane de la fenetre
-        this.getContentPane().add(menu) ;
+        this.setContentPane(menu) ;
         //Et enfin, la rendre visible
 
 
@@ -73,23 +63,23 @@ public class Window extends JFrame implements ActionListener {
     }
 
     //addButton without dimensions
-    private void addButton(String title, Box b){
+    public void addMenuButton(String title){
         Button ourButton = new Button(title) ;
-        ourButton.setAlignmentX(CENTER_ALIGNMENT);    //alignés au centre
+        ourButton.setAlignmentX(CENTER_ALIGNMENT);
 
-        b.add(Box.createVerticalStrut(10)); //espace les cases de 8px
-        b.add(ourButton) ;
-        b.add(Box.createVerticalStrut(10)); //espace les cases de 8px
+        //espace les cases de 8px
+        menu.add(ourButton) ;
+        menu.add(Box.createVerticalStrut(10)); //espace les cases de 8px
 
         ourButton.addActionListener(this);
     }
 
     //this button is used to contains an user
-    public void addUserButton(String title, Box b) {
+    public void addUserButton(String title) {
         Button ourButton = new ButtonUser(title) ;
         ourButton.setMaximumSize(ourButton.getMinimumSize());
 
-        b.add(ourButton) ;
+        usersListPanel.add(ourButton) ;
         ourButton.addActionListener(this);
     }
 
@@ -101,15 +91,19 @@ public class Window extends JFrame implements ActionListener {
 
         switch (source.toString()) {
             case "Clavarder":
-                graphicDisplay.usersList(this, listUsersBox, this.UM);
+                buildUsersList();
                 break;
 
             case "Changer pseudo":
-                //MODIFIER PSEUDO
+                try {
+                    modifAlias();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
 
             case "Chatter avec Bast":
-                this.addButton("Bast", this.menu);
+                this.addMenuButton("Bast");
                 this.setVisible(true);
                 break;
 
@@ -117,5 +111,38 @@ public class Window extends JFrame implements ActionListener {
                 ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500);
                 break;
         }
+    }
+
+    public void buildUsersList () {
+        JLabel usersListLabel = new JLabel("Choix du destinataire");
+
+        usersListPanel.setLayout(new GridLayout(8,1));
+
+
+        Font police = new Font("Arial", Font.BOLD, 14);
+        usersListLabel.setFont(police);
+        usersListLabel.setForeground(Color.white);
+        usersListLabel.setHorizontalAlignment(CENTER);
+
+        usersListPanel.add(usersListLabel);
+        usersListPanel.setBackground(Color.DARK_GRAY);
+        usersListPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE,200));
+
+
+        ArrayList<User> listOfUsers = UM.getAllUsers() ;
+
+        for (User user : listOfUsers) {
+            this.addUserButton(user.toString());
+        }
+
+        this.setContentPane(usersListPanel) ;
+        this.setVisible(true);
+
+    }
+
+    public void modifAlias () throws Exception {
+
+    ModifAliasWindow aliasWindow = new ModifAliasWindow(UM) ;
+
     }
 }

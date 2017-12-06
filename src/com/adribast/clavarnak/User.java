@@ -14,18 +14,14 @@ public class User {
                                  and only AliasEditor can set the alias field*/
     }
 
-         private void editAlias (String newPseudo) {
+    void replaceAlias (String newAlias) {
 
-        //vérifier si l'alias existe
+    this.alias=newAlias;
 
-    }
-
-    public String getAlias() {
-        return alias;
     }
 
     public String toString () {
-    return (alias + " (" + firstName + " " + lastName +")") ;
+    return alias;
     }
 
 }

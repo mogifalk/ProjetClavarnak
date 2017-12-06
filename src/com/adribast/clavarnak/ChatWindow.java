@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class ChatWindow extends JFrame implements ActionListener {
 
-    private Pannel pan = new Pannel();
+    private JPanel pan = new JPanel();
 
     //Une box qui va nous permettrxe de ranger les boutons
     private Box menu = Box.createVerticalBox();
