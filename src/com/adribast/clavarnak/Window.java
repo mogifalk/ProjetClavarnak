@@ -3,20 +3,16 @@ package com.adribast.clavarnak;
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-
 public class Window extends JFrame implements ActionListener {
 
     //this is the list which contains all connected users
-    public UsersManager UM = new UsersManager() ;
+    private UsersManager UM = new UsersManager() ;
 
-    private Pannel pan = new Pannel();
-    private JLabel label = new JLabel() ;
     private GraphicDisplay graphicDisplay = new GraphicDisplay() ;
 
     private Box menu = Box.createVerticalBox();
@@ -58,10 +54,12 @@ public class Window extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        JLabel label = new JLabel();
         this.menu.add(label) ;
 
         //On prévient notre JFrame que notre JPanel sera son content pane
 
+        Pannel pan = new Pannel();
         this.setContentPane(pan);
 
 
@@ -75,7 +73,7 @@ public class Window extends JFrame implements ActionListener {
     }
 
     //addButton without dimensions
-    public void addButton(String title, Box b){
+    private void addButton(String title, Box b){
         Button ourButton = new Button(title) ;
         ourButton.setAlignmentX(CENTER_ALIGNMENT);    //alignés au centre
 
@@ -93,8 +91,6 @@ public class Window extends JFrame implements ActionListener {
 
         b.add(ourButton) ;
         ourButton.addActionListener(this);
-     //   this.setLayout(new BoxLayout(b,BoxLayout.LINE_AXIS));
-        Dimension dim = new Dimension(this.getWidth(),30) ;
     }
 
 
@@ -103,18 +99,23 @@ public class Window extends JFrame implements ActionListener {
 
         Object source = evt.getSource();
 
-        if (source.toString() == "Clavarder") {
-            graphicDisplay.usersList(this, listUsersBox , this.UM);
+        switch (source.toString()) {
+            case "Clavarder":
+                graphicDisplay.usersList(this, listUsersBox, this.UM);
+                break;
 
-        } else if (source.toString() == "Changer pseudo") {
-            //MODIFIER PSEUDO
-        }
-         else if (source.toString() == "") {
-            this.addButton("Bast",this.menu);
-            this.setVisible(true);
-        }
-        else {
-            ChatWindow theWindow = new ChatWindow(source.toString(),400,500);
+            case "Changer pseudo":
+                //MODIFIER PSEUDO
+                break;
+
+            case "Chatter avec Bast":
+                this.addButton("Bast", this.menu);
+                this.setVisible(true);
+                break;
+
+            default:
+                ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500);
+                break;
         }
     }
 }
