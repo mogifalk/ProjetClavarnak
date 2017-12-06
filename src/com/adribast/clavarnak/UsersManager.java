@@ -26,7 +26,7 @@ public class UsersManager {
 
     public boolean aliasExists(String aliasTest) {
         for (User user : usersList) {
-            if (aliasTest.compareTo(user.getAlias()) == 0) {
+            if (aliasTest.compareTo(user.toString()) == 0) {
                 return true;
             }
         }
@@ -39,7 +39,7 @@ public class UsersManager {
         for (User user : this.usersList)
 
         {
-            if (user.getAlias().toLowerCase().contains(alias.toLowerCase())) {
+            if (user.toString().toLowerCase().contains(alias.toLowerCase())) {
                 return (user);
             }
         }
@@ -47,7 +47,7 @@ public class UsersManager {
     }
         public void printAllUsers (String alias){
             for (User user : usersList) {
-                if (user.getAlias().toLowerCase().contains(alias.toLowerCase())) {
+                if (user.toString().toLowerCase().contains(alias.toLowerCase())) {
                     System.out.println(user.toString()); //
                     // ############# toString a définir pour User ################
                 }

@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class ChatWindow extends JFrame implements ActionListener {
 
+    private Pannel pan = new Pannel();
 
 
     private static int xlocation = 700;
