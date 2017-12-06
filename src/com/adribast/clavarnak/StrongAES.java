@@ -12,6 +12,7 @@ import javax.crypto.spec.SecretKeySpec;
     public class StrongAES
     {
 
+                private String maChaine ="Jecrisseizecarac";
                 private String key = "Jecrisseizecarac"; // 128 bit key
 
                 public Key keyGen () {
