@@ -8,7 +8,7 @@ public class DisplayTest {
 
     public static void main(String[] args) throws VoidStringException, AliasAlreadyExistsException {
 
-        Window test = new Window("menu", 400, 500);
+        new Window("menu", 400, 500);
 
     }
 
