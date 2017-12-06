@@ -10,8 +10,6 @@ public class DisplayTest {
 
         Window test = new Window("menu", 400, 500);
 
-
-
     }
 
 }

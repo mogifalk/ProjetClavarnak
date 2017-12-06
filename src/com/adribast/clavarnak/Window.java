@@ -3,27 +3,36 @@ package com.adribast.clavarnak;
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class Window extends JFrame implements ActionListener {
 
+    //this is the list which contains all connected users
     public UsersManager UM = new UsersManager() ;
 
     private Pannel pan = new Pannel();
-    private Button button1 = new Button("Clavarder") ;
-    private Button button2 = new Button("Changer de pseudo") ;
-    private Button button3 = new Button("Chatter avec Bast") ;
     private JLabel label = new JLabel() ;
+    private GraphicDisplay graphicDisplay = new GraphicDisplay() ;
 
-    //Declaration du layout associé au menu
     private Box menu = Box.createVerticalBox();
+    private Box listUsersBox = Box.createVerticalBox();
 
 
     public Window (String name, int width, int height) throws VoidStringException, AliasAlreadyExistsException {
 
+        listUsersBox.setBackground(Color.DARK_GRAY);
+        listUsersBox.setPreferredSize(new Dimension(Integer.MAX_VALUE,200));
+
+        //listUsersPannel.setPreferredSize(new Dimension (this.getWidth(),this.getHeight()));
+
+        this.addButton("Clavarder",menu);
+        this.addButton("Changer pseudo",menu);
+        this.addButton("Chatter avec Bast",menu);
 
         User user1 = new User("Adri","Gonza","bite") ;
         User user2 = new User("Joseph","le noir","LeNoir") ;
@@ -49,19 +58,6 @@ public class Window extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-
-        //Création d'un bouton dans le content pane
-        this.menu.add(button1) ;
-        this.menu.add(Box.createVerticalStrut(10)); //espace les cases de 8px
-        this.menu.add(button2) ;
-        this.menu.add(Box.createVerticalStrut(10)); //espace les cases de 8px
-        this.menu.add(button3) ;
-
-        this.button1.addActionListener(this);
-        this.button2.addActionListener(this);
-        this.button3.addActionListener(this);
-
         this.menu.add(label) ;
 
         //On prévient notre JFrame que notre JPanel sera son content pane
@@ -78,34 +74,47 @@ public class Window extends JFrame implements ActionListener {
 
     }
 
-    public void addButton(String name, Box b){
-        Button ourButton = new Button(name) ;
+    //addButton without dimensions
+    public void addButton(String title, Box b){
+        Button ourButton = new Button(title) ;
+        ourButton.setAlignmentX(CENTER_ALIGNMENT);    //alignés au centre
+
         b.add(Box.createVerticalStrut(10)); //espace les cases de 8px
         b.add(ourButton) ;
         b.add(Box.createVerticalStrut(10)); //espace les cases de 8px
+
         ourButton.addActionListener(this);
     }
+
+    //this button is used to contains an user
+    public void addUserButton(String title, Box b) {
+        Button ourButton = new ButtonUser(title) ;
+        ourButton.setMaximumSize(ourButton.getMinimumSize());
+
+        b.add(ourButton) ;
+        ourButton.addActionListener(this);
+     //   this.setLayout(new BoxLayout(b,BoxLayout.LINE_AXIS));
+        Dimension dim = new Dimension(this.getWidth(),30) ;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent evt) {
 
         Object source = evt.getSource();
 
-        if (source == button1) {
-            new GraphicDisplay().displayUsersList(this, this.UM);
+        if (source.toString() == "Clavarder") {
+            graphicDisplay.usersList(this, listUsersBox , this.UM);
 
-        } else if (source == button2) {
+        } else if (source.toString() == "Changer pseudo") {
             //MODIFIER PSEUDO
         }
-         else if (source == button3) {
+         else if (source.toString() == "") {
             this.addButton("Bast",this.menu);
             this.setVisible(true);
         }
-        else{
+        else {
             ChatWindow theWindow = new ChatWindow(source.toString(),400,500);
         }
-
-        System.out.println("Ceci est un changement");
-        System.out.println("Ceci est un changement de oufffffff !!!!");
     }
 }
