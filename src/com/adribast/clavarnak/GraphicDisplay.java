@@ -12,7 +12,7 @@ public class GraphicDisplay {
     }
 
     //
-    public void usersList (Window window, UsersManager usersMan) {
+    public void displayUsersList (Window window, UsersManager usersMan) {
         Box listUsersBox = Box.createVerticalBox() ;
 
         ArrayList<User> listOfUsers = usersMan.getAllUsers() ;

@@ -1,5 +1,8 @@
 package com.adribast.clavarnak;
 
+import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
+import com.adribast.clavarnak.com.exceptions.VoidStringException;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,9 +22,16 @@ public class Window extends JFrame implements ActionListener {
     private Box menu = Box.createVerticalBox();
 
 
-    public Window (String name, int width, int height) {
+    public Window (String name, int width, int height) throws VoidStringException, AliasAlreadyExistsException {
 
-        new GraphicDisplay().usersList(this, this.UM);
+
+        User user1 = new User("Adri","Gonza","bite") ;
+        User user2 = new User("Joseph","le noir","LeNoir") ;
+        User user3 = new User("Alban","Le Carbonnier de la Morsangliere","Prov0ck") ;
+
+        UM.addUser(user1);
+        UM.addUser(user2);
+        UM.addUser(user3);
 
         //Définit un titre pour notre fenêtre
 
@@ -63,6 +73,7 @@ public class Window extends JFrame implements ActionListener {
         this.getContentPane().add(menu) ;
         //Et enfin, la rendre visible
 
+
         this.setVisible(true);
 
     }
@@ -81,9 +92,7 @@ public class Window extends JFrame implements ActionListener {
         Object source = evt.getSource();
 
         if (source == button1) {
-            GraphicDisplay graphicDisplay = new GraphicDisplay();
-            graphicDisplay.usersList(this,UM);
-            //AFFICHER LA LISTE DES USERS CONNECTES
+            new GraphicDisplay().displayUsersList(this, this.UM);
 
         } else if (source == button2) {
             //MODIFIER PSEUDO

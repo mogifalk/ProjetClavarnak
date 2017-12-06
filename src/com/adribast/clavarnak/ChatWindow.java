@@ -8,10 +8,17 @@ public class ChatWindow extends JFrame implements ActionListener {
 
     private Pannel pan = new Pannel();
 
-    //Une box qui va nous permettre de ranger les boutons
+    //Une box qui va nous permettrxe de ranger les boutons
     private Box menu = Box.createVerticalBox();
 
+    private static int xlocation = 700;
+    private static int ylocation = 150;
+
+
     public ChatWindow(String name, int width, int height )  {
+
+        this.xlocation = this.xlocation +20;
+        this.ylocation = this.ylocation + 20;
 
         this.setTitle(name);
 
@@ -21,7 +28,7 @@ public class ChatWindow extends JFrame implements ActionListener {
 
         //Nous demandons maintenant à notre objet de se positionner au centre
 
-        this.setLocationRelativeTo(null);
+        this.setLocation(xlocation,ylocation);
 
         //Termine le processus lorsqu'on clique sur la croix rouge
 
