@@ -106,5 +106,6 @@ public class Window extends JFrame implements ActionListener {
         }
 
         System.out.println("Ceci est un changement");
+        System.out.println("Ceci est un changement de oufffffff !!!!");
     }
 }
