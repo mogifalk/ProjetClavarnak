@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class Window extends JFrame implements ActionListener {
 
+    public UsersManager UM = new UsersManager() ;
 
     private Pannel pan = new Pannel();
     private Button button1 = new Button("Clavarder") ;
@@ -17,11 +18,10 @@ public class Window extends JFrame implements ActionListener {
     //Declaration du layout associé au menu
     private Box menu = Box.createVerticalBox();
 
-      //Compteur de clics
-
-    private int compteur = 0;
 
     public Window (String name, int width, int height) {
+
+        new GraphicDisplay().usersList(this, this.UM);
 
         //Définit un titre pour notre fenêtre
 
@@ -81,7 +81,10 @@ public class Window extends JFrame implements ActionListener {
         Object source = evt.getSource();
 
         if (source == button1) {
+            GraphicDisplay graphicDisplay = new GraphicDisplay();
+            graphicDisplay.usersList(this,UM);
             //AFFICHER LA LISTE DES USERS CONNECTES
+
         } else if (source == button2) {
             //MODIFIER PSEUDO
         }
