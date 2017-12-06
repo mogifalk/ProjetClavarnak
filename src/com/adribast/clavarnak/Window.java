@@ -104,5 +104,7 @@ public class Window extends JFrame implements ActionListener {
         else{
             ChatWindow theWindow = new ChatWindow(source.toString(),400,500);
         }
+
+        System.out.println("Ceci est un changement");
     }
 }
