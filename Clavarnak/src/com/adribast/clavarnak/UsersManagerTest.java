@@ -1,5 +1,6 @@
 package com.adribast.clavarnak;
 
+
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import org.junit.Test;
 
