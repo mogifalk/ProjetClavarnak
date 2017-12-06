@@ -38,8 +38,8 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1512598845466" expanded="true" signature="44217:44259" ph="..." />
-                <marker date="1512598845466" expanded="true" signature="44217:44290" ph="..." />
+                <marker date="1512601834981" expanded="true" signature="52151:52168" ph="..." />
+                <marker date="1512601834981" expanded="true" signature="52151:52199" ph="..." />
               </folding>
             </state>
           </provider>
@@ -68,9 +68,11 @@
       <file leaf-file-name="StrongAES.java" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/ProjetClavarnak/src/com/adribast/clavarnak/StrongAES.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="1458">
+              <caret line="81" column="18" lean-forward="false" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,9 +80,12 @@
       <file leaf-file-name="StrongAESTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/ProjetClavarnak/src/com/adribast/clavarnak/StrongAESTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="359">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="e#249#250#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -209,7 +214,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.StrongAESTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -249,6 +254,106 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+    </configuration>
+    <configuration name="StrongAESTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.adribast.clavarnak.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Clavarnak" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.adribast.clavarnak" />
+      <option name="MAIN_CLASS_NAME" value="com.adribast.clavarnak.StrongAESTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="StrongAESTest.decrypt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.adribast.clavarnak.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Clavarnak" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.adribast.clavarnak" />
+      <option name="MAIN_CLASS_NAME" value="com.adribast.clavarnak.StrongAESTest" />
+      <option name="METHOD_NAME" value="decrypt" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="StrongAESTest.encrypt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.adribast.clavarnak.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Clavarnak" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.adribast.clavarnak" />
+      <option name="MAIN_CLASS_NAME" value="com.adribast.clavarnak.StrongAESTest" />
+      <option name="METHOD_NAME" value="encrypt" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="StrongAESTest.keyGen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.adribast.clavarnak.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Clavarnak" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.adribast.clavarnak" />
+      <option name="MAIN_CLASS_NAME" value="com.adribast.clavarnak.StrongAESTest" />
+      <option name="METHOD_NAME" value="keyGen" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -310,9 +415,20 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.DisplayTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.StrongAESTest.keyGen" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.StrongAESTest.encrypt" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StrongAESTest.decrypt" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.StrongAESTest" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.DisplayTest" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.StrongAESTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.StrongAESTest.decrypt" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.StrongAESTest.encrypt" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.StrongAESTest.keyGen" />
+        <item index="4" class="java.lang.String" itemvalue="Application.DisplayTest" />
       </list>
     </recent_temporary>
   </component>
@@ -340,18 +456,51 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="StrongAESTest - 2017.12.07 at 00h 02m 04s.xml">
+      <configuration name="StrongAESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest - 2017.12.07 at 00h 02m 31s.xml">
+      <configuration name="StrongAESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest - 2017.12.07 at 00h 05m 36s.xml">
+      <configuration name="StrongAESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest_decrypt - 2017.12.06 at 23h 56m 22s.xml">
+      <configuration name="StrongAESTest.decrypt" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest_decrypt - 2017.12.06 at 23h 57m 11s.xml">
+      <configuration name="StrongAESTest.decrypt" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest_decrypt - 2017.12.07 at 00h 01m 45s.xml">
+      <configuration name="StrongAESTest.decrypt" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest_encrypt - 2017.12.06 at 23h 46m 41s.xml">
+      <configuration name="StrongAESTest.encrypt" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest_encrypt - 2017.12.06 at 23h 47m 08s.xml">
+      <configuration name="StrongAESTest.encrypt" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest_encrypt - 2017.12.06 at 23h 47m 10s.xml">
+      <configuration name="StrongAESTest.encrypt" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StrongAESTest_encrypt - 2017.12.07 at 00h 01m 41s.xml">
+      <configuration name="StrongAESTest.encrypt" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="260" y="40" width="1368" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -368,7 +517,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -421,8 +569,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="14" lean-forward="true" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
           <folding>
-            <marker date="1512598845466" expanded="true" signature="44217:44259" ph="..." />
-            <marker date="1512598845466" expanded="true" signature="44217:44290" ph="..." />
+            <marker date="1512601834981" expanded="true" signature="52151:52168" ph="..." />
+            <marker date="1512601834981" expanded="true" signature="52151:52199" ph="..." />
           </folding>
         </state>
       </provider>
@@ -493,8 +641,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="14" lean-forward="true" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
           <folding>
-            <marker date="1512598845466" expanded="true" signature="44217:44259" ph="..." />
-            <marker date="1512598845466" expanded="true" signature="44217:44290" ph="..." />
+            <marker date="1512601834981" expanded="true" signature="52151:52168" ph="..." />
+            <marker date="1512601834981" expanded="true" signature="52151:52199" ph="..." />
           </folding>
         </state>
       </provider>
@@ -565,8 +713,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1512598845466" expanded="true" signature="44217:44259" ph="..." />
-            <marker date="1512598845466" expanded="true" signature="44217:44290" ph="..." />
+            <marker date="1512601834981" expanded="true" signature="52151:52168" ph="..." />
+            <marker date="1512601834981" expanded="true" signature="52151:52199" ph="..." />
           </folding>
         </state>
       </provider>
@@ -641,17 +789,22 @@
     </entry>
     <entry file="file://$USER_HOME$/ProjetClavarnak/src/com/adribast/clavarnak/StrongAESTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="359">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/ProjetClavarnak/src/com/adribast/clavarnak/StrongAES.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="1458">
+          <caret line="81" column="18" lean-forward="false" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
