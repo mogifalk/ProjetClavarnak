@@ -18,6 +18,7 @@ import javax.crypto.spec.SecretKeySpec;
         }
 
         public Key keyGen() throws UnsupportedEncodingException, NoSuchAlgorithmException {
+            String Test = "HAHAHAHA TROOOOOLLLLL";
             return new SecretKeySpec(this.hash(), "AES");
 
         }
