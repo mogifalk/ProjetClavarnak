@@ -89,6 +89,7 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
 
                     container.add(label);
                     this.setContentPane(container);
+
                 }
 
                 else {

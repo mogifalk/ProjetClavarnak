@@ -25,13 +25,15 @@ import javax.crypto.spec.SecretKeySpec;
         public byte[] encrypt(Key aesKey, String text) {
 
             Cipher cipher = null;
+
             try {
                 cipher = Cipher.getInstance("AES");
-            } catch (NoSuchAlgorithmException e1) {
-                e1.printStackTrace();
-            } catch (NoSuchPaddingException e1) {
-                e1.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (NoSuchPaddingException e) {
+                e.printStackTrace();
             }
+
 
             try {
                 cipher.init(Cipher.ENCRYPT_MODE, aesKey);
