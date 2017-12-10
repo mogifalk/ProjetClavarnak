@@ -2,8 +2,9 @@ package com.adribast.clavarnak;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class ChatWindow extends JFrame implements ActionListener {
 
@@ -14,17 +15,21 @@ public class ChatWindow extends JFrame implements ActionListener {
 
 
     private JTextArea jtf = new JTextArea("Enter your message");
+    static private Date date = new Date();
+
+    private ArrayList<JLabel> conversation = new ArrayList<>();
 
 
-
+    private Button send = new Button("Send");
 
 
 
     ChatWindow(String name, int width, int height)  {
 
-
         xlocation = xlocation +20;
         ylocation = ylocation + 20;
+
+        this.conversation.add(new JLabel(date.toString()));
 
         this.setTitle(name);
 
@@ -50,20 +55,36 @@ public class ChatWindow extends JFrame implements ActionListener {
         writingZone.setLayout(new BoxLayout(writingZone,BoxLayout.LINE_AXIS));
         writingZone.setPreferredSize(new Dimension(width, height/7));
 
-
         Font police = new Font("Arial", Font.ITALIC, 10);
 
         //Gestion of the writing zone
 
-
         this.jtf.setFont(police);
         this.jtf.setMaximumSize(new Dimension(width*3/4,height/7));
         this.jtf.setForeground(Color.BLACK);
-        this.jtf.setLineWrap(true);
         this.jtf.getScrollableTracksViewportWidth();
+        this.jtf.setLineWrap(true);
+        KeyListener action = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    send.doClick(0);
+                }
+            }
+        };
+
 
         writingZone.add(this.jtf,BorderLayout.WEST);
-        Button send = new Button("Send");
         writingZone.add(send,BorderLayout.EAST);
 
 
@@ -76,6 +97,7 @@ public class ChatWindow extends JFrame implements ActionListener {
 
         send.addActionListener(this);
 
+        jtf.addKeyListener(action);
 
         //Et enfin, la rendre visible
 
@@ -83,11 +105,66 @@ public class ChatWindow extends JFrame implements ActionListener {
 
     }
 
+    //a continuer pour ajouter un truc pour pas couper les mots
+    private void addWithReturn(String text){
+
+        int nbCharLigne = 27;
+
+        int fin = text.length()/nbCharLigne;
+        System.out.println(fin);
+
+        if (text.length()<nbCharLigne){
+            JLabel label = new JLabel(text);
+            this.conversation.add(label);
+        }
+
+        else{
+
+            JLabel label1 = new JLabel(text.substring(0,nbCharLigne));
+            this.conversation.add(label1);
+            int i;
+            for (i=1 ; i<=fin-1;i++){
+
+                JLabel label = new JLabel(text.substring(i*nbCharLigne,(i+1)*nbCharLigne));
+                this.conversation.add(label);
+        }
+            JLabel label2 = new JLabel(text.substring(i*nbCharLigne));
+            this.conversation.add(label2);
+
+        }
+    }
+
+    private void addToContainer (JPanel container, JLabel lab){
+        container.add(lab);
+        //container.add(Box.createVerticalStrut(10)); //espace les cases de 8px
+    }
+
+
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent evt) {
+
         String mess = this.jtf.getText();
+
+        JPanel writingContainer = new JPanel();
+
+        writingContainer.setLayout(new BoxLayout(writingContainer, BoxLayout.PAGE_AXIS));
+
+        addWithReturn(mess);
+
+        for (JLabel object: conversation) {
+            addToContainer(writingContainer,object);
+        }
+
+        //writingContainer.add(label);
+
+        //writingContainer.add(Box.createVerticalStrut(10)); //espace les cases de 8px
+
+
+        this.getContentPane().add(writingContainer,BorderLayout.EAST);
+
         this.jtf.setText("");
         System.out.println(mess);
 
+        this.setVisible(true);
     }
 }
