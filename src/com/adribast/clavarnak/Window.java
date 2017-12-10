@@ -64,6 +64,7 @@ public class Window extends JFrame implements ActionListener {
 
     //addButton without dimensions
     public void addMenuButton(String title){
+
         Button ourButton = new Button(title) ;
         ourButton.setAlignmentX(CENTER_ALIGNMENT);
 

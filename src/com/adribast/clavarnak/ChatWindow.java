@@ -2,8 +2,7 @@ package com.adribast.clavarnak;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,13 +17,14 @@ public class ChatWindow extends JFrame implements ActionListener {
     private JTextArea jtf = new JTextArea("Enter your message");
     static private Date date = new Date();
 
-    public ArrayList<JLabel> conversation = new ArrayList<JLabel>();
+    private ArrayList<JLabel> conversation = new ArrayList<>();
+
+
+    private Button send = new Button("Send");
 
 
 
     ChatWindow(String name, int width, int height)  {
-
-
 
         xlocation = xlocation +20;
         ylocation = ylocation + 20;
@@ -59,14 +59,32 @@ public class ChatWindow extends JFrame implements ActionListener {
 
         //Gestion of the writing zone
 
-
         this.jtf.setFont(police);
         this.jtf.setMaximumSize(new Dimension(width*3/4,height/7));
         this.jtf.setForeground(Color.BLACK);
-        this.jtf.setLineWrap(true);
         this.jtf.getScrollableTracksViewportWidth();
+        this.jtf.setLineWrap(true);
+        KeyListener action = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    send.doClick(0);
+                }
+            }
+        };
+
+
         writingZone.add(this.jtf,BorderLayout.WEST);
-        Button send = new Button("Send");
         writingZone.add(send,BorderLayout.EAST);
 
 
@@ -79,6 +97,7 @@ public class ChatWindow extends JFrame implements ActionListener {
 
         send.addActionListener(this);
 
+        jtf.addKeyListener(action);
 
         //Et enfin, la rendre visible
 
@@ -87,7 +106,7 @@ public class ChatWindow extends JFrame implements ActionListener {
     }
 
     //a continuer pour ajouter un truc pour pas couper les mots
-    public void addWithReturn(String text){
+    private void addWithReturn(String text){
 
         int nbCharLigne = 27;
 
@@ -115,14 +134,14 @@ public class ChatWindow extends JFrame implements ActionListener {
         }
     }
 
-    public void addToContainer (JPanel container, JLabel lab){
+    private void addToContainer (JPanel container, JLabel lab){
         container.add(lab);
         //container.add(Box.createVerticalStrut(10)); //espace les cases de 8px
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
+    @Override
+    public void actionPerformed(ActionEvent evt) {
 
         String mess = this.jtf.getText();
 
