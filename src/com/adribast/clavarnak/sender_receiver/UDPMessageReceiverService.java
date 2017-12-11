@@ -4,7 +4,15 @@ package com.adribast.clavarnak.sender_receiver;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-public class UDPMessageReceiverService implements MessageReceiverService {
+public class UDPMessageReceiverService implements MessageReceiverService, Runnable {
+    int port;
+    IncomingMessageListener incomingMessageListener;
+
+    public UDPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort){
+        this.port=ourPort;
+        this.incomingMessageListener=ourIncomingMessageListener;
+    }
+
     @Override
     public void listenOnPort(int port, IncomingMessageListener incomingMessageListener) throws Exception {
         DatagramSocket receiverSocket = new DatagramSocket(port);
@@ -15,5 +23,14 @@ public class UDPMessageReceiverService implements MessageReceiverService {
         receiverSocket.close();
 
         incomingMessageListener.onNewIncomingMessage(new String(data));
+    }
+
+    @Override
+    public void run() {
+        try {
+            listenOnPort(this.port, this.incomingMessageListener);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

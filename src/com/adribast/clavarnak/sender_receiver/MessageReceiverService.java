@@ -1,6 +1,6 @@
 package com.adribast.clavarnak.sender_receiver;
 
-public interface MessageReceiverService {
+public interface MessageReceiverService extends Runnable {
 
     /**
      * Listen to incoming messages on given port, and notifies the listener of new messages

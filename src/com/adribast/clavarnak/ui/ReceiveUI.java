@@ -15,9 +15,9 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     private int port;
     private String conv ="";
 
-    public ReceiveUI(MessageReceiverServiceFactory messageReceiverServiceFactory, int ourport) {
-        this.messageReceiverServiceFactory = messageReceiverServiceFactory;
-        this.port = ourport;
+    public ReceiveUI(int ourPort) {
+        this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(this,ourPort);
+        this.port = ourPort;
     }
 
     @Override
@@ -40,7 +40,9 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
         System.out.print("Enter the port to listen on: " + this.port);
         int port = this.port;
         try {
-            messageReceiverService.listenOnPort(port, this);
+            Thread listenThread = new Thread(messageReceiverService);
+            listenThread.start();
+            //messageReceiverService.listenOnPort(port, this);
         } catch (Exception exception) {
             System.err.println(ERROR_MESSAGE);
             System.err.println(exception);

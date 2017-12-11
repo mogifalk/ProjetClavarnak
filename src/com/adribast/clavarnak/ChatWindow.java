@@ -27,9 +27,9 @@ public class ChatWindow extends JFrame implements ActionListener {
     private ArrayList<JLabel> hisconversation = new ArrayList<>();
 
     //port d'écoute
-    private static int listenPort = 1048;
+    private static int listenPort = 1102;
     //port d'envoie
-    private static int sendPort = 1027;
+    private static int sendPort = 1095;
 
 
     private ReceiveUI receiveUI;
@@ -42,7 +42,7 @@ public class ChatWindow extends JFrame implements ActionListener {
 
     ChatWindow(String name, int width, int height)  {
         //On essaye d'avoir un port different en liste a chaque fois
-        this.receiveUI = new ReceiveUI(new MessageReceiverServiceFactory(),listenPort);
+        this.receiveUI = new ReceiveUI(listenPort);
         this.sendUI = new SendUI(new MessageSenderServiceFactory(),"127.0.0.1",sendPort);
 
         xlocation = xlocation +20;
@@ -123,12 +123,13 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.setVisible(true);
         System.out.println("test");
 
-        this.receiveUI.onTCP("test");
-        String receivedMess =this.receiveUI.getConversation();
-        addWithReturn(receivedMess,hisconversation);
+        this.receiveUI.onTCP("");
 
-        printConversation(hisconversation,BorderLayout.WEST);
 
+        String receivedMess = this.receiveUI.getConversation();
+        addWithReturn(receivedMess, hisconversation);
+
+        printConversation(hisconversation, BorderLayout.WEST);
     }
 
     //permet de decouper les message en lignes
@@ -137,7 +138,6 @@ public class ChatWindow extends JFrame implements ActionListener {
         int nbCharLigne = 23;
 
         int fin = text.length()/nbCharLigne;
-        System.out.println(fin);
 
         if (text.length()<nbCharLigne){
             JLabel label = new JLabel(text);
