@@ -1,5 +1,11 @@
 package com.adribast.clavarnak;
 
+import com.adribast.clavarnak.sender_receiver.factory.MessageReceiverServiceFactory;
+import com.adribast.clavarnak.sender_receiver.factory.MessageSenderServiceFactory;
+import com.adribast.clavarnak.ui.CommunicationUI;
+import com.adribast.clavarnak.ui.ReceiveUI;
+import com.adribast.clavarnak.ui.SendUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -18,6 +24,16 @@ public class ChatWindow extends JFrame implements ActionListener {
     static private Date date = new Date();
 
     private ArrayList<JLabel> conversation = new ArrayList<>();
+    private ArrayList<JLabel> hisconversation = new ArrayList<>();
+
+    //port d'écoute
+    private static int listenPort = 1048;
+    //port d'envoie
+    private static int sendPort = 1027;
+
+
+    private ReceiveUI receiveUI;
+    private CommunicationUI sendUI ;
 
 
     private Button send = new Button("Send");
@@ -25,6 +41,9 @@ public class ChatWindow extends JFrame implements ActionListener {
 
 
     ChatWindow(String name, int width, int height)  {
+        //On essaye d'avoir un port different en liste a chaque fois
+        this.receiveUI = new ReceiveUI(new MessageReceiverServiceFactory(),listenPort);
+        this.sendUI = new SendUI(new MessageSenderServiceFactory(),"127.0.0.1",sendPort);
 
         xlocation = xlocation +20;
         ylocation = ylocation + 20;
@@ -102,34 +121,41 @@ public class ChatWindow extends JFrame implements ActionListener {
         //Et enfin, la rendre visible
 
         this.setVisible(true);
+        System.out.println("test");
+
+        this.receiveUI.onTCP("test");
+        String receivedMess =this.receiveUI.getConversation();
+        addWithReturn(receivedMess,hisconversation);
+
+        printConversation(hisconversation,BorderLayout.WEST);
 
     }
 
-    //a continuer pour ajouter un truc pour pas couper les mots
-    private void addWithReturn(String text){
+    //permet de decouper les message en lignes
+    private void addWithReturn(String text,ArrayList<JLabel> conv){
 
-        int nbCharLigne = 27;
+        int nbCharLigne = 23;
 
         int fin = text.length()/nbCharLigne;
         System.out.println(fin);
 
         if (text.length()<nbCharLigne){
             JLabel label = new JLabel(text);
-            this.conversation.add(label);
+            conv.add(label);
         }
 
         else{
 
             JLabel label1 = new JLabel(text.substring(0,nbCharLigne));
-            this.conversation.add(label1);
+            conv.add(label1);
             int i;
             for (i=1 ; i<=fin-1;i++){
 
                 JLabel label = new JLabel(text.substring(i*nbCharLigne,(i+1)*nbCharLigne));
-                this.conversation.add(label);
+                conv.add(label);
         }
             JLabel label2 = new JLabel(text.substring(i*nbCharLigne));
-            this.conversation.add(label2);
+            conv.add(label2);
 
         }
     }
@@ -145,26 +171,34 @@ public class ChatWindow extends JFrame implements ActionListener {
 
         String mess = this.jtf.getText();
 
-        JPanel writingContainer = new JPanel();
 
-        writingContainer.setLayout(new BoxLayout(writingContainer, BoxLayout.PAGE_AXIS));
+        addWithReturn(mess,this.conversation);
 
-        addWithReturn(mess);
-
-        for (JLabel object: conversation) {
-            addToContainer(writingContainer,object);
-        }
-
+        printConversation(this.conversation,BorderLayout.EAST);
         //writingContainer.add(label);
 
         //writingContainer.add(Box.createVerticalStrut(10)); //espace les cases de 8px
 
-
-        this.getContentPane().add(writingContainer,BorderLayout.EAST);
-
         this.jtf.setText("");
         System.out.println(mess);
 
+        this.sendUI.onTCP(mess);
+
         this.setVisible(true);
+    }
+
+    public void printConversation(ArrayList<JLabel> conv,String position ){
+
+        JPanel writingContainer = new JPanel();
+
+        writingContainer.setLayout(new BoxLayout(writingContainer, BoxLayout.PAGE_AXIS));
+
+
+        for (JLabel object: conv) {
+            addToContainer(writingContainer,object);
+        }
+
+        this.getContentPane().add(writingContainer,position);
+
     }
 }
