@@ -4,6 +4,8 @@ package com.adribast.clavarnak.sender_receiver;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
+import static com.adribast.clavarnak.Main.broadcastPort;
+
 public class UDPMessageReceiverService implements MessageReceiverService {
     int port;
     IncomingMessageListener incomingMessageListener;
@@ -18,9 +20,12 @@ public class UDPMessageReceiverService implements MessageReceiverService {
         DatagramSocket receiverSocket = new DatagramSocket(port);
         DatagramPacket receivedPacket = new DatagramPacket(new byte[500], 500);
         receiverSocket.receive(receivedPacket);
-        byte[] data = receivedPacket.getData();
+        String data = new String(receivedPacket.getData());
 
         receiverSocket.close();
+        if (receivedPacket.getPort()==broadcastPort) {
+            new UDPBroadcastReceiverService(receivedPacket); //CEST LA QUE T'AS ARRETE
+        }
 
         incomingMessageListener.onNewIncomingMessage(new String(data));
     }

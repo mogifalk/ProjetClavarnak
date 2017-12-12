@@ -3,6 +3,8 @@ package com.adribast.clavarnak.sender_receiver;
 import java.net.*;
 import java.util.Scanner;
 
+import static com.adribast.clavarnak.Main.broadcastPort;
+
 public class UDPMessageSenderService implements MessageSenderService {
     @Override
     public void sendMessageOn(String ipAddress, int port, String message) throws Exception {
@@ -17,22 +19,16 @@ public class UDPMessageSenderService implements MessageSenderService {
         senderSocket.close();
     }
 
-    public void sendInitBroadcast () {
-        broadcastAddressBuilder();
-    }
+    public void sendInitBroadcast () throws Exception {
 
-    public String broadcastAddressBuilder () {
-        String localAddress = new ClientAddress().getLocalAddress();
-        System.out.println(localAddress);
-        Scanner s = new Scanner(localAddress);
-        s.useDelimiter(".");
+        try {
+            String broadcastAdr = "127.255.255.255";
+            sendMessageOn(broadcastAdr, broadcastPort, "Please send me your IP and pseudo");
+        }
 
-        String broadcastAdress="";
-        broadcastAdress.concat(s.next()+"."); //1er octet de l'IP locale
-        broadcastAdress.concat(s.next()+"."); //2e *****
-        broadcastAdress.concat(s.next()+"."); //3e *****
-        broadcastAdress.concat("255") ;
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        return broadcastAdress ;
     }
 }
