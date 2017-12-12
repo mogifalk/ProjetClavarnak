@@ -2,6 +2,7 @@ package com.adribast.clavarnak;
 
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
+import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -146,4 +147,5 @@ public class Window extends JFrame implements ActionListener {
     ModifAliasWindow aliasWindow = new ModifAliasWindow(UM) ;
 
     }
+
 }

@@ -4,7 +4,7 @@ package com.adribast.clavarnak.sender_receiver;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-public class UDPMessageReceiverService implements MessageReceiverService, Runnable {
+public class UDPMessageReceiverService implements MessageReceiverService {
     int port;
     IncomingMessageListener incomingMessageListener;
 

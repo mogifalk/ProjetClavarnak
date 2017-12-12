@@ -29,7 +29,6 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
         reader.close();
         serverSocket.close();
-
     }
 
     @Override
