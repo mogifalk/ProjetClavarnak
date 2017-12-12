@@ -12,6 +12,6 @@ public class TCPMessageSenderService implements MessageSenderService {
         writer.println(message);
 
         writer.close();
-        //chatSocket.close();
+        chatSocket.close();
     }
 }

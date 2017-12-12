@@ -6,6 +6,7 @@ import com.adribast.clavarnak.sender_receiver.MessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.factory.MessageReceiverServiceFactory;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
@@ -13,11 +14,12 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
 
     private final MessageReceiverServiceFactory messageReceiverServiceFactory;
     private int port;
-    private String conv ="";
+    private ChatWindow chat;
 
-    public ReceiveUI(int ourPort) {
+    public ReceiveUI(int ourPort, ChatWindow chat) {
         this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(this,ourPort);
         this.port = ourPort;
+        this.chat = chat;
     }
 
     @Override
@@ -33,24 +35,25 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     @Override
     public void onNewIncomingMessage(String message) {
         System.out.println("New incoming message: " + message);
-        this.conv = message;
+
+
+        System.out.println("NEW MESSAGE : "+message);
+        ArrayList<JLabel> conv = new ArrayList<>();
+
+        this.chat.addWithReturn(message,conv);
+        this.chat.printConversation(conv, BorderLayout.WEST);
     }
 
     private void askForPort(MessageReceiverService messageReceiverService) {
         System.out.print("Enter the port to listen on: " + this.port);
-        int port = this.port;
         try {
             Thread listenThread = new Thread(messageReceiverService);
             listenThread.start();
-            //messageReceiverService.listenOnPort(port, this);
         } catch (Exception exception) {
             System.err.println(ERROR_MESSAGE);
             System.err.println(exception);
         }
     }
 
-    public String getConversation(){
-        return this.conv;
-    }
 
 }

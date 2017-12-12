@@ -25,6 +25,8 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
         String message = reader.readLine();
         incomingMessageListener.onNewIncomingMessage(message);
 
+        System.out.println("NEW MESSAGE : "+message);
+
         reader.close();
         serverSocket.close();
 
