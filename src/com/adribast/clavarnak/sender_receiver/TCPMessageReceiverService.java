@@ -10,6 +10,10 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
     int port;
     IncomingMessageListener incomingMessageListener;
 
+    private BufferedReader reader;
+    private Socket chatSocket;
+    private ServerSocket serverSocket;
+
     public TCPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort){
         this.port=ourPort;
         this.incomingMessageListener=ourIncomingMessageListener;
@@ -17,10 +21,10 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
     @Override
     public void listenOnPort(int port, IncomingMessageListener incomingMessageListener) throws Exception {
-        ServerSocket serverSocket = new ServerSocket(port);
-        Socket chatSocket = serverSocket.accept();
+        this.serverSocket = new ServerSocket(port);
+        this.chatSocket = serverSocket.accept();
         InputStreamReader stream = new InputStreamReader(chatSocket.getInputStream());
-        BufferedReader reader = new BufferedReader(stream);
+        this.reader = new BufferedReader(stream);
 
         String message = reader.readLine();
         incomingMessageListener.onNewIncomingMessage(message);
@@ -39,6 +43,14 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+    public BufferedReader getReader(){
+        return this.reader;
+
+    }
+    public ServerSocket getSocket(){
+        return this.serverSocket;
 
     }
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     private static final String ERROR_MESSAGE = "[ERROR] An error occured while trying to listen on port";
 
-    private final MessageReceiverServiceFactory messageReceiverServiceFactory;
+    public final MessageReceiverServiceFactory messageReceiverServiceFactory;
     private int port;
     private ChatWindow chat;
 
