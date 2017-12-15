@@ -23,10 +23,6 @@ public class UDPMessageReceiverService implements MessageReceiverService {
         String data = new String(receivedPacket.getData());
 
         receiverSocket.close();
-        if (receivedPacket.getPort()==broadcastPort) {
-            new UDPBroadcastReceiverService(receivedPacket); //CEST LA QUE T'AS ARRETE
-        }
-
         incomingMessageListener.onNewIncomingMessage(new String(data));
     }
 

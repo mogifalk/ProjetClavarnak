@@ -5,4 +5,6 @@ public interface MessageServiceFactory<T> {
     T onTCP();
 
     T onUDP();
+
+    T onBroadcast();
 }

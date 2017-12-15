@@ -1,18 +1,19 @@
 package com.adribast.clavarnak.sender_receiver.factory;
 
-import com.adribast.clavarnak.sender_receiver.MessageSenderService;
-import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
-import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
+import com.adribast.clavarnak.sender_receiver.*;
 
 public class MessageSenderServiceFactory implements MessageServiceFactory<MessageSenderService> {
 
     @Override
-    public MessageSenderService onTCP() {
-        return new TCPMessageSenderService();
+    public MessageSenderService onTCP() { return new TCPMessageSenderService();
     }
 
     @Override
     public MessageSenderService onUDP() {
         return new UDPMessageSenderService();
     }
+
+    @Override
+    public MessageSenderService onBroadcast() { return new BroadcastSenderService(); }
+
 }
