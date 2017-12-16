@@ -2,6 +2,8 @@ package com.adribast.clavarnak;
 
 import com.adribast.clavarnak.sender_receiver.MessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.MessageSenderService;
+import com.adribast.clavarnak.sender_receiver.TCPMessageReceiverService;
+import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
 import com.adribast.clavarnak.sender_receiver.factory.MessageReceiverServiceFactory;
 import com.adribast.clavarnak.sender_receiver.factory.MessageSenderServiceFactory;
 import com.adribast.clavarnak.ui.CommunicationUI;
@@ -29,9 +31,9 @@ public class ChatWindow extends JFrame implements ActionListener {
     private ArrayList<JLabel> conversation = new ArrayList<>();
 
     //port d'écoute
-    private static int listenPort = 1029;
+    private static int listenPort = 1030;
     //port d'envoie
-    private static int sendPort = 1028;
+    private static int sendPort = 1031;
 
 
     private ReceiveUI receiveUI;
@@ -44,8 +46,9 @@ public class ChatWindow extends JFrame implements ActionListener {
 
     ChatWindow(String name, int width, int height) throws IOException {
         //On essaye d'avoir un port different en liste a chaque fois
-        this.receiveUI = new ReceiveUI(listenPort,this);
         this.sendUI = new SendUI("127.0.0.1",sendPort);
+        this.receiveUI = new ReceiveUI(listenPort,this, (SendUI) this.sendUI);
+
 
         xlocation = xlocation +20;
         ylocation = ylocation + 20;
@@ -65,13 +68,6 @@ public class ChatWindow extends JFrame implements ActionListener {
         //Termine le processus lorsqu'on clique sur la croix rouge
 
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-
-        //Nous permet d'effectuer des actions a la fermeture de la fenetre
-        WindowListener wListener;
-        wListener = new WindowListener((MessageReceiverService) this.receiveUI.getServiceFactory().onTCP(),
-                (MessageSenderService) this.sendUI.getServiceFactory().onTCP());
-
-        this.addWindowListener(wListener);
 
         JPanel container = new JPanel();
         container.setBackground(Color.DARK_GRAY);
@@ -130,9 +126,15 @@ public class ChatWindow extends JFrame implements ActionListener {
         //Et enfin, la rendre visible
 
         this.setVisible(true);
-        System.out.println("test");
 
         this.receiveUI.onTCP("");
+
+        //Nous permet d'effectuer des actions a la fermeture de la fenetre
+        WindowListener wListener;
+        wListener = new WindowListener((TCPMessageReceiverService) this.receiveUI.getServiceFactory().onTCP(),
+                (TCPMessageSenderService) this.sendUI.getServiceFactory().onTCP());
+
+        this.addWindowListener(wListener);
     }
 
 

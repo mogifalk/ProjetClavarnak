@@ -8,6 +8,7 @@ import com.adribast.clavarnak.sender_receiver.factory.MessageServiceFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
@@ -22,8 +23,8 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     //cette liste va nous permettre d'afficher les messages reçus
     private ArrayList<JLabel> conversation;
 
-    public ReceiveUI(int ourPort, ChatWindow chat) {
-        this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(this,ourPort);
+    public ReceiveUI(int ourPort, ChatWindow chat, SendUI sender) throws IOException {
+        this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(this,ourPort,sender);
         this.port = ourPort;
         this.chat = chat;
         this.conversation = new ArrayList<>();
@@ -35,7 +36,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     }
 
     @Override
-    public void onTCP(String mess) {
+    public void onTCP(String mess) throws IOException {
         launchListeningThread(messageReceiverServiceFactory.onTCP());
     }
 
@@ -66,6 +67,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
             System.err.println(exception);
         }
     }
+
 
 
 }

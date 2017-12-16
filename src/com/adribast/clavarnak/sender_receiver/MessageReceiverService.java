@@ -7,4 +7,5 @@ public interface MessageReceiverService extends Runnable {
 
     void listen() throws Exception;
     void endConnection() throws IOException;
+
 }

@@ -4,21 +4,26 @@ import com.adribast.clavarnak.sender_receiver.IncomingMessageListener;
 import com.adribast.clavarnak.sender_receiver.MessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.TCPMessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.UDPMessageReceiverService;
+import com.adribast.clavarnak.ui.SendUI;
+
+import java.io.IOException;
 
 public class MessageReceiverServiceFactory implements MessageServiceFactory<MessageReceiverService> {
 
     int port;
 
     private IncomingMessageListener incomingMessageListener;
+    private TCPMessageReceiverService receiver;
 
-    public MessageReceiverServiceFactory(IncomingMessageListener ourIncomingMessageListener,int ourPort){
+    public MessageReceiverServiceFactory(IncomingMessageListener ourIncomingMessageListener,int ourPort,SendUI send) throws IOException {
         this.port=ourPort;
         this.incomingMessageListener=ourIncomingMessageListener;
+        this.receiver = new TCPMessageReceiverService(this.incomingMessageListener,this.port,send);
     }
 
     @Override
-    public MessageReceiverService onTCP() {
-        return new TCPMessageReceiverService(this.incomingMessageListener,this.port);
+    public MessageReceiverService onTCP(){
+        return this.receiver;
     }
 
     @Override
