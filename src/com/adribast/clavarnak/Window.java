@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static javax.swing.SwingConstants.CENTER;
@@ -110,7 +111,11 @@ public class Window extends JFrame implements ActionListener {
                 break;
 
             default:
-                ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500);
+                try {
+                    ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }

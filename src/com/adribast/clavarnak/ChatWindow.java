@@ -1,5 +1,7 @@
 package com.adribast.clavarnak;
 
+import com.adribast.clavarnak.sender_receiver.MessageReceiverService;
+import com.adribast.clavarnak.sender_receiver.MessageSenderService;
 import com.adribast.clavarnak.sender_receiver.factory.MessageReceiverServiceFactory;
 import com.adribast.clavarnak.sender_receiver.factory.MessageSenderServiceFactory;
 import com.adribast.clavarnak.ui.CommunicationUI;
@@ -9,6 +11,7 @@ import com.adribast.clavarnak.ui.SendUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,12 +27,11 @@ public class ChatWindow extends JFrame implements ActionListener {
     static private Date date = new Date();
 
     private ArrayList<JLabel> conversation = new ArrayList<>();
-    private ArrayList<JLabel> hisconversation = new ArrayList<>();
 
     //port d'écoute
-    private static int listenPort = 1486;
+    private static int listenPort = 1029;
     //port d'envoie
-    private static int sendPort = 1620;
+    private static int sendPort = 1028;
 
 
     private ReceiveUI receiveUI;
@@ -40,10 +42,10 @@ public class ChatWindow extends JFrame implements ActionListener {
 
 
 
-    ChatWindow(String name, int width, int height)  {
+    ChatWindow(String name, int width, int height) throws IOException {
         //On essaye d'avoir un port different en liste a chaque fois
         this.receiveUI = new ReceiveUI(listenPort,this);
-        this.sendUI = new SendUI(new MessageSenderServiceFactory(),"10.32.2.173",sendPort);
+        this.sendUI = new SendUI("127.0.0.1",sendPort);
 
         xlocation = xlocation +20;
         ylocation = ylocation + 20;
@@ -63,6 +65,13 @@ public class ChatWindow extends JFrame implements ActionListener {
         //Termine le processus lorsqu'on clique sur la croix rouge
 
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
+        //Nous permet d'effectuer des actions a la fermeture de la fenetre
+        WindowListener wListener;
+        wListener = new WindowListener((MessageReceiverService) this.receiveUI.getServiceFactory().onTCP(),
+                (MessageSenderService) this.sendUI.getServiceFactory().onTCP());
+
+        this.addWindowListener(wListener);
 
         JPanel container = new JPanel();
         container.setBackground(Color.DARK_GRAY);
@@ -126,31 +135,33 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.receiveUI.onTCP("");
     }
 
+
     //permet de decouper les message en lignes
     public void addWithReturn(String text,ArrayList<JLabel> conv){
 
-        int nbCharLigne = 23;
+        if (text!=null) {
 
-        int fin = text.length()/nbCharLigne;
+            int nbCharLigne = 23;
 
-        if (text.length()<nbCharLigne){
-            JLabel label = new JLabel(text);
-            conv.add(label);
-        }
+            int fin = text.length() / nbCharLigne;
 
-        else{
-
-            JLabel label1 = new JLabel(text.substring(0,nbCharLigne));
-            conv.add(label1);
-            int i;
-            for (i=1 ; i<=fin-1;i++){
-
-                JLabel label = new JLabel(text.substring(i*nbCharLigne,(i+1)*nbCharLigne));
+            if (text.length() < nbCharLigne) {
+                JLabel label = new JLabel(text);
                 conv.add(label);
-        }
-            JLabel label2 = new JLabel(text.substring(i*nbCharLigne));
-            conv.add(label2);
+            } else {
 
+                JLabel label1 = new JLabel(text.substring(0, nbCharLigne));
+                conv.add(label1);
+                int i;
+                for (i = 1; i <= fin - 1; i++) {
+
+                    JLabel label = new JLabel(text.substring(i * nbCharLigne, (i + 1) * nbCharLigne));
+                    conv.add(label);
+                }
+                JLabel label2 = new JLabel(text.substring(i * nbCharLigne));
+                conv.add(label2);
+
+            }
         }
     }
 
@@ -176,7 +187,11 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.jtf.setText("");
         System.out.println(mess);
 
-        this.sendUI.onTCP(mess);
+        try {
+            this.sendUI.onTCP(mess);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         this.setVisible(true);
     }
@@ -197,4 +212,5 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.setVisible(true);
 
     }
+
 }

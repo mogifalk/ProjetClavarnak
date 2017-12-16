@@ -1,5 +1,7 @@
 package com.adribast.clavarnak.sender_receiver;
 
+import java.io.IOException;
+
 public interface MessageReceiverService extends Runnable {
 
     /**
@@ -9,4 +11,5 @@ public interface MessageReceiverService extends Runnable {
      * @param incomingMessageListener The listener to notify on new incoming messages
      */
     void listenOnPort(int port, IncomingMessageListener incomingMessageListener) throws Exception;
+    void endConnection() throws IOException;
 }

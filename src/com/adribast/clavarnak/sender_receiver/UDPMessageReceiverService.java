@@ -1,6 +1,7 @@
 package com.adribast.clavarnak.sender_receiver;
 
 
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
@@ -31,11 +32,16 @@ public class UDPMessageReceiverService implements MessageReceiverService {
     }
 
     @Override
-    public void run() {
+    public void endConnection() throws IOException {
         try {
             listenOnPort(this.port, this.incomingMessageListener);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void run() {
+
     }
 }

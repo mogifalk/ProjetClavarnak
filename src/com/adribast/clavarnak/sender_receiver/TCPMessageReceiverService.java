@@ -1,6 +1,7 @@
 package com.adribast.clavarnak.sender_receiver;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -8,49 +9,61 @@ import java.net.Socket;
 public class TCPMessageReceiverService implements MessageReceiverService, Runnable {
 
     int port;
-    IncomingMessageListener incomingMessageListener;
-
+    private IncomingMessageListener incomingMessageListener;
+    private ServerSocket serverSocket;
     private BufferedReader reader;
     private Socket chatSocket;
-    private ServerSocket serverSocket;
+    private boolean connectionInitialized;
 
     public TCPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort){
         this.port=ourPort;
         this.incomingMessageListener=ourIncomingMessageListener;
+        this.connectionInitialized=false;
     }
 
     @Override
     public void listenOnPort(int port, IncomingMessageListener incomingMessageListener) throws Exception {
-        this.serverSocket = new ServerSocket(port);
-        this.chatSocket = serverSocket.accept();
-        InputStreamReader stream = new InputStreamReader(chatSocket.getInputStream());
-        this.reader = new BufferedReader(stream);
+
+        if (!this.connectionInitialized){
+            this.initializeConnection();
+        }
 
         String message = reader.readLine();
+
         incomingMessageListener.onNewIncomingMessage(message);
 
-        System.out.println("NEW MESSAGE : "+message);
-
-        reader.close();
-        serverSocket.close();
     }
 
     @Override
     public void run() {
 
-        try {
-            listenOnPort(this.port, this.incomingMessageListener);
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            try {
+                while(true) {
+                    listenOnPort(this.port, this.incomingMessageListener);
+                }
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+
+            }
+
+    }
+
+    public void endConnection() throws IOException {
+        if (this.reader!=null & this.serverSocket != null){
+            this.reader.close();
+            this.serverSocket.close();
         }
-
     }
-    public BufferedReader getReader(){
-        return this.reader;
 
-    }
-    public ServerSocket getSocket(){
-        return this.serverSocket;
+    private void initializeConnection() throws IOException {
+        this.serverSocket = new ServerSocket(this.port);
+        this.chatSocket = serverSocket.accept();
+        InputStreamReader stream = new InputStreamReader(this.chatSocket.getInputStream());
 
+        this.reader = new BufferedReader(stream);
+        this.connectionInitialized = true;
     }
 }

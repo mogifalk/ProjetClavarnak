@@ -2,8 +2,10 @@ package com.adribast.clavarnak.ui;
 
 import com.adribast.clavarnak.sender_receiver.MessageSenderService;
 import com.adribast.clavarnak.sender_receiver.factory.MessageSenderServiceFactory;
+import com.adribast.clavarnak.sender_receiver.factory.MessageServiceFactory;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SendUI implements CommunicationUI {
@@ -16,15 +18,20 @@ public class SendUI implements CommunicationUI {
     private String ipAddr;
 
 
-    public SendUI(MessageSenderServiceFactory messageSenderServiceFactory, String ip, int ourport) {
-        this.messageSenderServiceFactory = messageSenderServiceFactory;
+    public SendUI(String ip, int ourport) throws IOException {
+        this.messageSenderServiceFactory = new MessageSenderServiceFactory(ourport,ip);
         this.port = ourport;
         this.ipAddr = ip;
     }
 
     @Override
-    public void onTCP(String mess) {
+    public void onTCP(String mess) throws IOException {
         sendMessageWith(messageSenderServiceFactory.onTCP(), mess);
+    }
+
+    @Override
+    public MessageServiceFactory getServiceFactory() {
+        return this.messageSenderServiceFactory;
     }
 
     @Override
@@ -40,7 +47,7 @@ public class SendUI implements CommunicationUI {
         System.out.print("Message : "+mess);
         String message = mess;
         try {
-            messageSenderService.sendMessageOn(ipAddress, port, message);
+            messageSenderService.sendMessageOn(message);
             System.out.println(String.format(NOTIFICATION_FORMAT, ipAddress, port));
         } catch (Exception exception) {
             System.err.println(ERROR_MESSAGE);
