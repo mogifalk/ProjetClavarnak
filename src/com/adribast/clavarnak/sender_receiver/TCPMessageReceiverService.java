@@ -10,15 +10,14 @@ import java.net.Socket;
 
 public class TCPMessageReceiverService implements MessageReceiverService, Runnable {
 
-    private int port;
+
     private SendUI send;
 
     //permet de recuperer le message reçu et de le donner a received UI qui l'affiche
     private IncomingMessageListener incomingMessageListener;
 
     //sockets de connexion
-    private static ServerSocket serverSocket;
-    private Socket chatSocket;
+    private ServerSocket serverSocket;
 
     //permet de recuperer le contenu des messages
     private BufferedReader reader;
@@ -31,7 +30,6 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
     public TCPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort,
                                      SendUI send) throws IOException {
-        this.port=ourPort;
         this.send = send;
         this.incomingMessageListener=ourIncomingMessageListener;
 
@@ -39,7 +37,7 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
         this.connectionEnded = false;
 
         System.out.println("BIND\n");
-        this.serverSocket = new ServerSocket(this.port);
+        this.serverSocket = new ServerSocket(ourPort);
     }
 
     //Cette fonction écoute sur le port attribut de la classe renvoie les messages reçus
@@ -58,6 +56,10 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
             this.connectionEnded = true;
             System.out.println("Connexion ended \n");
             send.onTCP("connection ended");
+            TCPMessageSenderService serviceSend =
+                    (TCPMessageSenderService) send.getServiceFactory().onTCP();
+            serviceSend.endConnection();
+            this.incomingMessageListener.onNewIncomingMessage(message);
         }
         else if (message.toUpperCase().compareTo("CONNECTION ENDED")==0){
             this.connectionEnded = true;
@@ -86,9 +88,9 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
 
     private void initializeConnection() throws IOException {
-        this.chatSocket = serverSocket.accept();
+        Socket chatSocket = serverSocket.accept();
 
-        InputStreamReader stream = new InputStreamReader(this.chatSocket.getInputStream());
+        InputStreamReader stream = new InputStreamReader(chatSocket.getInputStream());
         this.reader = new BufferedReader(stream);
         this.connectionInitialized = true;
     }
@@ -111,11 +113,4 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
     }
 
-    public void setConnectionEnded(boolean connectionEnded) {
-        this.connectionEnded = connectionEnded;
-    }
-
-    public int getPort(){
-        return this.port;
-    }
 }

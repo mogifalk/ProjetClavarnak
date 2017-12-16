@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class MessageReceiverServiceFactory implements MessageServiceFactory<MessageReceiverService> {
 
-    int port;
+    private int port;
 
     private IncomingMessageListener incomingMessageListener;
     private TCPMessageReceiverService receiver;

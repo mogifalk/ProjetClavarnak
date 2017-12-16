@@ -48,13 +48,18 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
 
     @Override
     public void onNewIncomingMessage(String message) {
-        System.out.println("NEW MESSAGE : "+message + "\n");
+        if (message.toUpperCase().compareTo("CLOSE CONNECTION")==0) {
+            this.chat.dispose();
+        }
+        else {
+            System.out.println("NEW MESSAGE : " + message + "\n");
 
-        //on transforme le message reçu en plusieurs qui ont pour longueur max une ligne
-        this.chat.addWithReturn(message,conversation);
+            //on transforme le message reçu en plusieurs qui ont pour longueur max une ligne
+            this.chat.addWithReturn(message, conversation);
 
-        //on afficher la conversation dans la fenetre du coter gauche
-        this.chat.printConversation(conversation, BorderLayout.WEST);
+            //on afficher la conversation dans la fenetre du coter gauche
+            this.chat.printConversation(conversation, BorderLayout.WEST);
+        }
     }
 
     private void launchListeningThread(MessageReceiverService messageReceiverService) {

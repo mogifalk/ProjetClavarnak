@@ -24,12 +24,10 @@ public class WindowListener extends WindowAdapter {
     public void windowClosing(WindowEvent e){
         try {
 
-            System.out.println("BEFORE\n");
+            System.out.println("ENDING CONNECTION\n");
             sendService.endConnection();
 
-            SendUI send = new SendUI("127.0.0.1",this.receiveService.getPort());
-            send.onTCP("close connection");
-            System.out.println("AFTER\n");
+
 
 
         } catch (IOException e1) {

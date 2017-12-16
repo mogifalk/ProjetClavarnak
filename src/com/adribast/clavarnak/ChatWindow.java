@@ -1,11 +1,8 @@
 package com.adribast.clavarnak;
 
-import com.adribast.clavarnak.sender_receiver.MessageReceiverService;
-import com.adribast.clavarnak.sender_receiver.MessageSenderService;
+
 import com.adribast.clavarnak.sender_receiver.TCPMessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
-import com.adribast.clavarnak.sender_receiver.factory.MessageReceiverServiceFactory;
-import com.adribast.clavarnak.sender_receiver.factory.MessageSenderServiceFactory;
 import com.adribast.clavarnak.ui.CommunicationUI;
 import com.adribast.clavarnak.ui.ReceiveUI;
 import com.adribast.clavarnak.ui.SendUI;
@@ -31,9 +28,9 @@ public class ChatWindow extends JFrame implements ActionListener {
     private ArrayList<JLabel> conversation = new ArrayList<>();
 
     //port d'écoute
-    private static int listenPort = 1030;
+    private int listenPort = 1030;
     //port d'envoie
-    private static int sendPort = 1031;
+    private int sendPort = 1031;
 
 
     private ReceiveUI receiveUI;
@@ -135,6 +132,7 @@ public class ChatWindow extends JFrame implements ActionListener {
                 (TCPMessageSenderService) this.sendUI.getServiceFactory().onTCP());
 
         this.addWindowListener(wListener);
+
     }
 
 
