@@ -7,13 +7,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.InetAddress;
 
 import static javax.swing.SwingConstants.CENTER;
 
 public class ModifAliasWindow extends JFrame implements ActionListener {
 
     /*##### A INITIALISER LORS DE LA PREMIERE INSTALLATION #####*/
-    private User currentUser = new User("Bast","Gonza","mogifalk") ;
+    private User currentUser = new User("mogifalk", InetAddress.getLocalHost().getHostAddress()) ;
     /*#####################################################################################*/
 
     private JPanel container = new JPanel();
@@ -78,12 +79,18 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent evt) {
         Object source = evt.getSource();
+        String alias = null;
+        boolean firstTry = true ;
 
         switch (source.toString()) {
             case "Verifier":
-                String alias = writingField.getText();
 
-                if (UM.aliasExists(alias)) {
+                while(firstTry || UM.aliasExists(alias)) {
+                    firstTry = false ;
+
+                    alias = writingField.getText();
+
+
                     JLabel label = new JLabel("Ce pseudo est déjà pris");
                     label.setHorizontalAlignment(CENTER);
 
@@ -92,9 +99,8 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
 
                 }
 
-                else {
-                    //currentUser.replaceAlias(alias);
-                }
+                    currentUser.replaceAlias(alias);
+
                 break;
         }
     }

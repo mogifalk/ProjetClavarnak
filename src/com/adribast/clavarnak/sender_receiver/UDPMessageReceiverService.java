@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
+import static com.adribast.clavarnak.Main.UM;
 import static com.adribast.clavarnak.Main.broadcastPort;
+import static com.adribast.clavarnak.Main.myAlias;
 
 public class UDPMessageReceiverService implements MessageReceiverService {
     int port;
@@ -25,7 +27,19 @@ public class UDPMessageReceiverService implements MessageReceiverService {
 
         receiverSocket.close();
         if (receivedPacket.getPort()==broadcastPort) {
-            new UDPBroadcastReceiverService(receivedPacket); //CEST LA QUE T'AS ARRETE
+
+            //si notre alias est demandé par broadcast, on répond en UDP à l'émetteur
+            if (data.compareTo("Please send your alias")==0) {
+                UDPMessageSenderService sender;
+                sender = new UDPMessageSenderService(broadcastPort,receivedPacket.getAddress().toString());
+                sender.sendMessageOn(myAlias);
+            }
+
+            /*si la longueur du message est de 1 mot, on considère qu'on a reçu un pseudo
+            dans ce cas on actualise la liste d'utilisateurs*/
+            else if (data.split(" ").length==1) {
+                UM.addUser(data,receivedPacket.getAddress().toString());
+            }
         }
 
         incomingMessageListener.onNewIncomingMessage(new String(data));

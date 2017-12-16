@@ -2,7 +2,9 @@ package com.adribast.clavarnak;
 
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
+import com.adribast.clavarnak.sender_receiver.UDPMessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
+import static com.adribast.clavarnak.Main.UM;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +18,6 @@ import static javax.swing.SwingConstants.CENTER;
 public class Window extends JFrame implements ActionListener {
 
     //this is the list which contains all connected users
-    private UsersManager UM = new UsersManager() ;
 
 
     private JPanel menu = new JPanel();
@@ -30,14 +31,6 @@ public class Window extends JFrame implements ActionListener {
         this.addMenuButton("Clavarder");
         this.addMenuButton("Changer pseudo");
         this.addMenuButton("Chatter avec Bast");
-
-        User user1 = new User("Adri","Gonza","bite") ;
-        User user2 = new User("Joseph","le noir","LeNoir") ;
-        User user3 = new User("Alban","Le Carbonnier de la Morsangliere","Prov0ck") ;
-
-        UM.addUser(user1);
-        UM.addUser(user2);
-        UM.addUser(user3);
 
         //Définit un titre pour notre fenêtre
 

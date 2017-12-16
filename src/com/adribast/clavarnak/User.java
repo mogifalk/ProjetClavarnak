@@ -3,13 +3,11 @@ package com.adribast.clavarnak;
 public class User {
 
     private String alias ;
-    private String firstName ;
-    private String lastName ;
+    private String ip ;
 
 
-    public User (String firstName, String lastName, String alias) {
-        this.firstName = firstName ;
-        this.lastName = lastName ;
+    public User (String alias, String ip) {
+        this.ip = ip ;
         this.alias = alias ; /*only UsersManager can call the User constructor
                                  and only AliasEditor can set the alias field*/
     }
