@@ -28,9 +28,9 @@ public class ChatWindow extends JFrame implements ActionListener {
     private ArrayList<JLabel> conversation = new ArrayList<>();
 
     //port d'écoute
-    private int listenPort = 1030;
+    private int listenPort = 1031;
     //port d'envoie
-    private int sendPort = 1031;
+    private int sendPort = 1030;
 
 
     private ReceiveUI receiveUI;
