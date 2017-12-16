@@ -14,11 +14,13 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
     private BufferedReader reader;
     private Socket chatSocket;
     private boolean connectionInitialized;
+    private boolean connectionEnded;
 
     public TCPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort){
         this.port=ourPort;
         this.incomingMessageListener=ourIncomingMessageListener;
         this.connectionInitialized=false;
+        this.connectionEnded = false;
     }
 
     @Override
@@ -30,7 +32,13 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
         String message = reader.readLine();
 
-        incomingMessageListener.onNewIncomingMessage(message);
+        if (message.toUpperCase().equalsIgnoreCase("CLOSE CONNECTION")){
+            this.connectionEnded = true;
+            System.out.println("\n connexion ended \n");
+        }
+        else {
+            incomingMessageListener.onNewIncomingMessage(message);
+        }
 
     }
 
@@ -39,7 +47,7 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
 
             try {
-                while(true) {
+                while(!this.connectionEnded) {
                     listenOnPort(this.port, this.incomingMessageListener);
                 }
 
