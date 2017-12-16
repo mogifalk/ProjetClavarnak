@@ -8,7 +8,8 @@ import com.adribast.clavarnak.sender_receiver.UDPMessageReceiverService;
 public class MessageReceiverServiceFactory implements MessageServiceFactory<MessageReceiverService> {
 
     int port;
-    public IncomingMessageListener incomingMessageListener;
+
+    private IncomingMessageListener incomingMessageListener;
 
     public MessageReceiverServiceFactory(IncomingMessageListener ourIncomingMessageListener,int ourPort){
         this.port=ourPort;

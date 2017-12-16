@@ -15,14 +15,18 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
 
     private final MessageReceiverServiceFactory messageReceiverServiceFactory;
     private int port;
+
+    //pour pouvoir ecrire les messages reçus dans la fenetre correspondante
     private ChatWindow chat;
-    private ArrayList<JLabel> conv;
+
+    //cette liste va nous permettre d'afficher les messages reçus
+    private ArrayList<JLabel> conversation;
 
     public ReceiveUI(int ourPort, ChatWindow chat) {
         this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(this,ourPort);
         this.port = ourPort;
         this.chat = chat;
-        this.conv = new ArrayList<>();
+        this.conversation = new ArrayList<>();
     }
 
     @Override
@@ -35,6 +39,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
         launchListeningThread(messageReceiverServiceFactory.onTCP());
     }
 
+    //on doit pouvoir le recuperer pour fermer la connection quand la fenetre se ferme
     @Override
     public MessageServiceFactory getServiceFactory() {
         return this.messageReceiverServiceFactory;
@@ -42,13 +47,17 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
 
     @Override
     public void onNewIncomingMessage(String message) {
-        System.out.println("NEW MESSAGE : "+message);
-        this.chat.addWithReturn(message,conv);
-        this.chat.printConversation(conv, BorderLayout.WEST);
+        System.out.println("NEW MESSAGE : "+message + "\n");
+
+        //on transforme le message reçu en plusieurs qui ont pour longueur max une ligne
+        this.chat.addWithReturn(message,conversation);
+
+        //on afficher la conversation dans la fenetre du coter gauche
+        this.chat.printConversation(conversation, BorderLayout.WEST);
     }
 
     private void launchListeningThread(MessageReceiverService messageReceiverService) {
-        System.out.print("Enter the port to listen on: " + this.port);
+        System.out.print("Listenning on port: " + this.port + "\n");
         try {
             Thread listenThread = new Thread(messageReceiverService);
             listenThread.start();

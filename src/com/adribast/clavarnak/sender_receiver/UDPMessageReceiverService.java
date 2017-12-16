@@ -17,8 +17,8 @@ public class UDPMessageReceiverService implements MessageReceiverService {
     }
 
     @Override
-    public void listenOnPort(int port, IncomingMessageListener incomingMessageListener) throws Exception {
-        DatagramSocket receiverSocket = new DatagramSocket(port);
+    public void listen() throws Exception {
+        DatagramSocket receiverSocket = new DatagramSocket(this.port);
         DatagramPacket receivedPacket = new DatagramPacket(new byte[500], 500);
         receiverSocket.receive(receivedPacket);
         String data = new String(receivedPacket.getData());
@@ -28,13 +28,13 @@ public class UDPMessageReceiverService implements MessageReceiverService {
             new UDPBroadcastReceiverService(receivedPacket); //CEST LA QUE T'AS ARRETE
         }
 
-        incomingMessageListener.onNewIncomingMessage(new String(data));
+        this.incomingMessageListener.onNewIncomingMessage(new String(data));
     }
 
     @Override
     public void endConnection() throws IOException {
         try {
-            listenOnPort(this.port, this.incomingMessageListener);
+            listen();
         } catch (Exception e) {
             e.printStackTrace();
         }

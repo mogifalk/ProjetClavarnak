@@ -9,22 +9,33 @@ import java.net.Socket;
 public class TCPMessageReceiverService implements MessageReceiverService, Runnable {
 
     int port;
+
+    //permet de recuperer le message reçu et de le donner a received UI qui l'affiche
     private IncomingMessageListener incomingMessageListener;
+
+    //sockets de connexion
     private ServerSocket serverSocket;
-    private BufferedReader reader;
     private Socket chatSocket;
+
+    //permet de recuperer le contenu des messages
+    private BufferedReader reader;
+
+
+    //Ces deux booleens nous permettent respectivement de savoir quand initialiser les sockets
+    // et quand arreter d'écouter
     private boolean connectionInitialized;
     private boolean connectionEnded;
 
     public TCPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort){
         this.port=ourPort;
         this.incomingMessageListener=ourIncomingMessageListener;
+
         this.connectionInitialized=false;
         this.connectionEnded = false;
     }
 
     @Override
-    public void listenOnPort(int port, IncomingMessageListener incomingMessageListener) throws Exception {
+    public void listen() throws Exception {
 
         if (!this.connectionInitialized){
             this.initializeConnection();
@@ -37,25 +48,8 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
             System.out.println("\n connexion ended \n");
         }
         else {
-            incomingMessageListener.onNewIncomingMessage(message);
+            this.incomingMessageListener.onNewIncomingMessage(message);
         }
-
-    }
-
-    @Override
-    public void run() {
-
-
-            try {
-                while(!this.connectionEnded) {
-                    listenOnPort(this.port, this.incomingMessageListener);
-                }
-
-            } catch (Exception e) {
-
-                e.printStackTrace();
-
-            }
 
     }
 
@@ -74,4 +68,22 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
         this.reader = new BufferedReader(stream);
         this.connectionInitialized = true;
     }
+
+    @Override
+    public void run() {
+
+
+            try {
+                while(!this.connectionEnded) {
+                    listen();
+                }
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+
+            }
+
+    }
+
 }

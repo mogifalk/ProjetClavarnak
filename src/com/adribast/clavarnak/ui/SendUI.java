@@ -10,11 +10,13 @@ import java.util.ArrayList;
 
 public class SendUI implements CommunicationUI {
 
-    private static final String ERROR_MESSAGE = "[ERROR] An error occured while trying to send message";
-    private static final String NOTIFICATION_FORMAT = "[INFO] Your message has been sent to %s on port %d";
+    private static final String ERROR_MESSAGE = "[ERROR] An error occured while trying to send message\n";
+    private static final String NOTIFICATION_FORMAT = "[INFO] Your message has been sent to %s on port %d\n";
 
     private final MessageSenderServiceFactory messageSenderServiceFactory;
     private int port;
+
+    //adresse ip a laquelle les messages seront envoyés
     private String ipAddr;
 
 
@@ -25,13 +27,8 @@ public class SendUI implements CommunicationUI {
     }
 
     @Override
-    public void onTCP(String mess) throws IOException {
+    public void onTCP(String mess){
         sendMessageWith(messageSenderServiceFactory.onTCP(), mess);
-    }
-
-    @Override
-    public MessageServiceFactory getServiceFactory() {
-        return this.messageSenderServiceFactory;
     }
 
     @Override
@@ -39,17 +36,23 @@ public class SendUI implements CommunicationUI {
         sendMessageWith(messageSenderServiceFactory.onUDP(),mess);
     }
 
+    //On doit pourvoir le recuperer pour fermer les connections a la fermeture d'une fenetre
+    @Override
+    public MessageServiceFactory getServiceFactory() {
+        return this.messageSenderServiceFactory;
+    }
+
     private void sendMessageWith(MessageSenderService messageSenderService, String mess) {
-        System.out.print("Destination IP address : " + this.ipAddr);
-        String ipAddress = this.ipAddr;
-        System.out.print("Destination port : "+ this.port);
-        int port = this.port;
+        System.out.print("Destination IP address : " + this.ipAddr + "\n");
+        System.out.print("Destination port : "+ this.port + "\n");
         System.out.print("Message : "+mess);
-        String message = mess;
+
         try {
-            messageSenderService.sendMessageOn(message);
-            System.out.println(String.format(NOTIFICATION_FORMAT, ipAddress, port));
-        } catch (Exception exception) {
+            messageSenderService.sendMessageOn(mess);
+            System.out.println(String.format(NOTIFICATION_FORMAT, this.ipAddr, this.port));
+        }
+
+        catch (Exception exception) {
             System.err.println(ERROR_MESSAGE);
             System.err.println(exception);
         }

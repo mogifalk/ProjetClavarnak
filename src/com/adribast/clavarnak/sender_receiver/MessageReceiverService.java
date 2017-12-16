@@ -10,6 +10,6 @@ public interface MessageReceiverService extends Runnable {
      * @param port                    The port to listen on
      * @param incomingMessageListener The listener to notify on new incoming messages
      */
-    void listenOnPort(int port, IncomingMessageListener incomingMessageListener) throws Exception;
+    void listen() throws Exception;
     void endConnection() throws IOException;
 }
