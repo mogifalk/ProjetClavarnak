@@ -1,17 +1,15 @@
 package com.adribast.clavarnak;
 
-import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
-import com.adribast.clavarnak.ui.SendUI;
 
+import com.adribast.clavarnak.ui.SendUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.InetAddress;
+import java.util.ArrayList;
 
-import static com.adribast.clavarnak.Main.broadcastIP;
-import static com.adribast.clavarnak.Main.configPort;
+import static com.adribast.clavarnak.Main.conversationActive;
 import static com.adribast.clavarnak.Main.myAlias;
 import static javax.swing.SwingConstants.CENTER;
 
@@ -23,6 +21,7 @@ public class UsersWindow extends JFrame implements ActionListener {
     private UsersManager UM;
 
     public UsersWindow(UsersManager UM) {
+
 
         //Définit un titre pour notre fenêtre
         this.setTitle("Choix du destinataire");
@@ -65,24 +64,51 @@ public class UsersWindow extends JFrame implements ActionListener {
         ourButton.addActionListener(this);
     }
 
+    public int[] generatePorts(){
+        int port1 =0;
+        int port2 =0;
+        while(port1==port2){
+            port1 = 1024 + (int)(Math.random() * ((65535 - 1024) + 1));
+            port2 = 1024 + (int)(Math.random() * ((65535 - 1024) + 1));
+        }
+
+        int[] result = {port1,port2};
+        return result;
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent evt) {
 
         Object source = evt.getSource();
-        try {
-            String ip = UM.getIpOf(source.toString());
+        if (!conversationActive.contains(source.toString())){
 
-            SendUI sendInvitation = new SendUI(ip,1620);
+            System.out.println("Nouvelle conversation active avec " + source.toString()+"\n");
 
-            sendInvitation.onTCP(myAlias+" 1030 1031");
-            //on libere la socket pour la reutiliser si besoin
-            sendInvitation.freeConnexion();
+            try {
+                String ip = UM.getIpOf(source.toString());
 
-            ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500,
-                    1030,1031,ip);
-            ;
-        } catch (IOException e) {
-            e.printStackTrace();
+                SendUI sendInvitation = new SendUI(ip,1620);
+
+                int[] ports = this.generatePorts();
+
+                sendInvitation.onTCP(myAlias+ " " + ports[0] + " " + ports[1]);
+
+                //on libere la socket pour la reutiliser si besoin
+                sendInvitation.freeConnexion();
+
+                ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500,
+                        ports[0],ports[1],ip);
+                conversationActive.add(source.toString());
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
+        else {
+            System.out.println("Conversation deja ouverte !");
+        }
+
     }
 }

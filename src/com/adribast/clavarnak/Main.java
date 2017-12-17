@@ -1,9 +1,7 @@
 package com.adribast.clavarnak;
 
 
-import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
-import com.adribast.clavarnak.com.exceptions.VoidStringException;
-import com.adribast.clavarnak.sender_receiver.UDPBroadcastReceiverService;
+
 import com.adribast.clavarnak.sender_receiver.UDPMessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
 
@@ -11,6 +9,7 @@ import java.net.InetAddress;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -19,6 +18,7 @@ public class Main {
     public static final String broadcastIP = "192.168.1.255";
     public static String myAlias = "noPseudo";
     private static UsersManager UM = new UsersManager();
+    public static ArrayList<String> conversationActive = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
 

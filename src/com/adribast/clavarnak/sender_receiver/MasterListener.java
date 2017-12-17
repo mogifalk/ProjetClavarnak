@@ -6,6 +6,7 @@ import com.adribast.clavarnak.sender_receiver.factory.MessageReceiverServiceFact
 import tests.UsersManagerTest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MasterListener implements IncomingMessageListener {

@@ -5,11 +5,8 @@ import com.adribast.clavarnak.UsersManager;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.Scanner;
-
-import static com.adribast.clavarnak.Main.configPort;
 import static com.adribast.clavarnak.Main.myAlias;
 
 public class UDPMessageReceiverService implements Runnable {
@@ -34,8 +31,6 @@ public class UDPMessageReceiverService implements Runnable {
 
         String sourceIP = receivedPacket.getAddress().toString();
         sourceIP = sourceIP.substring(1);
-
-        //receiverSocket.close();
 
         //si le paquet est une demande de pseudo, on répond avec notre pseudo
         if (data.toUpperCase().contains("PLEASE SEND YOUR ALIAS")) {
@@ -66,7 +61,7 @@ public class UDPMessageReceiverService implements Runnable {
 
             String disconnectedAlias = s.next() ;
             this.UM.delUser(disconnectedAlias);
-            
+
         }
     }
 
