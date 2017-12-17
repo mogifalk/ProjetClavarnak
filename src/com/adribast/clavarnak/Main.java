@@ -7,10 +7,12 @@ import com.adribast.clavarnak.sender_receiver.UDPBroadcastReceiverService;
 import com.adribast.clavarnak.sender_receiver.UDPMessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
 
+import java.net.InetAddress;
+
 public class Main {
 
-    public static final int configPort = 4243 ;
-    public static final String broadcastIP = "127.0.0.255";
+    public static final int configPort = 4242 ;
+    public static final String broadcastIP = "192.168.1.255";
     public static String myAlias = null ;
     private static UsersManager UM = new UsersManager();
 
@@ -33,6 +35,7 @@ public class Main {
 
         Thread.sleep(2000);
 
+        System.out.println(InetAddress.getLocalHost().getHostAddress().toString());
         ModifAliasWindow aliasWindow = new ModifAliasWindow(UM);
 
         Window test = new Window("menu", 400, 500, UM);

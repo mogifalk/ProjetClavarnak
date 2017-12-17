@@ -24,7 +24,7 @@ public class Window extends JFrame implements ActionListener {
 
 
     private JPanel menu = new JPanel();
-    private JPanel usersListPanel = new JPanel();
+
 
 
     public Window (String name, int width, int height, UsersManager UM) throws VoidStringException, AliasAlreadyExistsException, IOException {
@@ -80,16 +80,6 @@ public class Window extends JFrame implements ActionListener {
         ourButton.addActionListener(this);
     }
 
-    //this button is used to contains an user
-    public void addUserButton(String title) {
-        Button ourButton = new ButtonUser(title) ;
-        ourButton.setMaximumSize(ourButton.getMinimumSize());
-
-        usersListPanel.add(ourButton) ;
-        ourButton.addActionListener(this);
-    }
-
-
     @Override
     public void actionPerformed(ActionEvent evt) {
 
@@ -119,12 +109,12 @@ public class Window extends JFrame implements ActionListener {
 
                     SendUI sendInvitation = new SendUI(ip,1620);
 
-                    sendInvitation.onTCP(myAlias+" 1025 1026");
+                    sendInvitation.onTCP(myAlias+" 1030 1031");
                     //on libere la socket pour la reutiliser si besoin
                     sendInvitation.freeConnexion();
 
                     ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500,
-                            1025,1026,ip);
+                            1030,1031,ip);
                     ;
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -134,32 +124,13 @@ public class Window extends JFrame implements ActionListener {
     }
 
     public void buildUsersList () {
-        JLabel usersListLabel = new JLabel("Choix du destinataire");
-
-        usersListPanel.setLayout(new GridLayout(8,1));
-
-
-        Font police = new Font("Arial", Font.BOLD, 14);
-        usersListLabel.setFont(police);
-        usersListLabel.setForeground(Color.white);
-        usersListLabel.setHorizontalAlignment(CENTER);
-
-        usersListPanel.add(usersListLabel);
-        usersListPanel.setBackground(Color.DARK_GRAY);
-        usersListPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE,200));
-
-        for(String currentAlias: UM.getAliases()){
-            this.addUserButton(currentAlias);
-        }
-
-        this.setContentPane(usersListPanel) ;
-        this.setVisible(true);
-
+        UsersWindow usersWindow = new UsersWindow(this.UM);
     }
+
 
     public void modifAlias () throws Exception {
 
-    ModifAliasWindow aliasWindow = new ModifAliasWindow(UM) ;
+        ModifAliasWindow aliasWindow = new ModifAliasWindow(this.UM) ;
 
     }
 
