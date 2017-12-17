@@ -1,28 +1,25 @@
 package com.adribast.clavarnak;
 
-import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
-import com.adribast.clavarnak.com.exceptions.VoidStringException;
+import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.InetAddress;
 
+import static com.adribast.clavarnak.Main.broadcastIP;
+import static com.adribast.clavarnak.Main.configPort;
+import static com.adribast.clavarnak.Main.myAlias;
 import static javax.swing.SwingConstants.CENTER;
 
 public class ModifAliasWindow extends JFrame implements ActionListener {
 
-    /*##### A INITIALISER LORS DE LA PREMIERE INSTALLATION #####*/
-    private User currentUser = new User("Bast","Gonza","mogifalk") ;
-    /*#####################################################################################*/
-
     private JPanel container = new JPanel();
 
-    public JTextField writingField = new JTextField();
+    private JTextField writingField = new JTextField();
 
-    private JLabel label = new JLabel("Quel pseudo voulez-vous ?\n");
-
-    UsersManager UM;
+    private UsersManager UM;
 
     public ModifAliasWindow(UsersManager UM) throws Exception {
         //Définit un titre pour notre fenêtre
@@ -53,6 +50,7 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
 
         writingField.setForeground(Color.BLUE);
 
+        JLabel label = new JLabel("Quel pseudo voulez-vous ?\n");
         writingContainer.add(label);
         writingContainer.add(writingField);
 
@@ -62,7 +60,9 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
 
         this.setVisible(true);
 
-        Button buttonCheck = new Button("Verifier") ;
+        writingField.addActionListener(this);
+
+        /*Button buttonCheck = new Button("Verifier") ;
         buttonCheck.setAlignmentX(CENTER_ALIGNMENT);
 
         container.add(buttonCheck) ;
@@ -71,31 +71,41 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
         if (UM.aliasExists(writingField.getText())) {
             Graphics graphics = writingContainer.getGraphics() ;
             writingContainer.paintComponents(graphics);
-        }
+        }*/
 
     }
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        Object source = evt.getSource();
 
-        switch (source.toString()) {
-            case "Verifier":
-                String alias = writingField.getText();
+        try {
+            writingField.getText();
 
-                if (UM.aliasExists(alias)) {
-                    JLabel label = new JLabel("Ce pseudo est déjà pris");
-                    label.setHorizontalAlignment(CENTER);
+            if (UM.aliasExists(writingField.getText())) {
+                JLabel label = new JLabel("Ce pseudo est déjà pris");
+                label.setHorizontalAlignment(CENTER);
 
-                    container.add(label);
-                    this.setContentPane(container);
+                container.add(label);
+                this.setContentPane(container);
+            }
 
-                }
+            else {
+                //si le pseudo est unique on le communique en broadcast
+                String newAlias = writingField.getText();
+                String myIP = InetAddress.getLocalHost().getHostAddress();
 
-                else {
-                    //currentUser.replaceAlias(alias);
-                }
-                break;
+                myAlias = newAlias;
+                UM.addUser(myAlias, myIP);
+                UDPMessageSenderService aliasSender = new UDPMessageSenderService(configPort, broadcastIP);
+                aliasSender.sendMessageOn(myAlias);
+
+                this.dispose();
+            }
+        }
+
+        catch (Exception e) {
+                    e.printStackTrace();
+
         }
     }
 }

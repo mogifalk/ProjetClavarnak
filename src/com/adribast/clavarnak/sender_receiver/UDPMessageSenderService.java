@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.*;
 import java.util.Scanner;
 
-import static com.adribast.clavarnak.Main.broadcastPort;
+import static com.adribast.clavarnak.Main.configPort;
 
 public class UDPMessageSenderService implements MessageSenderService {
 

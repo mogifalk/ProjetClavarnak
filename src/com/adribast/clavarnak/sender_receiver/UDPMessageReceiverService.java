@@ -1,47 +1,77 @@
 package com.adribast.clavarnak.sender_receiver;
 
 
-import java.io.IOException;
+import com.adribast.clavarnak.UsersManager;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.Scanner;
 
-import static com.adribast.clavarnak.Main.broadcastPort;
+import static com.adribast.clavarnak.Main.configPort;
+import static com.adribast.clavarnak.Main.myAlias;
 
-public class UDPMessageReceiverService implements MessageReceiverService {
-    int port;
-    IncomingMessageListener incomingMessageListener;
+public class UDPMessageReceiverService implements Runnable {
+    private int port;
+    private UsersManager UM ;
 
-    public UDPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort){
+    //UM sert dans le cas de la réception d'un pseudo à ajouter dans la liste des utilisateurs
+    public UDPMessageReceiverService(int ourPort, UsersManager UM){
         this.port=ourPort;
-        this.incomingMessageListener=ourIncomingMessageListener;
+        this.UM=UM;
     }
 
-    @Override
-    public void listen() throws Exception {
+    private void listen() throws Exception {
         DatagramSocket receiverSocket = new DatagramSocket(this.port);
         DatagramPacket receivedPacket = new DatagramPacket(new byte[500], 500);
         receiverSocket.receive(receivedPacket);
         String data = new String(receivedPacket.getData());
 
+        String sourceIP = receivedPacket.getAddress().toString();
+        String myIP = InetAddress.getLocalHost().getHostAddress();
+        int sourcePort = receivedPacket.getPort();
+
         receiverSocket.close();
-        if (receivedPacket.getPort()==broadcastPort) {
-            new UDPBroadcastReceiverService(receivedPacket); //CEST LA QUE T'AS ARRETE
+
+        //si le paquet est une demande de pseudo, on répond avec notre pseudo
+        if (receivedPacket.getPort()==configPort &&
+                data.toUpperCase().compareTo("PLEASE SEND YOUR ALIAS")==0) {
+
+            UDPMessageSenderService aliasSender;
+            aliasSender = new UDPMessageSenderService(sourcePort, sourceIP);
+            aliasSender.sendMessageOn(myAlias);
         }
 
-        this.incomingMessageListener.onNewIncomingMessage(new String(data));
+        //si le paquet est un pseudo (1 seul mot) qui ne vient pas de nous
+        if (data.split(" ").length==1 && (sourceIP.compareTo(myIP)!=0)) {
+            String newAlias = data ;
+            UM.addUser(newAlias,sourceIP);
+        }
+
+        //si le paquet est une notification de deconnexion, on supprime l'entree de la liste des utilisateurs
+        if (data.toUpperCase().contains("DISCONNECTED USER : ")) {
+            Scanner s = new Scanner(data);
+            s.useDelimiter(": ");
+            s.next();
+
+            String disconnectedAlias = s.next() ;
+            this.UM.delUser(disconnectedAlias);
+        }
     }
 
-    @Override
-    public void endConnection() throws IOException {
+    public void run() {
+        /*le while(true) est justifié car UDP ne nous sert que pour les messages de config comme les broadcasts,
+         les envois de pseudos... que nous écoutons durant toute la durée de vie de l'application*/
+
         try {
+            while (true) {
+
             listen();
-        } catch (Exception e) {
+            }
+        }
+
+        catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void run() {
-
     }
 }

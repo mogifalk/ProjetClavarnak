@@ -12,13 +12,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
 
 import static javax.swing.SwingConstants.CENTER;
 
 public class Window extends JFrame implements ActionListener {
 
     //this is the list which contains all connected users
-    private UsersManager UM = new UsersManager() ;
+    private UsersManager UM ;
 
 
     private JPanel menu = new JPanel();
@@ -37,14 +38,6 @@ public class Window extends JFrame implements ActionListener {
         this.addMenuButton("Clavarder");
         this.addMenuButton("Changer pseudo");
         this.addMenuButton("Chatter avec Bast");
-
-        User user1 = new User("Adri","Gonza","bite") ;
-        User user2 = new User("Joseph","le noir","LeNoir") ;
-        User user3 = new User("Alban","Le Carbonnier de la Morsangliere","Prov0ck") ;
-
-        UM.addUser(user1);
-        UM.addUser(user2);
-        UM.addUser(user3);
 
         //Définit un titre pour notre fenêtre
 
@@ -69,6 +62,7 @@ public class Window extends JFrame implements ActionListener {
 
         this.setVisible(true);
 
+        this.UM = UM ;
     }
 
     //addButton without dimensions
@@ -147,11 +141,8 @@ public class Window extends JFrame implements ActionListener {
         usersListPanel.setBackground(Color.DARK_GRAY);
         usersListPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE,200));
 
-
-        ArrayList<User> listOfUsers = UM.getAllUsers() ;
-
-        for (User user : listOfUsers) {
-            this.addUserButton(user.toString());
+        for(String currentAlias: UM.getAliases()){
+            this.addUserButton(currentAlias);
         }
 
         this.setContentPane(usersListPanel) ;

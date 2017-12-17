@@ -55,8 +55,6 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.receiveUI = new ReceiveUI(listenPort,this, (SendUI) this.sendUI);
 
 
-
-
         xlocation = xlocation +20;
         ylocation = ylocation + 20;
 
