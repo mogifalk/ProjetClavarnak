@@ -15,44 +15,50 @@ import static com.adribast.clavarnak.Main.myAlias;
 public class UDPMessageReceiverService implements Runnable {
     private int port;
     private UsersManager UM ;
-    DatagramSocket receiverSocket ;
+    private DatagramSocket receiverSocket;
 
     //UM sert dans le cas de la réception d'un pseudo à ajouter dans la liste des utilisateurs
     public UDPMessageReceiverService(int ourPort, UsersManager UM) throws SocketException {
         this.port=ourPort;
         this.UM=UM;
-        this.receiverSocket= new DatagramSocket(this.port);
+        this.receiverSocket = new DatagramSocket(this.port);
+
     }
 
     private void listen() throws Exception {
+
         DatagramPacket receivedPacket = new DatagramPacket(new byte[500], 500);
         this.receiverSocket.receive(receivedPacket);
         String data = new String(receivedPacket.getData());
         Scanner s = new Scanner(data);
 
         String sourceIP = receivedPacket.getAddress().toString();
-        sourceIP = sourceIP.substring(1); //pour enlever le "\"
+
+        sourceIP = sourceIP.substring(1);
         int sourcePort = receivedPacket.getPort();
+
+        //receiverSocket.close();
 
         //si le paquet est une demande de pseudo, on répond avec notre pseudo
         if (/*receivedPacket.getPort()==configPort &&*/
                 data.toUpperCase().contains("PLEASE SEND YOUR ALIAS")) {
 
-            System.out.println("ALIAS REQUEST RECEIVED\n");
+            System.out.println("Alias request \n");
             UDPMessageSenderService aliasSender;
             aliasSender = new UDPMessageSenderService(sourcePort, sourceIP);
+            System.out.println("Sending this Alias : " + myAlias);
             aliasSender.sendMessageOn(myAlias);
         }
 
         //si le paquet est un pseudo (1 seul mot) qui n'est pas le notre
-        if (data.toUpperCase().contains("PSEUDO :")) {
+        if (data.toUpperCase().contains("PSEUDO :") && !data.contains(myAlias)) {
             s.useDelimiter(":");
             s.next();
             String newAlias = s.next();
 
-            if (newAlias.compareTo(myAlias)!=0) {
+            if (newAlias!=myAlias) {
                 UM.addUser(newAlias, sourceIP);
-                System.out.println("NEW USER : " + newAlias);
+                System.out.println("ALIAS " + newAlias);
             }
         }
 
@@ -72,6 +78,7 @@ public class UDPMessageReceiverService implements Runnable {
 
         try {
             while (true) {
+
             listen();
             }
         }
