@@ -2,7 +2,9 @@ package com.adribast.clavarnak;
 
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
+import com.adribast.clavarnak.sender_receiver.MasterListener;
 import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
+import com.adribast.clavarnak.ui.SendUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
+import static com.adribast.clavarnak.Main.myAlias;
 import static javax.swing.SwingConstants.CENTER;
 
 public class Window extends JFrame implements ActionListener {
@@ -23,7 +26,14 @@ public class Window extends JFrame implements ActionListener {
     private JPanel menu = new JPanel();
     private JPanel usersListPanel = new JPanel();
 
-    public Window (String name, int width, int height, UsersManager UM) throws VoidStringException, AliasAlreadyExistsException {
+
+    public Window (String name, int width, int height, UsersManager UM) throws VoidStringException, AliasAlreadyExistsException, IOException {
+
+        this.UM = UM ;
+
+        //Socket qui va ecouter sur le port 1620 si des gens veulent discuter avec nous
+        MasterListener master= new MasterListener(this.UM);
+        master.launchListeningThread();
 
         //definition des layouts pour chaque conteneur
         menu.setLayout(new BoxLayout(menu, BoxLayout.PAGE_AXIS));
@@ -55,7 +65,6 @@ public class Window extends JFrame implements ActionListener {
 
         this.setVisible(true);
 
-        this.UM = UM ;
     }
 
     //addButton without dimensions
@@ -106,7 +115,17 @@ public class Window extends JFrame implements ActionListener {
 
             default:
                 try {
-                    ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500);
+                    String ip = UM.getIpOf(source.toString());
+
+                    SendUI sendInvitation = new SendUI(ip,1620);
+
+                    sendInvitation.onTCP(myAlias+" 1025 1026");
+                    //on libere la socket pour la reutiliser si besoin
+                    sendInvitation.freeConnexion();
+
+                    ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500,
+                            1025,1026,ip);
+                    ;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

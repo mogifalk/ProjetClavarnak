@@ -1,6 +1,7 @@
 package com.adribast.clavarnak.ui;
 
 import com.adribast.clavarnak.sender_receiver.MessageSenderService;
+import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
 import com.adribast.clavarnak.sender_receiver.factory.MessageSenderServiceFactory;
 import com.adribast.clavarnak.sender_receiver.factory.MessageServiceFactory;
 
@@ -56,5 +57,16 @@ public class SendUI implements CommunicationUI {
             System.err.println(ERROR_MESSAGE);
             System.err.println(exception);
         }
+    }
+
+    public void endConnexion() throws IOException {
+        TCPMessageSenderService sender =
+                (TCPMessageSenderService) this.messageSenderServiceFactory.onTCP();
+        sender.endConnection();
+    }
+    public void freeConnexion() throws IOException {
+        TCPMessageSenderService sender =
+                (TCPMessageSenderService) this.messageSenderServiceFactory.onTCP();
+        sender.freeConnection();
     }
 }

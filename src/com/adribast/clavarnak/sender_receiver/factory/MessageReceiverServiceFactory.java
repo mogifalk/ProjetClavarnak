@@ -22,6 +22,12 @@ public class MessageReceiverServiceFactory implements MessageServiceFactory<Mess
         this.receiver = new TCPMessageReceiverService(this.incomingMessageListener,this.port,send);
     }
 
+    public MessageReceiverServiceFactory(IncomingMessageListener ourIncomingMessageListener,int ourPort) throws IOException {
+        this.port=ourPort;
+        this.incomingMessageListener=ourIncomingMessageListener;
+        this.receiver = new TCPMessageReceiverService(this.incomingMessageListener,this.port);
+    }
+
     @Override
     public MessageReceiverService onTCP(){
         return this.receiver;

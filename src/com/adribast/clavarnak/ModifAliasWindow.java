@@ -92,10 +92,7 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
             else {
                 //si le pseudo est unique on le communique en broadcast
                 String newAlias = writingField.getText();
-                String myIP = InetAddress.getLocalHost().getHostAddress();
-
                 myAlias = newAlias;
-                UM.addUser(myAlias, myIP);
                 UDPMessageSenderService aliasSender = new UDPMessageSenderService(configPort, broadcastIP);
                 aliasSender.sendMessageOn(myAlias);
 

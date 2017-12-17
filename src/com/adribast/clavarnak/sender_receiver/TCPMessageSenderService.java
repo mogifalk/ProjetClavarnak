@@ -49,6 +49,16 @@ public class TCPMessageSenderService implements MessageSenderService {
             System.out.println("Send connection ended\n");
     }
 
+    public void freeConnection() throws IOException {
+
+            // on envoie un message qui annonce que les sockets vont se fermer
+            this.sendMessageOn("free connection");
+
+            this.writer.close();
+            this.chatSocket.close();
+            System.out.println("Send connection free\n");
+    }
+
     private void initialiseConnection() throws IOException {
         this.chatSocket = new Socket(this.ipAddress, this.port);
         this.writer = new PrintWriter(chatSocket.getOutputStream());
