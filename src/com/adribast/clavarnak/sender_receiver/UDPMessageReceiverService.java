@@ -26,6 +26,7 @@ public class UDPMessageReceiverService implements Runnable {
         DatagramPacket receivedPacket = new DatagramPacket(new byte[500], 500);
         receiverSocket.receive(receivedPacket);
         String data = new String(receivedPacket.getData());
+        Scanner s = new Scanner(data);
 
         String sourceIP = receivedPacket.getAddress().toString();
         String myIP = InetAddress.getLocalHost().getHostAddress();
@@ -42,15 +43,17 @@ public class UDPMessageReceiverService implements Runnable {
             aliasSender.sendMessageOn(myAlias);
         }
 
-        //si le paquet est un pseudo (1 seul mot) qui ne vient pas de nous
-        if (data.split(" ").length==1 && (sourceIP.compareTo(myIP)!=0)) {
-            String newAlias = data ;
+        //si le paquet est un pseudo (1 seul mot) qui n'est pas le notre
+        if (data.split(" ").length==1 && !data.contains(myAlias)) {
+            s.useDelimiter(" ");
+            String newAlias = s.next();
+
             UM.addUser(newAlias,sourceIP);
+            System.out.println("ALIAS " + newAlias);
         }
 
         //si le paquet est une notification de deconnexion, on supprime l'entree de la liste des utilisateurs
         if (data.toUpperCase().contains("DISCONNECTED USER : ")) {
-            Scanner s = new Scanner(data);
             s.useDelimiter(": ");
             s.next();
 

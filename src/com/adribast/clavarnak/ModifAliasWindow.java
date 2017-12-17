@@ -62,27 +62,25 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
 
         writingField.addActionListener(this);
 
-        /*Button buttonCheck = new Button("Verifier") ;
-        buttonCheck.setAlignmentX(CENTER_ALIGNMENT);
-
-        container.add(buttonCheck) ;
-        buttonCheck.addActionListener(this);
-
-        if (UM.aliasExists(writingField.getText())) {
-            Graphics graphics = writingContainer.getGraphics() ;
-            writingContainer.paintComponents(graphics);
-        }*/
-
     }
 
     @Override
     public void actionPerformed(ActionEvent evt) {
 
         try {
-            writingField.getText();
 
             if (UM.aliasExists(writingField.getText())) {
+
                 JLabel label = new JLabel("Ce pseudo est déjà pris");
+                label.setHorizontalAlignment(CENTER);
+
+                container.add(label);
+                this.setContentPane(container);
+            }
+
+            else if (writingField.getText().compareTo("")==0 ||
+                    writingField.getText()==null) {
+                JLabel label = new JLabel("Pseudo vide");
                 label.setHorizontalAlignment(CENTER);
 
                 container.add(label);
@@ -94,7 +92,8 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
                 String newAlias = writingField.getText();
                 myAlias = newAlias;
                 UDPMessageSenderService aliasSender = new UDPMessageSenderService(configPort, broadcastIP);
-                aliasSender.sendMessageOn(myAlias);
+                System.out.println("MY ALIAS : " + myAlias);
+                aliasSender.sendMessageOn(myAlias + " ");
 
                 this.dispose();
             }
@@ -102,7 +101,6 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
 
         catch (Exception e) {
                     e.printStackTrace();
-
         }
     }
 }
