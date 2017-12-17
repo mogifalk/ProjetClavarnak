@@ -1,5 +1,6 @@
 package com.adribast.clavarnak.sender_receiver.factory;
 
+import com.adribast.clavarnak.UsersManager;
 import com.adribast.clavarnak.sender_receiver.IncomingMessageListener;
 import com.adribast.clavarnak.sender_receiver.MessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.TCPMessageReceiverService;
@@ -27,7 +28,5 @@ public class MessageReceiverServiceFactory implements MessageServiceFactory<Mess
     }
 
     @Override
-    public MessageReceiverService onUDP() {
-        return new UDPMessageReceiverService(this.incomingMessageListener,this.port);
-    }
+    public MessageReceiverService onUDP() { return this.receiver; }
 }
