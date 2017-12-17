@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
+import static com.adribast.clavarnak.Main.myAlias;
 import static javax.swing.SwingConstants.CENTER;
 
 public class Window extends JFrame implements ActionListener {
@@ -26,10 +27,12 @@ public class Window extends JFrame implements ActionListener {
     private JPanel usersListPanel = new JPanel();
 
 
-    public Window (String name, int width, int height) throws VoidStringException, AliasAlreadyExistsException, IOException {
+    public Window (String name, int width, int height, UsersManager UM) throws VoidStringException, AliasAlreadyExistsException, IOException {
+
+        this.UM = UM ;
 
         //Socket qui va ecouter sur le port 1620 si des gens veulent discuter avec nous
-        MasterListener master= new MasterListener();
+        MasterListener master= new MasterListener(this.UM);
         master.launchListeningThread();
 
         //definition des layouts pour chaque conteneur
@@ -62,7 +65,6 @@ public class Window extends JFrame implements ActionListener {
 
         this.setVisible(true);
 
-        this.UM = UM ;
     }
 
     //addButton without dimensions
@@ -113,11 +115,16 @@ public class Window extends JFrame implements ActionListener {
 
             default:
                 try {
-                    SendUI sendInvitation = new SendUI("127.0.0.1",1620);
-                    sendInvitation.onTCP("1025 1026");
+                    String ip = UM.getIpOf(source.toString());
+
+                    SendUI sendInvitation = new SendUI(ip,1620);
+
+                    sendInvitation.onTCP(myAlias+" 1025 1026");
+                    //on libere la socket pour la reutiliser si besoin
                     sendInvitation.freeConnexion();
+
                     ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500,
-                            1025,1026,"127.0.0.1");
+                            1025,1026,ip);
                     ;
                 } catch (IOException e) {
                     e.printStackTrace();
