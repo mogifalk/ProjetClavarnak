@@ -13,7 +13,6 @@ public class UsersManager {
 
 
     public UsersManager() {
-
         this.usersList = new ArrayList<>();
     }
 

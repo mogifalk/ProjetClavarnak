@@ -27,6 +27,9 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
     // et quand arreter d'écouter
     private boolean connectionInitialized;
     private boolean connectionEnded;
+    private boolean multipleListen;
+
+    private static int ourPort;
 
     public TCPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort,
                                      SendUI send) throws IOException {
@@ -35,9 +38,22 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
         this.connectionInitialized=false;
         this.connectionEnded = false;
+        this.multipleListen=false;
+
+        System.out.println("BIND\n");
+        this.ourPort = ourPort;
+        this.serverSocket = new ServerSocket(ourPort);
+    }
+
+    public TCPMessageReceiverService(IncomingMessageListener ourIncomingMessageListener,int ourPort) throws IOException {
+        this.incomingMessageListener=ourIncomingMessageListener;
+
+        this.connectionInitialized=false;
+        this.connectionEnded = false;
 
         System.out.println("BIND\n");
         this.serverSocket = new ServerSocket(ourPort);
+        this.ourPort = ourPort;
     }
 
     //Cette fonction écoute sur le port attribut de la classe renvoie les messages reçus
@@ -51,22 +67,25 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
         }
 
         String message = reader.readLine();
+        if (message != null) {
+            if (message.toUpperCase().compareTo("CLOSE CONNECTION") == 0) {
+                this.connectionEnded = true;
+                System.out.println("Connexion ended \n");
+                send.onTCP("connection ended");
+                TCPMessageSenderService serviceSend =
+                        (TCPMessageSenderService) send.getServiceFactory().onTCP();
+                serviceSend.endConnection();
+                this.incomingMessageListener.onNewIncomingMessage(message);
+            }
 
-        if (message.toUpperCase().compareTo("CLOSE CONNECTION")==0) {
-            this.connectionEnded = true;
-            System.out.println("Connexion ended \n");
-            send.onTCP("connection ended");
-            TCPMessageSenderService serviceSend =
-                    (TCPMessageSenderService) send.getServiceFactory().onTCP();
-            serviceSend.endConnection();
-            this.incomingMessageListener.onNewIncomingMessage(message);
-        }
-        else if (message.toUpperCase().compareTo("CONNECTION ENDED")==0){
-            this.connectionEnded = true;
-            System.out.println("Connexion really ended \n");
-        }
-        else {
-            this.incomingMessageListener.onNewIncomingMessage(message);
+            else if (message.toUpperCase().compareTo("CONNECTION ENDED") == 0) {
+                this.connectionEnded = true;
+                System.out.println("Connexion really ended \n");
+            }
+
+            else {
+                this.incomingMessageListener.onNewIncomingMessage(message);
+            }
         }
 
     }
@@ -88,19 +107,41 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
 
     private void initializeConnection() throws IOException {
+        System.out.println("Initialising connexion on port :"+this.ourPort +"\n");
         Socket chatSocket = serverSocket.accept();
 
         InputStreamReader stream = new InputStreamReader(chatSocket.getInputStream());
         this.reader = new BufferedReader(stream);
         this.connectionInitialized = true;
+        System.out.println("Connexion Initialised\n");
     }
 
     @Override
     public void run() {
 
+        try {
+            while (!this.connectionEnded) {
+                listen();
+            }
 
+            this.endConnection();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        while (multipleListen) {
             try {
-                while(!this.connectionEnded) {
+                this.serverSocket = new ServerSocket(this.ourPort);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            this.connectionEnded = false;
+            this.connectionInitialized=false;
+            try {
+                while (!this.connectionEnded) {
                     listen();
                 }
                 this.endConnection();
@@ -110,7 +151,15 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
                 e.printStackTrace();
 
             }
+        }
 
+    }
+
+    public void setConnectionEnded(boolean isended){
+        this.connectionEnded = isended;
+    }
+    public void setMultipleListen(){
+        this.multipleListen = true;
     }
 
 }

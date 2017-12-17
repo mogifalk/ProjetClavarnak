@@ -28,9 +28,9 @@ public class ChatWindow extends JFrame implements ActionListener {
     private ArrayList<JLabel> conversation = new ArrayList<>();
 
     //port d'écoute
-    private int listenPort = 1030;
+    private int listenPort;
     //port d'envoie
-    private int sendPort = 1031;
+    private int sendPort;
 
 
     private ReceiveUI receiveUI;
@@ -39,12 +39,22 @@ public class ChatWindow extends JFrame implements ActionListener {
 
     private Button send = new Button("Send");
 
+    private String ipDest;
 
 
-    ChatWindow(String name, int width, int height) throws IOException {
+
+    ChatWindow(String name, int width, int height, int listenPort, int sendPort, String ipDest) throws IOException {
+
+        this.listenPort=listenPort;
+        this.sendPort = sendPort;
+        this.ipDest = ipDest;
+
+
         //On essaye d'avoir un port different en liste a chaque fois
-        this.sendUI = new SendUI("127.0.0.1",sendPort);
+        this.sendUI = new SendUI(ipDest,sendPort);
         this.receiveUI = new ReceiveUI(listenPort,this, (SendUI) this.sendUI);
+
+
 
 
         xlocation = xlocation +20;

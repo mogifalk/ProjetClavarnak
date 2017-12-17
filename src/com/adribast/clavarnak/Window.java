@@ -2,7 +2,9 @@ package com.adribast.clavarnak;
 
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
+import com.adribast.clavarnak.sender_receiver.MasterListener;
 import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
+import com.adribast.clavarnak.ui.SendUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +24,12 @@ public class Window extends JFrame implements ActionListener {
     private JPanel menu = new JPanel();
     private JPanel usersListPanel = new JPanel();
 
-    public Window (String name, int width, int height) throws VoidStringException, AliasAlreadyExistsException {
+
+    public Window (String name, int width, int height) throws VoidStringException, AliasAlreadyExistsException, IOException {
+
+        //Socket qui va ecouter sur le port 1620 si des gens veulent discuter avec nous
+        MasterListener master= new MasterListener();
+        master.launchListeningThread();
 
         //definition des layouts pour chaque conteneur
         menu.setLayout(new BoxLayout(menu, BoxLayout.PAGE_AXIS));
@@ -112,7 +119,12 @@ public class Window extends JFrame implements ActionListener {
 
             default:
                 try {
-                    ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500);
+                    SendUI sendInvitation = new SendUI("127.0.0.1",1620);
+                    sendInvitation.onTCP("1025 1026");
+                    sendInvitation.freeConnexion();
+                    ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500,
+                            1025,1026,"127.0.0.1");
+                    ;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
