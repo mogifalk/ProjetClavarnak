@@ -3,6 +3,7 @@ package com.adribast.clavarnak;
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
 import com.adribast.clavarnak.sender_receiver.MasterListener;
+import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
 import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
 import com.adribast.clavarnak.ui.SendUI;
 
@@ -65,6 +66,12 @@ public class Window extends JFrame implements ActionListener {
 
         this.setVisible(true);
 
+        //Nous permet d'effectuer des actions a la fermeture de la fenetre
+        MainWindowListener wListener;
+        wListener = new MainWindowListener();
+
+        this.addWindowListener(wListener);
+
     }
 
     //addButton without dimensions
@@ -103,23 +110,6 @@ public class Window extends JFrame implements ActionListener {
                 this.setVisible(true);
                 break;
 
-            default:
-                try {
-                    String ip = UM.getIpOf(source.toString());
-
-                    SendUI sendInvitation = new SendUI(ip,1620);
-
-                    sendInvitation.onTCP(myAlias+" 1030 1031");
-                    //on libere la socket pour la reutiliser si besoin
-                    sendInvitation.freeConnexion();
-
-                    ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500,
-                            1030,1031,ip);
-                    ;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
         }
     }
 

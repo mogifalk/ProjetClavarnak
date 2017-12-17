@@ -1,7 +1,6 @@
 package com.adribast.clavarnak;
 
 
-import com.adribast.clavarnak.sender_receiver.TCPMessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
 import com.adribast.clavarnak.ui.CommunicationUI;
 import com.adribast.clavarnak.ui.ReceiveUI;
@@ -39,15 +38,16 @@ public class ChatWindow extends JFrame implements ActionListener {
 
     private Button send = new Button("Send");
 
-    private String ipDest;
+    private String name;
+
 
 
 
     public ChatWindow(String name, int width, int height, int listenPort, int sendPort, String ipDest) throws IOException {
 
+        this.name = name;
         this.listenPort=listenPort;
         this.sendPort = sendPort;
-        this.ipDest = ipDest;
 
 
         //On essaye d'avoir un port different en liste a chaque fois
@@ -136,8 +136,8 @@ public class ChatWindow extends JFrame implements ActionListener {
 
         //Nous permet d'effectuer des actions a la fermeture de la fenetre
         WindowListener wListener;
-        wListener = new WindowListener((TCPMessageReceiverService) this.receiveUI.getServiceFactory().onTCP(),
-                (TCPMessageSenderService) this.sendUI.getServiceFactory().onTCP());
+        wListener = new WindowListener((TCPMessageSenderService) this.sendUI.getServiceFactory().onTCP()
+                ,this.name);
 
         this.addWindowListener(wListener);
 

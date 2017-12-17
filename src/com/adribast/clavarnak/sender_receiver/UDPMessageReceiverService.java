@@ -5,11 +5,8 @@ import com.adribast.clavarnak.UsersManager;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.Scanner;
-
-import static com.adribast.clavarnak.Main.configPort;
 import static com.adribast.clavarnak.Main.myAlias;
 
 public class UDPMessageReceiverService implements Runnable {
@@ -35,36 +32,32 @@ public class UDPMessageReceiverService implements Runnable {
         String sourceIP = receivedPacket.getAddress().toString();
 
         sourceIP = sourceIP.substring(1);
-        int sourcePort = receivedPacket.getPort();
-
-        //receiverSocket.close();
 
         //si le paquet est une demande de pseudo, on répond avec notre pseudo
-        if (/*receivedPacket.getPort()==configPort &&*/
-                data.toUpperCase().contains("PLEASE SEND YOUR ALIAS")) {
+        if (data.toUpperCase().contains("PLEASE SEND YOUR ALIAS")) {
 
             System.out.println("Alias request \n");
             UDPMessageSenderService aliasSender;
-            aliasSender = new UDPMessageSenderService(sourcePort, sourceIP);
-            System.out.println("Sending this Alias : " + myAlias);
+            aliasSender = new UDPMessageSenderService(this.port, sourceIP);
+            System.out.println("PSEUDO :" + myAlias);
             aliasSender.sendMessageOn(myAlias);
         }
 
         //si le paquet est un pseudo (1 seul mot) qui n'est pas le notre
-        if (data.toUpperCase().contains("PSEUDO :") && !data.contains(myAlias)) {
+        if (data.toUpperCase().contains("PSEUDO :")) {
             s.useDelimiter(":");
             s.next();
             String newAlias = s.next();
 
-            if (newAlias!=myAlias) {
+            if (newAlias.compareTo(myAlias)!=0) {
                 UM.addUser(newAlias, sourceIP);
                 System.out.println("ALIAS " + newAlias);
             }
         }
 
         //si le paquet est une notification de deconnexion, on supprime l'entree de la liste des utilisateurs
-        if (data.toUpperCase().contains("DISCONNECTED USER : ")) {
-            s.useDelimiter(": ");
+        if (data.toUpperCase().contains("DISCONNECTED USER :")) {
+            s.useDelimiter(":");
             s.next();
 
             String disconnectedAlias = s.next() ;
