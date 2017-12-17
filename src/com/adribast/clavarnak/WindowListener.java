@@ -23,7 +23,6 @@ public class WindowListener extends WindowAdapter {
 
     public void windowClosing(WindowEvent e){
         try {
-
             System.out.println("ENDING CONNECTION\n");
             sendService.endConnection();
 

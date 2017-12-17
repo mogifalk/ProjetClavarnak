@@ -3,7 +3,12 @@ package com.adribast.clavarnak;
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.FileHandler;
+
+import static com.adribast.clavarnak.Main.logger;
 
 public class UsersManager {
 
@@ -18,7 +23,7 @@ public class UsersManager {
 
     //
 
-    public void addUser(String alias, String ip) throws VoidStringException, AliasAlreadyExistsException {
+    public void addUser(String alias, String ip) throws VoidStringException, AliasAlreadyExistsException, IOException {
         if ((alias != null && ip != null) || (alias != "" && ip != "")) {
             //si le pseudo à ajouter existe déjà -> levée d'exception
             if (aliasExists(alias)) {

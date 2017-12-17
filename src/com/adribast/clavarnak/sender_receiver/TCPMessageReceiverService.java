@@ -77,6 +77,8 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
                         (TCPMessageSenderService) send.getServiceFactory().onTCP();
                 serviceSend.endConnection();
                 this.incomingMessageListener.onNewIncomingMessage(message);
+
+
             }
 
             else if (message.toUpperCase().compareTo("CONNECTION ENDED") == 0) {

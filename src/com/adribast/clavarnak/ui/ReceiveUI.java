@@ -10,8 +10,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+
+import static com.adribast.clavarnak.Main.logger;
 
 public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
+
     private static final String ERROR_MESSAGE = "[ERROR] An error occured while trying to listen on port";
 
     private final MessageReceiverServiceFactory messageReceiverServiceFactory;
@@ -22,6 +29,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
 
     //cette liste va nous permettre d'afficher les messages reçus
     private ArrayList<JLabel> conversation;
+    static private Date date = new Date();
 
     public ReceiveUI(int ourPort, ChatWindow chat, SendUI sender) throws IOException {
         this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(
@@ -55,10 +63,15 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
         else {
             System.out.println("NEW MESSAGE : " + message + "\n");
 
+            LogRecord logRcvMess = new LogRecord(Level.FINE,  "RECEIVED : \n" + message);
+            chat.fh.publish(logRcvMess);
+
+            this.conversation.add(new JLabel(date.toString()));
+
             //on transforme le message reçu en plusieurs qui ont pour longueur max une ligne
             this.chat.addWithReturn(message, conversation);
 
-            //on afficher la conversation dans la fenetre du coter gauche
+            //on affiche la conversation dans la fenetre du cote gauche
             this.chat.printConversation(conversation, BorderLayout.WEST);
         }
     }

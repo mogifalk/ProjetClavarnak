@@ -13,6 +13,11 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+
+import static com.adribast.clavarnak.Main.logger;
 
 public class ChatWindow extends JFrame implements ActionListener {
 
@@ -36,10 +41,12 @@ public class ChatWindow extends JFrame implements ActionListener {
     private ReceiveUI receiveUI;
     private CommunicationUI sendUI ;
 
+    public FileHandler fh ;
 
     private Button send = new Button("Send");
 
     private String ipDest;
+    private String name ;
 
 
 
@@ -48,12 +55,14 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.listenPort=listenPort;
         this.sendPort = sendPort;
         this.ipDest = ipDest;
-
+        this.name = name ;
 
         //On essaye d'avoir un port different en liste a chaque fois
         this.sendUI = new SendUI(ipDest,sendPort);
         this.receiveUI = new ReceiveUI(listenPort,this, (SendUI) this.sendUI);
+        this.fh = new FileHandler(name+".txt");
 
+        logger.addHandler(this.fh);
 
         xlocation = xlocation +20;
         ylocation = ylocation + 20;
@@ -183,7 +192,8 @@ public class ChatWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
 
         String mess = this.jtf.getText();
-
+        LogRecord logMess = new LogRecord(Level.FINE,"SENT : \n" +"\n"+mess);
+        this.fh.publish(logMess);
 
         addWithReturn(mess,this.conversation);
 

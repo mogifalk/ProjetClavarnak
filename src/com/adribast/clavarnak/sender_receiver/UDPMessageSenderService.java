@@ -17,13 +17,8 @@ public class UDPMessageSenderService implements MessageSenderService {
     }
     @Override
     public void sendMessageOn(String message) throws Exception {
-        if (message==null) {
-            message="NoPseudo";
-        }
+
         DatagramSocket senderSocket = new DatagramSocket();
-        if (message==null){
-            message = "NoPseudo";
-        }
         byte[] data = message.getBytes();
         DatagramPacket datagramPacket = new DatagramPacket(data, data.length);
         System.out.println(this.ipAddress);

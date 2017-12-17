@@ -1,0 +1,82 @@
+j<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-17T19:52:10</date>
+  <millis>1513536730390</millis>
+  <sequence>0</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+Yeah man
+</message>
+</record>
+<record>
+  <date>2017-12-17T19:52:10</date>
+  <millis>1513536730721</millis>
+  <sequence>1</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-17T19:52:13</date>
+  <millis>1513536733353</millis>
+  <sequence>2</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+Bien ou bien ?
+</message>
+</record>
+<record>
+  <date>2017-12-17T19:52:14</date>
+  <millis>1513536734398</millis>
+  <sequence>3</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+Louuurd</message>
+</record>
+<record>
+  <date>2017-12-17T19:52:14</date>
+  <millis>1513536734404</millis>
+  <sequence>4</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-17T19:52:20</date>
+  <millis>1513536740479</millis>
+  <sequence>5</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+Là j'envoie des trucs
+</message>
+</record>
+<record>
+  <date>2017-12-17T19:52:22</date>
+  <millis>1513536742999</millis>
+  <sequence>6</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+Ttop ouf me</message>
+</record>
+<record>
+  <date>2017-12-17T19:52:23</date>
+  <millis>1513536743006</millis>
+  <sequence>7</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+</log>
