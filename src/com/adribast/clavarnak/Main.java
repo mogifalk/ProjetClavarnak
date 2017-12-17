@@ -13,7 +13,7 @@ public class Main {
 
     public static final int configPort = 4242 ;
     public static final String broadcastIP = "192.168.1.255";
-    public static String myAlias = null ;
+    public static String myAlias = "noPseudo" ;
     private static UsersManager UM = new UsersManager();
 
     public static void main(String[] args) throws Exception {
