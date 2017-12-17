@@ -25,9 +25,9 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
     //Ces deux booleens nous permettent respectivement de savoir quand initialiser les sockets
     // et quand arreter d'écouter
-    private boolean connectionInitialized;
-    private boolean connectionEnded;
-    private boolean multipleListen;
+    private static boolean connectionInitialized;
+    private static boolean connectionEnded;
+    private static boolean multipleListen;
 
     private static int ourPort;
 
@@ -40,7 +40,7 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
         this.connectionEnded = false;
         this.multipleListen=false;
 
-        System.out.println("BIND\n");
+        System.out.println("BIND ON PORT : " +ourPort+"\n");
         this.ourPort = ourPort;
         this.serverSocket = new ServerSocket(ourPort);
     }
@@ -50,8 +50,9 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
         this.connectionInitialized=false;
         this.connectionEnded = false;
+        this.multipleListen=false;
 
-        System.out.println("BIND\n");
+        System.out.println("BIND ON PORT : " +ourPort+"\n");
         this.serverSocket = new ServerSocket(ourPort);
         this.ourPort = ourPort;
     }
@@ -134,6 +135,7 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
         while (multipleListen) {
             try {
+                System.out.println("PAS NORMAL");
                 this.serverSocket = new ServerSocket(this.ourPort);
             } catch (IOException e) {
                 e.printStackTrace();

@@ -24,7 +24,8 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     private ArrayList<JLabel> conversation;
 
     public ReceiveUI(int ourPort, ChatWindow chat, SendUI sender) throws IOException {
-        this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(this,ourPort,sender);
+        this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(
+                this,ourPort,sender);
         this.port = ourPort;
         this.chat = chat;
         this.conversation = new ArrayList<>();

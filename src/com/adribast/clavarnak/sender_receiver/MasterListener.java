@@ -17,13 +17,13 @@ public class MasterListener implements IncomingMessageListener {
     private UsersManager UM;
 
     public MasterListener(UsersManager UM) throws IOException {
-        this.port = 1621;
+        this.port = 1620;
         this.messageReceiverServiceFactory = new MessageReceiverServiceFactory(this,this.port);
         this.UM = UM;
     }
 
     @Override
-    public void onNewIncomingMessage(String message) throws IOException, InterruptedException {
+    public void onNewIncomingMessage(String message) throws IOException{
 
 
         Scanner s = new Scanner(message);
