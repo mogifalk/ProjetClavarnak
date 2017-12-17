@@ -93,7 +93,7 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
                 myAlias = newAlias;
                 UDPMessageSenderService aliasSender = new UDPMessageSenderService(configPort, broadcastIP);
                 System.out.println("MY ALIAS : " + myAlias);
-                aliasSender.sendMessageOn(myAlias + " ");
+                aliasSender.sendMessageOn("PSEUDO :" + myAlias + ":");
 
                 this.dispose();
             }
