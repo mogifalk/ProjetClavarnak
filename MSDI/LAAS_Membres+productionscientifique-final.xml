@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Laas>
+	<Membres>
+		<Membre>
+
+			<id_membre>badufour</id_membre>
+			<nom_membre>Dufour</nom_membre>
+			<prenom_membre>Bastien</prenom_membre>
+			<grade>CR1</grade>
+			<email>badufour@laas.fr</email>
+			<titre_these>Reseaux multiples</titre_these>
+			<titre_these>Reseaux transverse</titre_these>
+			<acronyme_equipe>E1</acronyme_equipe>
+			<id_production>1</id_production>
+		
+		</Membre>
+
+		<Membre>
+
+			<id_membre>adgonzalez</id_membre>
+			<nom_membre>Gonzalez</nom_membre>
+			<prenom_membre>Adrien</prenom_membre>
+			<grade>DR1</grade>
+			<email>adgonzalez@laas.fr</email>
+			<titre_these>Reseaux multiples</titre_these>
+			<titre_these>Reseaux transverse</titre_these>
+			<acronyme_equipe>E2</acronyme_equipe>
+			<id_production>3</id_production>
+		
+		</Membre>
+
+		<Membre>
+
+			<id_membre>aldlm</id_membre>
+			<nom_membre>Dlm</nom_membre>
+			<prenom_membre>Alban</prenom_membre>
+			<grade>CR2</grade>
+			<email>aldlm@laas.fr</email>
+			<titre_these>Reseaux</titre_these>
+			<acronyme_equipe>E1</acronyme_equipe>
+		
+		</Membre>
+
+		<Membre>
+
+			<id_membre>jutena</id_membre>
+			<nom_membre>Tena</nom_membre>
+			<prenom_membre>Julien</prenom_membre>
+			<grade>CR1</grade>
+			<email>jutena@laas.fr</email>
+			<titre_these>Reseaux</titre_these>
+			<titre_these>Reseaux transverse</titre_these>
+			<acronyme_equipe>E1</acronyme_equipe>
+			<id_production>3</id_production>
+		
+		</Membre>
+
+		<Membre>
+
+			<id_membre>josmith</id_membre>
+			<nom_membre>Smith</nom_membre>
+			<prenom_membre>John</prenom_membre>
+			<grade>DR1</grade>
+			<email>josmith@laas.fr</email>
+			<titre_these>Reseaux multiples</titre_these>
+			<acronyme_equipe>E1</acronyme_equipe>
+			<id_production>2</id_production>
+		
+		</Membre>
+
+	</Membres>
+
+	<Production_Scientifique>
+		<id_production_scientifique>1</id_production_scientifique>
+		<titre>les trous noirs</titre>
+		<nom_auteur>Dufour</nom_auteur>
+		<nom_auteur>Saura</nom_auteur>
+		<affiliation>Chercheur Laas</affiliation>
+		<affiliation>Consultant</affiliation>
+		<annee_publication>2005</annee_publication>
+		<nombre_ages>200</nombre_pages>
+	</Production_Scientifique>
+
+	<Production_Scientifique>
+		<id_production_scientifique>2</id_production_scientifique>
+		<titre>les trous de verre</titre>
+		<nom_auteur>Smith</nom_auteur>
+		<affiliation>Directeur Recherche Laas</affiliation>
+		<annee_publication>2007</annee_publication>
+		<nombre_ages>400</nombre_pages>
+	</Production_Scientifique>
+
+	<Production_Scientifique>
+		<id_production_scientifique>3</id_production_scientifique>
+		<titre>l'espace</titre>
+		<nom_auteur>Gonzalez</nom_auteur>
+		<nom_auteur>Tena</nom_auteur>
+		<affiliation>Directeur Recherche Laas</affiliation>
+		<affiliation>Enseignant Chercheur</affiliation>
+		<annee_publication>2010</annee_publication>
+		<nombre_ages>350</nombre_pages>
+	</Production_Scientifique>
+
+</Laas>

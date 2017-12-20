@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:element name="Membre">
+    <xsd:complexType>
+    
+        <xsd:sequence>
+
+            <xsd:element name="id_membre" type="xsd:token"/>
+            <xsd:element name="nom_membre" type="xsd:string"/>
+            <xsd:element name="prenom_membre" type="xsd:string"/>
+            <xsd:element name="grade" type="xsd:string"/>
+			<xsd:element name="e-mail" type="xsd:string"/>
+			<!--Ajout des attrinbut externe -->
+
+            <xsd:element name="titre_these" type="xsd:string" maxOccurs="unbounded" minOccurs="0"/>
+            <xsd:element name="acronyme_equipe" type="xsd:token"/>
+            <xsd:element name="id_production_scientifique" type="xsd:token" maxOccurs="unbounded" minOccurs="0"/>
+
+
+		</xsd:sequence>
+
+	</xsd:complexType>
+
+	<xsd:key name="cle_membre">
+		<xsd:selector xpath= "Membre"/>
+		<xsd:field xpath="@id_membre"/>
+	</xsd:key>
+
+	<xsd:keyref name="these_ref" refer="cle_membre">
+    	<xsd:selector xpath="These"/>
+		<xsd:field xpath="@titre_these"/>
+	</xsd:keyref>
+
+	<xsd:keyref name="equipe_ref" refer="cle_membre">
+    	<xsd:selector xpath="Equipe"/>
+		<xsd:field xpath="@nom_equipe"/>
+	</xsd:keyref>
+
+	<xsd:keyref name="prod_ref" refer="cle_membre">
+    	<xsd:selector xpath="Production_Scientifique"/>
+    	<xsd:field xpath="@id_production_scientifique"/>
+	</xsd:keyref>
+
+</xsd:element>
+
+<xsd:element name="Membres">
+    <xsd:complexType>
+        <xsd:sequence>
+            <xsd:element ref="Membre" maxOccurs="unbounded"/>
+        </xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:complexType name = "These">
+
+    <xsd:sequence>
+        <xsd:element name="titre_these" type="xsd:string"/>
+        <xsd:element name="domaine"  type="xsd:string"/>
+        <xsd:element name="id_production_scientifique" type="xsd:token" maxOccurs="unbounded"/>
+
+        <!-- Ajout des attributs externes -->
+        <xsd:element name="acronyme_equipe"  type="xsd:string"/>
+        <xsd:element name="id_membre"  type="xsd:token"/>
+    </xsd:sequence>
+
+
+</xsd:complexType>
+
+    <xsd:element name="En_Cours">
+	<xsd:complexType>
+        <xsd:complexContent>
+            <xsd:extension base="These">
+                <xsd:attribute name="date_début" type="xsd:string"/>
+            </xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+        <xsd:key name= "cle_these_en_cours">
+            <xsd:selector xpath = "These"/>
+            <xsd:field xpath = "@titre_these"/>
+        </xsd:key>
+
+        <xsd:keyref name="production_scientifique_ref_en_cours" refer="cle_these_en_cours">
+            <xsd:selector xpath="Production_Scientifique"/>
+            <xsd:field xpath="@id_production_scientifique"/>
+        </xsd:keyref>
+
+        <xsd:keyref name="acronyme_equipe_ref_en_cours" refer="cle_these_en_cours">
+            <xsd:selector xpath="Equipe"/>
+            <xsd:field xpath="@acronyme_equipe"/>
+        </xsd:keyref>
+
+        <xsd:keyref name="membre_ref_en_cours" refer="cle_these_en_cours">
+            <xsd:selector xpath="Membre"/>
+            <xsd:field xpath="@id_membre"/>
+        </xsd:keyref>
+</xsd:element>
+
+
+<xsd:element name="Soutenue">
+    <xsd:complexType>
+        <xsd:complexContent>
+            <xsd:extension base="These">
+                <xsd:attribute name="date_début" type="xsd:string"/>
+			    <xsd:attribute name="date_fin" type="xsd:string"/>
+            </xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+    <xsd:key name= "cle_these_soutenue">
+        <xsd:selector xpath = "These"/>
+        <xsd:field xpath = "@titre_these"/>
+    </xsd:key>
+
+    <xsd:keyref name="production_scientifique_ref_soutenue" refer="cle_these_soutenue">
+        <xsd:selector xpath="Production_Scientifique"/>
+        <xsd:field xpath="@id_production_scientifique"/>
+    </xsd:keyref>
+
+    <xsd:keyref name="acronyme_equipe_ref_soutenue" refer="cle_these_soutenue">
+        <xsd:selector xpath="Equipe"/>
+        <xsd:field xpath="@acronyme_equipe"/>
+    </xsd:keyref>
+
+    <xsd:keyref name="membre_ref_soutenue" refer="cle_these_soutenue">
+        <xsd:selector xpath="Membre"/>
+        <xsd:field xpath="@id_membre"/>
+    </xsd:keyref>
+</xsd:element>
+
+<xsd:complexType name="Production_Scientifique">
+		<xsd:sequence>
+		    <xsd:element name="id_production_scientifique" type="xsd:int"/>
+			<xsd:element name="titre" type="xsd:string"/>
+			<xsd:element name="nom_auteur" type="xsd:string"/>
+			<xsd:element name="affiliation" type="xsd:string"/>
+			<xsd:element name="annee_publication" type="xsd:int"/>
+			<xsd:element name="nombre_pages" type="xsd:int"/>
+        </xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:element name="Rapport_Recherche">
+    <xsd:complexType>
+        <xsd:complexContent>
+            <xsd:extension base="Production_Scientifique">
+                <xsd:attribute name = "projet_recherche" type = "xsd:string"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:key name="cle_rapport">
+        <xsd:selector xpath="Rapport_Recherche"/>
+        <xsd:field xpath="@id_production_scientifique"/>
+    </xsd:key>
+
+    <xsd:keyref name= "rapport_projet" refer = "cle_rapport">
+        <xsd:selector xpath = "Projet_de_Recherche"/>
+        <xsd:field xpath = "@projet_recherche"/>
+    </xsd:keyref>
+
+
+</xsd:element>
+
+
+
+<xsd:element name="Article_Conference">
+
+    <xsd:complexType>
+        <xsd:complexContent>
+            <xsd:extension base="Production_Scientifique">
+                <xsd:sequence>
+                    <xsd:element name="nom_conf" type="xsd:string"/>
+                    <xsd:element name="classe" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:key name="cle_article">
+		<xsd:selector xpath="Article_Conference"/>
+		<xsd:field xpath="@nom_conf"/>
+    </xsd:key>
+
+</xsd:element>
+
+
+
+<xsd:element name="Revue">
+
+    <xsd:complexType>
+        <xsd:complexContent>
+            <xsd:extension base="Production_Scientifique">
+                <xsd:sequence>
+                    <xsd:element name="nom_journal" type="xsd:string"/>
+                    <xsd:element name="classe" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:key name="cle_revue">
+		<xsd:selector xpath="Revue"/>
+		 <xsd:field xpath="@nom_journal"/>
+    </xsd:key>
+
+</xsd:element>
+
+<xsd:element name="Equipe">
+
+    <xsd:complexType>
+        <xsd:sequence>
+        <xsd:element name="nom_equipe" type="xsd:string"/>
+        <xsd:element name="acronyme_equipe" type="xsd:string"/>
+		<!-- ajout des attributs externes-->
+		<xsd:element name="acronyme_theme" type="xsd:string"/>
+		<xsd:element name="id_membre" type="xsd:token" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:key name="cle_equipe">
+        <xsd:selector xpath = "Equipe"/>
+        <xsd:field xpath = "@acronyme_equipe"/>
+    </xsd:key>
+
+    <xsd:keyref name="theme_ref" refer="cle_equipe">
+        <xsd:selector xpath = "Theme"/>
+        <xsd:field xpath="@acronyme_theme"/>
+    </xsd:keyref>
+
+    <xsd:keyref name="respo_equipe" refer="cle_equipe">
+        <xsd:selector xpath = "Membre"/>
+        <xsd:field xpath="@id_membre"/>
+    </xsd:keyref>
+
+</xsd:element>
+
+<xsd:element name="Projet_de_Recherche">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="titre_projet" type="xsd:string"/>
+                <xsd:element name="acronyme_projet" type="xsd:token"/>
+                <xsd:element name="date_debut" type="xsd:string"/>
+                <xsd:element name="durée" type="xsd:string"/>
+                <xsd:element name="cout" type="xsd:int"/>
+                <xsd:element name="budget" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

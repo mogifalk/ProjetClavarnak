@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+	<Membres>
+		<Membre>
+			<id_membre>badufour</id_membre>
+			<nom_membre>Dufour</nom_membre>
+			<prenom_membre>Bastien</prenom_membre>
+			<grade>CR1</grade>
+			<email>badufour@laas.fr</email>
+			<titre_these>Reseaux multiples</titre_these>
+			<titre_these>Reseaux transverse</titre_these>
+			<acronyme_equipe>E1</acronyme_equipe>
+			<id_production_scientifique>article_gravitation</id_production_scientifique>
+		</Membre>
+
+		<Membre>
+			<id_membre>adgonzalez</id_membre>
+			<nom_membre>Gonzalez</nom_membre>
+			<prenom_membre>Adrien</prenom_membre>
+			<grade>DR1</grade>
+			<email>adgonzalez@laas.fr</email>
+			<titre_these>Reseaux multiples</titre_these>
+			<titre_these>Reseaux transverse</titre_these>
+			<acronyme_equipe>E1</acronyme_equipe>
+			<id_production_scientifique>article_danger_wifi</id_production_scientifique>
+		</Membre>
+
+		<Membre>
+			<id_membre>aldlm</id_membre>
+			<nom_membre>Dlm</nom_membre>
+			<prenom_membre>Alban</prenom_membre>
+			<grade>CR2</grade>
+			<email>aldlm@laas.fr</email>
+			<titre_these>Reseaux</titre_these>
+			<acronyme_equipe>E2</acronyme_equipe>
+		</Membre>
+
+		<Membre>
+			<id_membre>jutena</id_membre>
+			<nom_membre>Tena</nom_membre>
+			<prenom_membre>Julien</prenom_membre>
+			<grade>CR1</grade>
+			<email>jutena@laas.fr</email>
+			<titre_these>Reseaux</titre_these>
+			<titre_these>Reseaux transverse</titre_these>
+			<acronyme_equipe>E1</acronyme_equipe>
+			<id_production_scientifique>article_danger_wifi</id_production_scientifique>
+		</Membre>
+
+		<Membre>
+			<id_membre>josmith</id_membre>
+			<nom_membre>Smith</nom_membre>
+			<prenom_membre>John</prenom_membre>
+			<grade>DR1</grade>
+			<email>josmith@laas.fr</email>
+			<titre_these>Reseaux</titre_these>
+			<acronyme_equipe>E2</acronyme_equipe>
+			<id_production_scientifique>article wanacry</id_production_scientifique>
+		</Membre>
+
+	</Membres>
+
+
+
