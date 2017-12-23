@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.adribast.clavarnak.Main.conversationActive;
+
 public class MasterListener implements IncomingMessageListener {
 
     private static final String ERROR_MESSAGE = "[ERROR] An error occured while trying to listen on port";
@@ -41,6 +43,7 @@ public class MasterListener implements IncomingMessageListener {
         receiver.setConnectionEnded(true);
 
         ChatWindow chat = new ChatWindow(remoteUserName,port2,port1,UM.getIpOf(remoteUserName));
+        conversationActive.add(remoteUserName);
         
     }
 

@@ -159,8 +159,8 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
     }
 
-    public void setConnectionEnded(boolean isended){
-        this.connectionEnded = isended;
+    public void setConnectionEnded(boolean isEnded){
+        this.connectionEnded = isEnded;
     }
     public void setMultipleListen(){
         this.multipleListen = true;
