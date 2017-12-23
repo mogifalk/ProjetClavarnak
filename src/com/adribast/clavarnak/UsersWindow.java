@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static com.adribast.clavarnak.Main.conversationActive;
 import static com.adribast.clavarnak.Main.myAlias;
@@ -16,7 +15,6 @@ import static javax.swing.SwingConstants.CENTER;
 public class UsersWindow extends JFrame implements ActionListener {
 
     private JPanel usersListPanel = new JPanel();
-    JLabel usersListLabel = new JLabel("Choix du destinataire");
 
     private UsersManager UM;
 
@@ -40,6 +38,8 @@ public class UsersWindow extends JFrame implements ActionListener {
         usersListPanel.setLayout(new GridLayout(8, 1));
 
         Font police = new Font("Arial", Font.BOLD, 14);
+
+        JLabel usersListLabel = new JLabel("Choix du destinataire");
         usersListLabel.setFont(police);
         usersListLabel.setForeground(Color.white);
         usersListLabel.setHorizontalAlignment(CENTER);
@@ -56,7 +56,7 @@ public class UsersWindow extends JFrame implements ActionListener {
 
     }
 
-    public void addUserButton(String title) {
+    private void addUserButton(String title) {
         Button ourButton = new ButtonUser(title) ;
         ourButton.setMaximumSize(ourButton.getMinimumSize());
 

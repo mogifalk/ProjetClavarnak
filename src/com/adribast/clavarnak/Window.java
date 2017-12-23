@@ -1,22 +1,10 @@
 package com.adribast.clavarnak;
 
-import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
-import com.adribast.clavarnak.com.exceptions.VoidStringException;
 import com.adribast.clavarnak.sender_receiver.MasterListener;
-import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
-import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
-import com.adribast.clavarnak.ui.SendUI;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Set;
-
-import static com.adribast.clavarnak.Main.myAlias;
-import static javax.swing.SwingConstants.CENTER;
 
 public class Window extends JFrame implements ActionListener {
 
@@ -27,8 +15,7 @@ public class Window extends JFrame implements ActionListener {
     private JPanel menu = new JPanel();
 
 
-
-    public Window (UsersManager UM) throws VoidStringException, AliasAlreadyExistsException, IOException {
+    public Window (UsersManager UM) throws IOException {
 
         this.UM = UM ;
 
@@ -71,11 +58,10 @@ public class Window extends JFrame implements ActionListener {
         wListener = new MainWindowListener();
 
         this.addWindowListener(wListener);
-
     }
 
     //addButton without dimensions
-    public void addMenuButton(String title){
+    private void addMenuButton(String title){
 
         Button ourButton = new Button(title) ;
         ourButton.setAlignmentX(CENTER_ALIGNMENT);
@@ -94,7 +80,7 @@ public class Window extends JFrame implements ActionListener {
 
         switch (source.toString()) {
             case "Clavarder":
-                buildUsersList();
+                displayUsersList();
                 break;
 
             case "Changer pseudo":
@@ -110,12 +96,12 @@ public class Window extends JFrame implements ActionListener {
     }
 
     //This function create a window with all the users that are connected
-    public void buildUsersList () {
+    private void displayUsersList () {
         UsersWindow usersWindow = new UsersWindow(this.UM);
     }
 
 
-    public void modifAlias () throws Exception {
+    private void modifAlias () {
 
         ModifAliasWindow aliasWindow = new ModifAliasWindow(this.UM) ;
 

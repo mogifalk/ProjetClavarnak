@@ -2,12 +2,11 @@ package com.adribast.clavarnak;
 
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
 import com.adribast.clavarnak.com.exceptions.VoidStringException;
-import java.io.IOException;
 import java.util.*;
 
 public class UsersManager {
 
-    //usersLists contains only the connected users
+    //usersTable contains only the connected users
     private Hashtable<String, String> usersTable;
 
 
@@ -18,8 +17,10 @@ public class UsersManager {
 
     //
 
-    public void addUser(Token alias, String ip) throws VoidStringException, AliasAlreadyExistsException {
-        if ((alias != null && ip != null) || (alias.compareTo("")!=0 && ip.compareTo("")!=0)) {
+    public void addUser(String alias, String ip) throws Exception {
+        assert ip != null;
+        assert alias != null;
+        if ((alias.compareTo("")!=0 && ip.compareTo("")!=0)) {
             //si le pseudo à ajouter existe déjà -> levée d'exception
             if (aliasExists(alias)) {
                 throw new AliasAlreadyExistsException("Tentative de remplacement d'un pseudo existant");
@@ -69,7 +70,7 @@ public class UsersManager {
         return this.usersTable.containsKey(aliasTest);
     }
 
-    public boolean ipExists(String ip) {
+    private boolean ipExists(String ip) {
         return this.usersTable.containsValue(ip);
     }
 

@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.StringTokenizer;
 
 import static com.adribast.clavarnak.Main.broadcastIP;
 import static com.adribast.clavarnak.Main.configPort;
@@ -86,9 +87,10 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
                 this.setContentPane(container);
             }
 
+            //if the alias is unique => sending it on broadcast
             else {
-                //if the alias is unique => sending it on broadcast
-                String newAlias = writingField.getText();
+                StringTokenizer st = new StringTokenizer(writingField.getText());
+                String newAlias =st.nextToken();
                 myAlias = newAlias;
                 UDPMessageSenderService aliasSender = new UDPMessageSenderService(configPort, broadcastIP);
                 System.out.println("MY ALIAS : " + myAlias);
