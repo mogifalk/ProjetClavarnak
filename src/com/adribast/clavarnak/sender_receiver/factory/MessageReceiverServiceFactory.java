@@ -1,10 +1,8 @@
 package com.adribast.clavarnak.sender_receiver.factory;
 
-import com.adribast.clavarnak.UsersManager;
 import com.adribast.clavarnak.sender_receiver.IncomingMessageListener;
 import com.adribast.clavarnak.sender_receiver.MessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.TCPMessageReceiverService;
-import com.adribast.clavarnak.sender_receiver.UDPMessageReceiverService;
 import com.adribast.clavarnak.ui.SendUI;
 
 import java.io.IOException;

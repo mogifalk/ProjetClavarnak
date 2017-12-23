@@ -4,10 +4,7 @@ import com.adribast.clavarnak.sender_receiver.MessageSenderService;
 import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
 import com.adribast.clavarnak.sender_receiver.factory.MessageSenderServiceFactory;
 import com.adribast.clavarnak.sender_receiver.factory.MessageServiceFactory;
-
-import javax.swing.*;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class SendUI implements CommunicationUI {
 
@@ -21,7 +18,7 @@ public class SendUI implements CommunicationUI {
     private String ipAddr;
 
 
-    public SendUI(String ip, int ourport) throws IOException {
+    public SendUI(String ip, int ourport) {
         this.messageSenderServiceFactory = new MessageSenderServiceFactory(ourport,ip);
         this.port = ourport;
         this.ipAddr = ip;
@@ -53,18 +50,13 @@ public class SendUI implements CommunicationUI {
             System.out.println(String.format(NOTIFICATION_FORMAT, this.ipAddr, this.port));
         }
 
-        catch (Exception exception) {
+        catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
-            System.err.println(exception);
+            e.printStackTrace();
         }
     }
 
-    public void endConnexion() throws IOException {
-        TCPMessageSenderService sender =
-                (TCPMessageSenderService) this.messageSenderServiceFactory.onTCP();
-        sender.endConnection();
-    }
-    public void freeConnexion() throws IOException {
+    public void freeConnection() throws IOException {
         TCPMessageSenderService sender =
                 (TCPMessageSenderService) this.messageSenderServiceFactory.onTCP();
         sender.freeConnection();

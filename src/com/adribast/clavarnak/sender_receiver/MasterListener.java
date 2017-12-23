@@ -3,17 +3,13 @@ package com.adribast.clavarnak.sender_receiver;
 import com.adribast.clavarnak.ChatWindow;
 import com.adribast.clavarnak.UsersManager;
 import com.adribast.clavarnak.sender_receiver.factory.MessageReceiverServiceFactory;
-import tests.UsersManagerTest;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import static com.adribast.clavarnak.Main.conversationActive;
 
 public class MasterListener implements IncomingMessageListener {
-
-    private static final String ERROR_MESSAGE = "[ERROR] An error occured while trying to listen on port";
 
     private final MessageReceiverServiceFactory messageReceiverServiceFactory;
     private final int port;
@@ -58,9 +54,9 @@ public class MasterListener implements IncomingMessageListener {
             receiver.setMultipleListen();
 
             listenThread.start();
-        } catch (Exception exception) {
-            System.err.println(ERROR_MESSAGE);
-            System.err.println(exception);
+        } catch (Exception e) {
+            System.out.println("[ERROR] An error occured while trying to listen on port");
+            e.printStackTrace();
         }
     }
 

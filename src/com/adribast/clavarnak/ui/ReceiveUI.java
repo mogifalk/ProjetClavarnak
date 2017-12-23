@@ -11,12 +11,10 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
 import static com.adribast.clavarnak.Main.conversationActive;
-import static com.adribast.clavarnak.Main.logger;
 
 public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
 
@@ -46,7 +44,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     }
 
     @Override
-    public void onTCP(String mess) throws IOException {
+    public void onTCP(String mess) {
         launchListeningThread(messageReceiverServiceFactory.onTCP());
     }
 
@@ -80,13 +78,13 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     }
 
     private void launchListeningThread(MessageReceiverService messageReceiverService) {
-        System.out.print("Listenning on port: " + this.port + "\n");
+        System.out.print("Listening on port: " + this.port + "\n");
         try {
             Thread listenThread = new Thread(messageReceiverService);
             listenThread.start();
-        } catch (Exception exception) {
+        } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
-            System.err.println(exception);
+            e.printStackTrace();
         }
     }
 

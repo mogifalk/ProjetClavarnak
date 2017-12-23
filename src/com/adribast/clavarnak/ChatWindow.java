@@ -1,6 +1,5 @@
 package com.adribast.clavarnak;
 
-
 import com.adribast.clavarnak.sender_receiver.TCPMessageSenderService;
 import com.adribast.clavarnak.ui.CommunicationUI;
 import com.adribast.clavarnak.ui.ReceiveUI;
@@ -20,11 +19,8 @@ import static com.adribast.clavarnak.Main.logger;
 
 public class ChatWindow extends JFrame implements ActionListener {
 
-
-
     private static int xlocation = 700;
     private static int ylocation = 150;
-
 
     private JTextArea jtf = new JTextArea("Enter your message");
     static private Date date = new Date();
@@ -35,7 +31,6 @@ public class ChatWindow extends JFrame implements ActionListener {
     private int listenPort;
     //port d'envoie
     private int sendPort;
-
 
     private ReceiveUI receiveUI;
     private CommunicationUI sendUI ;
@@ -49,19 +44,15 @@ public class ChatWindow extends JFrame implements ActionListener {
     private int width = 400;
     private int height = 500;
 
-
-
-
     public ChatWindow(String name, int listenPort, int sendPort, String ipDest) throws IOException {
 
         this.name = name;
         this.listenPort=listenPort;
         this.sendPort = sendPort;
 
-
         //On essaye d'avoir un port different en liste a chaque fois
         this.sendUI = new SendUI(ipDest,sendPort);
-        this.receiveUI = new ReceiveUI(listenPort,this, (SendUI) this.sendUI);
+        this.receiveUI = new ReceiveUI(this.listenPort,this, (SendUI) this.sendUI);
 
         //if the file exists it appends logs at the end, else it creates a file named with an alias
         this.fh = new FileHandler(name+".txt",true);
@@ -109,12 +100,10 @@ public class ChatWindow extends JFrame implements ActionListener {
         KeyListener action = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-
             }
 
             @Override
@@ -125,17 +114,13 @@ public class ChatWindow extends JFrame implements ActionListener {
             }
         };
 
-
         writingZone.add(this.jtf,BorderLayout.WEST);
         writingZone.add(send,BorderLayout.EAST);
-
-
 
         this.getContentPane().add(writingZone,BorderLayout.SOUTH);
         this.getContentPane().setForeground(Color.DARK_GRAY);
 
         //container.add(writingZone, BorderLayout.SOUTH);
-
 
         send.addActionListener(this);
 
@@ -150,10 +135,9 @@ public class ChatWindow extends JFrame implements ActionListener {
         //Nous permet d'effectuer des actions a la fermeture de la fenetre
         WindowListener wListener;
         wListener = new WindowListener((TCPMessageSenderService) this.sendUI.getServiceFactory().onTCP()
-                ,this.name);
+                ,this.name,fh);
 
         this.addWindowListener(wListener);
-
     }
 
 
@@ -169,21 +153,27 @@ public class ChatWindow extends JFrame implements ActionListener {
             if (text.length() < nbCharLigne) {
                 JLabel label = new JLabel(text);
                 conv.add(label);
-            } else {
+            }
 
-                JLabel label1 = new JLabel(text.substring(0, nbCharLigne));
-                conv.add(label1);
-                int i;
-                for (i = 1; i <= fin - 1; i++) {
-
-                    JLabel label = new JLabel(text.substring(i * nbCharLigne, (i + 1) * nbCharLigne));
-                    conv.add(label);
-                }
-                JLabel label2 = new JLabel(text.substring(i * nbCharLigne));
-                conv.add(label2);
-
+            else {
+                decomposeString(text, conv, nbCharLigne);
             }
         }
+    }
+
+    private void decomposeString(String text,ArrayList<JLabel> conv, int nbCharLigne) {
+        JLabel label1 = new JLabel(text.substring(0, nbCharLigne));
+        conv.add(label1);
+
+        int fin = text.length() / nbCharLigne;
+        int i;
+        for (i = 1; i <= fin - 1; i++) {
+
+            JLabel label = new JLabel(text.substring(i * nbCharLigne, (i + 1) * nbCharLigne));
+            conv.add(label);
+        }
+        JLabel label2 = new JLabel(text.substring(i * nbCharLigne));
+        conv.add(label2);
     }
 
     private void addToContainer (JPanel container, JLabel lab){
@@ -224,7 +214,6 @@ public class ChatWindow extends JFrame implements ActionListener {
 
         writingContainer.setLayout(new BoxLayout(writingContainer, BoxLayout.PAGE_AXIS));
 
-
         for (JLabel object: conv) {
             addToContainer(writingContainer,object);
         }
@@ -232,7 +221,6 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.getContentPane().add(writingContainer,position);
 
         this.setVisible(true);
-
     }
     public String getName(){return this.name;}
 
