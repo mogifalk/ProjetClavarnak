@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-23T19:32:52</date>
+  <millis>1514053972709</millis>
+  <sequence>1</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T19:32:59</date>
+  <millis>1514053979235</millis>
+  <sequence>3</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:32:59</date>
+  <millis>1514053979750</millis>
+  <sequence>5</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:32:59</date>
+  <millis>1514053979916</millis>
+  <sequence>7</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:00</date>
+  <millis>1514053980091</millis>
+  <sequence>9</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:00</date>
+  <millis>1514053980247</millis>
+  <sequence>11</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:00</date>
+  <millis>1514053980398</millis>
+  <sequence>13</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:00</date>
+  <millis>1514053980547</millis>
+  <sequence>15</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:00</date>
+  <millis>1514053980699</millis>
+  <sequence>17</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:00</date>
+  <millis>1514053980856</millis>
+  <sequence>19</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:01</date>
+  <millis>1514053981006</millis>
+  <sequence>21</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:01</date>
+  <millis>1514053981179</millis>
+  <sequence>23</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:01</date>
+  <millis>1514053981384</millis>
+  <sequence>25</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:01</date>
+  <millis>1514053981618</millis>
+  <sequence>27</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:01</date>
+  <millis>1514053981827</millis>
+  <sequence>29</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:03</date>
+  <millis>1514053983082</millis>
+  <sequence>31</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:04</date>
+  <millis>1514053984201</millis>
+  <sequence>33</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:15</date>
+  <millis>1514053995114</millis>
+  <sequence>34</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:15</date>
+  <millis>1514053995840</millis>
+  <sequence>36</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:16</date>
+  <millis>1514053996330</millis>
+  <sequence>38</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:16</date>
+  <millis>1514053996536</millis>
+  <sequence>40</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:16</date>
+  <millis>1514053996699</millis>
+  <sequence>42</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:16</date>
+  <millis>1514053996873</millis>
+  <sequence>44</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:17</date>
+  <millis>1514053997039</millis>
+  <sequence>46</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:17</date>
+  <millis>1514053997371</millis>
+  <sequence>48</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:17</date>
+  <millis>1514053997553</millis>
+  <sequence>50</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:17</date>
+  <millis>1514053997743</millis>
+  <sequence>52</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:17</date>
+  <millis>1514053997907</millis>
+  <sequence>54</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:18</date>
+  <millis>1514053998097</millis>
+  <sequence>56</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:18</date>
+  <millis>1514053998279</millis>
+  <sequence>58</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:18</date>
+  <millis>1514053998491</millis>
+  <sequence>60</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:18</date>
+  <millis>1514053998697</millis>
+  <sequence>62</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:18</date>
+  <millis>1514053998895</millis>
+  <sequence>64</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:19</date>
+  <millis>1514053999163</millis>
+  <sequence>66</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:19</date>
+  <millis>1514053999367</millis>
+  <sequence>68</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:19</date>
+  <millis>1514053999597</millis>
+  <sequence>70</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:19</date>
+  <millis>1514053999811</millis>
+  <sequence>72</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:20</date>
+  <millis>1514054000039</millis>
+  <sequence>74</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:20</date>
+  <millis>1514054000276</millis>
+  <sequence>76</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:20</date>
+  <millis>1514054000987</millis>
+  <sequence>78</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:21</date>
+  <millis>1514054001697</millis>
+  <sequence>80</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:22</date>
+  <millis>1514054002258</millis>
+  <sequence>82</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:22</date>
+  <millis>1514054002874</millis>
+  <sequence>84</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:23</date>
+  <millis>1514054003418</millis>
+  <sequence>86</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:24</date>
+  <millis>1514054004058</millis>
+  <sequence>88</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:24</date>
+  <millis>1514054004610</millis>
+  <sequence>90</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:25</date>
+  <millis>1514054005438</millis>
+  <sequence>92</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:26</date>
+  <millis>1514054006168</millis>
+  <sequence>94</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:26</date>
+  <millis>1514054006810</millis>
+  <sequence>96</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:33:29</date>
+  <millis>1514054009793</millis>
+  <sequence>98</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+</message>
+</record>
+</log>

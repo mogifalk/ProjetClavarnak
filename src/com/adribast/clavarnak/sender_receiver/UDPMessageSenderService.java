@@ -1,16 +1,12 @@
 package com.adribast.clavarnak.sender_receiver;
 
-import java.io.IOException;
 import java.net.*;
-import java.util.Scanner;
-
-import static com.adribast.clavarnak.Main.configPort;
 
 public class UDPMessageSenderService implements MessageSenderService {
 
     private int port;
     private String ipAddress;
-    //FINIR LE CON STRUCTEUR UNTILISER LES MEME SOCKET ET LE FERMER A LA FIN
+
     public UDPMessageSenderService(int p,String ip){
         this.port = p;
         this.ipAddress = ip;
@@ -31,20 +27,7 @@ public class UDPMessageSenderService implements MessageSenderService {
     }
 
     @Override
-    public void endConnection() throws IOException {
+    public void endConnection() {
 
     }
-
-    /*public void sendInitBroadcast () throws Exception {
-
-        try {
-            String broadcastAdr = "127.255.255.255";
-            sendMessageOn(broadcastAdr, "Please send me your IP and pseudo");
-        }
-
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }*/
 }

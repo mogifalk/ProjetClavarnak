@@ -61,7 +61,6 @@ public class UDPMessageReceiverService implements Runnable {
 
             String disconnectedAlias = s.next() ;
             this.UM.delUser(disconnectedAlias);
-
         }
     }
 
@@ -71,7 +70,6 @@ public class UDPMessageReceiverService implements Runnable {
 
         try {
             while (true) {
-
             listen();
             }
         }

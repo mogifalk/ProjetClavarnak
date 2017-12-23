@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-23T19:26:04</date>
+  <millis>1514053564008</millis>
+  <sequence>1</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T19:26:07</date>
+  <millis>1514053567354</millis>
+  <sequence>3</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+(yhbe(h</message>
+</record>
+<record>
+  <date>2017-12-23T19:26:12</date>
+  <millis>1514053572507</millis>
+  <sequence>5</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+e(htthre(</message>
+</record>
+</log>

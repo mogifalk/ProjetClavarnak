@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-23T18:59:37</date>
+  <millis>1514051977573</millis>
+  <sequence>0</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:40</date>
+  <millis>1514051980471</millis>
+  <sequence>3</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:42</date>
+  <millis>1514051982947</millis>
+  <sequence>4</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+ezdcaercae</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:45</date>
+  <millis>1514051985733</millis>
+  <sequence>6</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+eacecefcefc</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:48</date>
+  <millis>1514051988032</millis>
+  <sequence>8</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+aercaercaerc</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:50</date>
+  <millis>1514051990150</millis>
+  <sequence>11</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+aecaedcaedc</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:51</date>
+  <millis>1514051991928</millis>
+  <sequence>13</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+aedcaecdaedc</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:53</date>
+  <millis>1514051993473</millis>
+  <sequence>15</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+aedcaecdad</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:56</date>
+  <millis>1514051996006</millis>
+  <sequence>17</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+acdecadcaed</message>
+</record>
+<record>
+  <date>2017-12-23T18:59:58</date>
+  <millis>1514051998473</millis>
+  <sequence>19</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+edcaedcaed</message>
+</record>
+</log>

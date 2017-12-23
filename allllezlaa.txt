@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-23T20:36:32</date>
+  <millis>1514057792660</millis>
+  <sequence>0</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T20:36:35</date>
+  <millis>1514057795004</millis>
+  <sequence>1</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+efcer</message>
+</record>
+<record>
+  <date>2017-12-23T20:36:37</date>
+  <millis>1514057797089</millis>
+  <sequence>2</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+efvefv</message>
+</record>
+<record>
+  <date>2017-12-23T20:36:38</date>
+  <millis>1514057798793</millis>
+  <sequence>3</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+efvefvefv</message>
+</record>
+</log>

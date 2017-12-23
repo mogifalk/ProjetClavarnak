@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-23T19:41:01</date>
+  <millis>1514054461043</millis>
+  <sequence>1</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:01</date>
+  <millis>1514054461438</millis>
+  <sequence>3</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:01</date>
+  <millis>1514054461637</millis>
+  <sequence>5</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:01</date>
+  <millis>1514054461816</millis>
+  <sequence>7</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:01</date>
+  <millis>1514054461998</millis>
+  <sequence>9</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:02</date>
+  <millis>1514054462180</millis>
+  <sequence>11</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:02</date>
+  <millis>1514054462356</millis>
+  <sequence>13</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:02</date>
+  <millis>1514054462534</millis>
+  <sequence>15</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:02</date>
+  <millis>1514054462718</millis>
+  <sequence>17</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:02</date>
+  <millis>1514054462899</millis>
+  <sequence>19</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:03</date>
+  <millis>1514054463088</millis>
+  <sequence>21</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:03</date>
+  <millis>1514054463301</millis>
+  <sequence>23</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:04</date>
+  <millis>1514054464522</millis>
+  <sequence>25</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:04</date>
+  <millis>1514054464974</millis>
+  <sequence>27</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:05</date>
+  <millis>1514054465322</millis>
+  <sequence>29</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:09</date>
+  <millis>1514054469427</millis>
+  <sequence>31</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:11</date>
+  <millis>1514054471510</millis>
+  <sequence>33</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+dfcdf</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:13</date>
+  <millis>1514054473573</millis>
+  <sequence>35</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+dfcdfvfv</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:15</date>
+  <millis>1514054475453</millis>
+  <sequence>37</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+dfvdfvdfv</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:17</date>
+  <millis>1514054477420</millis>
+  <sequence>39</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+dfvdfv</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:19</date>
+  <millis>1514054479391</millis>
+  <sequence>41</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+dfvdfv</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:21</date>
+  <millis>1514054481316</millis>
+  <sequence>43</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+fvdfvdsfv</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:23</date>
+  <millis>1514054483202</millis>
+  <sequence>45</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+dfvdfv</message>
+</record>
+<record>
+  <date>2017-12-23T19:41:25</date>
+  <millis>1514054485129</millis>
+  <sequence>47</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+dfvdfv</message>
+</record>
+</log>

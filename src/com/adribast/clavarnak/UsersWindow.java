@@ -95,7 +95,7 @@ public class UsersWindow extends JFrame implements ActionListener {
                 sendInvitation.onTCP(myAlias+ " " + ports[0] + " " + ports[1]);
 
                 //on libere la socket pour la reutiliser si besoin
-                sendInvitation.freeConnexion();
+                sendInvitation.freeConnection();
 
                 ChatWindow theWindow = new ChatWindow(source.toString(),
                         ports[0],ports[1],ip);

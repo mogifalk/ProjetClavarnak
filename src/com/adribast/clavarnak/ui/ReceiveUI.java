@@ -12,12 +12,10 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
 import static com.adribast.clavarnak.Main.conversationActive;
-import static com.adribast.clavarnak.Main.logger;
 
 public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
 
@@ -26,10 +24,10 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     private final MessageReceiverServiceFactory messageReceiverServiceFactory;
     private int port;
 
-    //pour pouvoir ecrire les messages reçus dans la fenetre correspondante
+    //So we can write the received messages in the chatWindow
     private ChatWindow chat;
 
-    //cette liste va nous permettre d'afficher les messages reçus
+    //this list allows us to print the received messages
     private ArrayList<JLabel> conversation;
     static private Date date = new Date();
 
@@ -47,11 +45,11 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     }
 
     @Override
-    public void onTCP(String mess) throws IOException {
+    public void onTCP(String mess) {
         launchListeningThread(messageReceiverServiceFactory.onTCP());
     }
 
-    //on doit pouvoir le recuperer pour fermer la connection quand la fenetre se ferme
+    //Use to close sockets ine windowListener
     @Override
     public MessageServiceFactory getServiceFactory() {
         return this.messageReceiverServiceFactory;
@@ -77,7 +75,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
                     DateFormat.SHORT,
                     DateFormat.SHORT);
 
-            this.conversation.add(new JLabel(longDateFormat.format(date)));
+            this.conversation.add(new JLabel(longDateFormat.format(date)+"  "));
 
             //on transforme le message reçu en plusieurs qui ont pour longueur max une ligne
             this.chat.addWithReturn(message, conversation);
@@ -90,13 +88,13 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     }
 
     private void launchListeningThread(MessageReceiverService messageReceiverService) {
-        System.out.print("Listenning on port: " + this.port + "\n");
+        System.out.print("Listening on port: " + this.port + "\n");
         try {
             Thread listenThread = new Thread(messageReceiverService);
             listenThread.start();
-        } catch (Exception exception) {
+        } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
-            System.err.println(exception);
+            e.printStackTrace();
         }
     }
 

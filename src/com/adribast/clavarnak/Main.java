@@ -4,9 +4,6 @@ package com.adribast.clavarnak;
 
 import com.adribast.clavarnak.sender_receiver.UDPMessageReceiverService;
 import com.adribast.clavarnak.sender_receiver.UDPMessageSenderService;
-
-import java.net.InetAddress;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
@@ -14,12 +11,12 @@ import java.util.ArrayList;
 public class Main {
 
     //this object allows us to save the conversations
-    public static Logger logger = Logger.getLogger(Main.class.getName());
+    static Logger logger = Logger.getLogger(Main.class.getName());
 
     //listening port for the broadcast to get connected people
-    public static final int configPort = 4242;
+    static final int configPort = 4242;
 
-    public static final String broadcastIP = "255.255.255.255";
+    static final String broadcastIP = "255.255.255.255";
 
     //Initialising our pseudo
     public static String myAlias = "noPseudo";

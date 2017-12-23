@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-23T18:47:38</date>
+  <millis>1514051258691</millis>
+  <sequence>0</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T18:47:45</date>
+  <millis>1514051265159</millis>
+  <sequence>2</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+qexcqercef</message>
+</record>
+<record>
+  <date>2017-12-23T18:47:47</date>
+  <millis>1514051267374</millis>
+  <sequence>5</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+Enter your message</message>
+</record>
+<record>
+  <date>2017-12-23T18:47:50</date>
+  <millis>1514051270585</millis>
+  <sequence>7</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+sdcqzdcedcaeqdcd</message>
+</record>
+<record>
+  <date>2017-12-23T18:47:57</date>
+  <millis>1514051277380</millis>
+  <sequence>9</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</message>
+</record>
+<record>
+  <date>2017-12-23T18:47:57</date>
+  <millis>1514051277385</millis>
+  <sequence>10</sequence>
+  <level>FINE</level>
+  <thread>21</thread>
+  <message>RECEIVED : 
+</message>
+</record>
+</log>

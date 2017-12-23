@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="953ec560-c441-448e-9c49-f5f45031f3f2" name="Default" comment="" />
+    <list default="true" id="953ec560-c441-448e-9c49-f5f45031f3f2" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/DADADA.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/tests/UsersWindowTest.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Clavarnak.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/commit" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/Main.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/MainWindowListener.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/MainWindowListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ModifAliasWindow.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ModifAliasWindow.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersWindow.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersWindow.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MasterListener.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MasterListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MessageReceiverService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MessageReceiverService.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageReceiverService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageReceiverService.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageSenderService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageSenderService.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageReceiverServiceFactory.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageReceiverServiceFactory.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageSenderServiceFactory.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageSenderServiceFactory.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/CommunicationUI.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/CommunicationUI.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/SendUI.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/SendUI.java" />
+    </list>
     <ignored path="$USER_HOME$/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,8 +38,8 @@
       <file leaf-file-name="ChatWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="237">
+              <caret line="202" column="72" lean-forward="false" selection-start-line="202" selection-start-column="72" selection-end-line="202" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -28,18 +51,6 @@
             <state relative-caret-position="126">
               <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SendUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ui/SendUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-              <folding>
-                <marker date="1513526170364" expanded="true" signature="2568:2574" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -57,8 +68,8 @@
       <file leaf-file-name="WindowListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="17" column="72" lean-forward="false" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
+            <state relative-caret-position="162">
+              <caret line="19" column="72" lean-forward="false" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -90,8 +101,18 @@
       <file leaf-file-name="ReceiveUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="29" column="28" lean-forward="true" selection-start-line="28" selection-start-column="67" selection-end-line="29" selection-end-column="28" />
+            <state relative-caret-position="108">
+              <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-198">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,6 +167,12 @@
       <find>win</find>
       <find>getN</find>
       <find>addwith</find>
+      <find>jpa</find>
+      <find>conv</find>
+      <find>conversat</find>
+      <find>east</find>
+      <find>printC</find>
+      <find>je</find>
       <find>date</find>
     </findStrings>
     <replaceStrings>
@@ -194,7 +221,6 @@
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ModifAliasWindow.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/LogsManager.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageSenderService.java" />
-        <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java" />
         <option value="$PROJECT_DIR$/Baslescouilles.txt" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageReceiverService.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersWindow.java" />
@@ -203,9 +229,10 @@
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MasterListener.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" />
+        <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java" />
+        <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java" />
-        <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
       </list>
     </option>
   </component>
@@ -794,13 +821,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32582584" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32445142" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22100313" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22100313" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0062695923" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -957,13 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/LogsManager.java" />
     <entry file="file://$PROJECT_DIR$/Adrien.txt" />
     <entry file="file://$PROJECT_DIR$/Baslescouilles.txt">
@@ -1059,14 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="17" column="72" lean-forward="false" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -1075,18 +1087,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="19" column="72" lean-forward="false" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="237">
+          <caret line="202" column="72" lean-forward="false" selection-start-line="202" selection-start-column="72" selection-end-line="202" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="29" column="28" lean-forward="true" selection-start-line="28" selection-start-column="67" selection-end-line="29" selection-end-column="28" />
+        <state relative-caret-position="108">
+          <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
           <folding />
         </state>
       </provider>
