@@ -122,6 +122,33 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
     @Override
     public void run() {
 
+        listenWhileNotEnded();
+
+        while (multipleListen) {
+            try {
+                System.out.println("PAS NORMAL");
+                this.serverSocket = new ServerSocket(this.ourPort);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            this.connectionEnded = false;
+            this.connectionInitialized=false;
+
+            listenWhileNotEnded();
+        }
+
+    }
+
+    public void setConnectionEnded(boolean isEnded){
+        this.connectionEnded = isEnded;
+    }
+    public void setMultipleListen(){
+        this.multipleListen = true;
+    }
+
+
+
+    private void listenWhileNotEnded(){
         try {
             while (!this.connectionEnded) {
                 listen();
@@ -134,36 +161,7 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
             e.printStackTrace();
 
         }
-
-        while (multipleListen) {
-            try {
-                System.out.println("PAS NORMAL");
-                this.serverSocket = new ServerSocket(this.ourPort);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            this.connectionEnded = false;
-            this.connectionInitialized=false;
-            try {
-                while (!this.connectionEnded) {
-                    listen();
-                }
-                this.endConnection();
-
-            } catch (Exception e) {
-
-                e.printStackTrace();
-
-            }
-        }
-
     }
 
-    public void setConnectionEnded(boolean isEnded){
-        this.connectionEnded = isEnded;
-    }
-    public void setMultipleListen(){
-        this.multipleListen = true;
-    }
 
 }
