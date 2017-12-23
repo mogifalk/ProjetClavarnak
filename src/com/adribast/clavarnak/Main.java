@@ -21,9 +21,16 @@ public class Main {
 
     public static final String broadcastIP = "255.255.255.255";
 
+    //Initialising our pseudo
     public static String myAlias = "noPseudo";
+
     private static UsersManager UM = new UsersManager();
+
+    //list of active conversations so we can't open the conversation window
+    //more than one time
     public static ArrayList<String> conversationActive = new ArrayList<>();
+
+
 
     public static void main(String[] args) throws Exception {
 
@@ -31,6 +38,8 @@ public class Main {
 
         UM.addUser("Adri", "127.0.0.1");
 
+        //Listening socket for receiving the pseudo and ip of
+        // new users connecting
         UDPMessageReceiverService aliasListener = new UDPMessageReceiverService(configPort, UM);
         Thread aliasListenThread = new Thread(aliasListener);
         aliasListenThread.start();
@@ -38,7 +47,8 @@ public class Main {
         UDPMessageSenderService aliasRequester = new UDPMessageSenderService(configPort, broadcastIP);
         aliasRequester.sendMessageOn("PLEASE SEND YOUR ALIAS");
 
-        Thread.sleep(2000); //
+        //So we are sure the response is received before we do more
+        Thread.sleep(1000);
 
         ModifAliasWindow aliasWindow = new ModifAliasWindow(UM);
 
@@ -46,7 +56,7 @@ public class Main {
         while (myAlias.compareTo("noPseudo") == 0) {Thread.sleep(500);}
 
 
-        Window test = new Window(UM);
+        Window menu = new Window(UM);
 
         aliasWindow.toFront();
 
