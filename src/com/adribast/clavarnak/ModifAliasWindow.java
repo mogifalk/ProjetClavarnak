@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.InetAddress;
 
 import static com.adribast.clavarnak.Main.broadcastIP;
 import static com.adribast.clavarnak.Main.configPort;
@@ -21,7 +20,7 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
 
     private UsersManager UM;
 
-    public ModifAliasWindow(UsersManager UM) throws Exception {
+    public ModifAliasWindow(UsersManager UM) {
         //Définit un titre pour notre fenêtre
         this.setTitle("Changement pseudo");
         //Définit sa taille : 400 pixels de large et 100 pixels de haut

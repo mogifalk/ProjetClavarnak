@@ -14,7 +14,7 @@ public class SendUI implements CommunicationUI {
     private final MessageSenderServiceFactory messageSenderServiceFactory;
     private int port;
 
-    //adresse ip a laquelle les messages seront envoyés
+    //ip adress of destination
     private String ipAddr;
 
 
@@ -34,7 +34,6 @@ public class SendUI implements CommunicationUI {
         sendMessageWith(messageSenderServiceFactory.onUDP(),mess);
     }
 
-    //On doit pourvoir le recuperer pour fermer les connections a la fermeture d'une fenetre
     @Override
     public MessageServiceFactory getServiceFactory() {
         return this.messageSenderServiceFactory;
