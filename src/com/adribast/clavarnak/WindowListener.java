@@ -29,8 +29,6 @@ public class WindowListener extends WindowAdapter {
             sendService.endConnection();
 
 
-
-
         } catch (IOException e1) {
             e1.printStackTrace();
         } catch (Exception e1) {

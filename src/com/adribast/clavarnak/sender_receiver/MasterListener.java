@@ -44,6 +44,7 @@ public class MasterListener implements IncomingMessageListener {
 
         ChatWindow chat = new ChatWindow(remoteUserName,port2,port1,UM.getIpOf(remoteUserName));
         conversationActive.add(remoteUserName);
+        System.out.println("add conv : " + remoteUserName);
         
     }
 

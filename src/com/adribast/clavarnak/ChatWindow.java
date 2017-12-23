@@ -234,5 +234,6 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.setVisible(true);
 
     }
+    public String getName(){return this.name;}
 
 }

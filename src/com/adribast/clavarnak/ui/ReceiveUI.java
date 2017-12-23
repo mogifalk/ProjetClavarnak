@@ -60,6 +60,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     public void onNewIncomingMessage(String message) {
         if (message.toUpperCase().compareTo("CLOSE CONNECTION")==0) {
             this.chat.dispose();
+            System.out.println("removinf conv : "+this.chat.getName());
             conversationActive.remove(this.chat.getName());
         }
         else {
