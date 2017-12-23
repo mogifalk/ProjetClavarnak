@@ -60,7 +60,6 @@ public class UsersManager {
 
         if (aliasWithSameIP!=null) {
             this.usersTable.remove(aliasWithSameIP, ip);
-            System.out.println("REMOVED");
         }
 
         else {throw new VoidStringException();}
@@ -70,7 +69,6 @@ public class UsersManager {
     public void delUser(String alias) {
         this.usersTable.remove(alias);
     }
-
 
     public boolean aliasExists(String aliasTest) {
         return this.usersTable.containsKey(aliasTest);

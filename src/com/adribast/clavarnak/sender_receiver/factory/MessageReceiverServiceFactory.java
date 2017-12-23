@@ -16,6 +16,7 @@ public class MessageReceiverServiceFactory implements MessageServiceFactory<Mess
     private IncomingMessageListener incomingMessageListener;
     private TCPMessageReceiverService receiver;
 
+    //version avec sendUI pour pouvoir répondre à un "close connection"
     public MessageReceiverServiceFactory(IncomingMessageListener ourIncomingMessageListener,int ourPort,SendUI send) throws IOException {
         this.port=ourPort;
         this.incomingMessageListener=ourIncomingMessageListener;

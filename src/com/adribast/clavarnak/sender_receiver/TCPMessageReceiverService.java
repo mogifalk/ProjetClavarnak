@@ -13,20 +13,21 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
 
     private SendUI send;
 
-    //permet de recuperer le message reçu et de le donner a received UI qui l'affiche
+    //handler of received messages
     private IncomingMessageListener incomingMessageListener;
 
-    //sockets de connexion
+    //connection sockets
     private ServerSocket serverSocket;
 
-    //permet de recuperer le contenu des messages
+    //allows reading the content of buffer
     private BufferedReader reader;
 
 
-    //Ces deux booleens nous permettent respectivement de savoir quand initialiser les sockets
-    // et quand arreter d'écouter
+    //These booleans' roles is to inform when initialising sockets and when to stop listening
     private static boolean connectionInitialized;
     private static boolean connectionEnded;
+
+    //Is used for MasterListener in order to not stop listening after a connection closing
     private static boolean multipleListen;
 
     private static int ourPort;
@@ -40,7 +41,6 @@ public class TCPMessageReceiverService implements MessageReceiverService, Runnab
         this.connectionEnded = false;
         this.multipleListen=false;
 
-        System.out.println("BIND ON PORT : " +ourPort+"\n");
         this.ourPort = ourPort;
         this.serverSocket = new ServerSocket(ourPort);
     }

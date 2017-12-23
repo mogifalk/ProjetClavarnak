@@ -3,29 +3,34 @@ package tests;
 
 import com.adribast.clavarnak.UsersManager;
 import com.adribast.clavarnak.com.exceptions.AliasAlreadyExistsException;
+import com.adribast.clavarnak.com.exceptions.VoidStringException;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class UsersManagerTest {
 
-    /*@Test(expected = AliasAlreadyExistsException.class)
-    public void shouldReturnTrueIfAliasAlreadyExists() throws Exception {
-        String alias1 = "toto" ;
+    @Test(expected = VoidStringException.class)
+    public void shouldReturnTrueIfAliasIsEmpty() throws Exception {
+        String emptyAlias = "";
         UsersManager users = new UsersManager() ;
-        users.addUser("Jean","Ferrat", alias1);
+        users.addUser(emptyAlias,"1.2.3.4");
+    }
 
-        users.addUser("Michel","Sardou",alias1);
+
+    @Test(expected = AliasAlreadyExistsException.class)
+    public void shouldReturnTrueIfAliasAlreadyExists() throws Exception {
+        UsersManager um = new UsersManager() ;
+        um.addUser("sameAlias","1.2.3.4");
+        um.addUser("sameAlias","2.3.4.5");
     }
 
     @Test
-    public void shouldPrintAListOfUsers() throws Exception {
-        UsersManager users = new UsersManager() ;
-        users.addUser("Jean","Ferrat", "t0t0");
-        users.addUser("Michel","Sardou","t1t1");
-        users.addUser("Daniel","Balavoine","t3t3");
-
-        users.printAllConnectedUsers();
-    }*/
-
+    public void shouldReplace() throws Exception {
+        UsersManager um = new UsersManager() ;
+        um.addUser("firstAlias","1.2.3.4");
+        um.addUser("secondAlias","1.2.3.4");
+        System.out.println("First alias exists :" + um.aliasExists("firstAlias"));
+        System.out.println("Second alias exists :" + um.aliasExists("secondAlias"));
+    }
 }
