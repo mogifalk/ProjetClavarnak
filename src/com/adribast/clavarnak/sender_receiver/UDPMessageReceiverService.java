@@ -70,7 +70,6 @@ public class UDPMessageReceiverService implements Runnable {
 
         try {
             while (true) {
-
             listen();
             }
         }
