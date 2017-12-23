@@ -45,7 +45,7 @@ public class MasterListener implements IncomingMessageListener {
     }
 
     public void launchListeningThread() {
-        System.out.print("Listenning on port: " + this.port + "\n");
+        System.out.print("Listening on port: " + this.port + "\n");
         try {
              Thread listenThread = new Thread(this.messageReceiverServiceFactory.onTCP());
             TCPMessageReceiverService receiver =
