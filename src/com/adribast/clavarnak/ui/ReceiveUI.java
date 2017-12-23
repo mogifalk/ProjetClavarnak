@@ -62,9 +62,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
             System.out.println("removinf conv : "+this.chat.getName());
             conversationActive.remove(this.chat.getName());
         }
-        else if(message == null || message.compareTo(" ")==0){
-
-        }
+        else if(message==null || message.compareTo("")==0){}
         else {
             System.out.println("NEW MESSAGE : " + message + "\n");
 

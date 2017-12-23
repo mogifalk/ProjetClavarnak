@@ -18,7 +18,6 @@ public class ModifAliasWindow extends JFrame implements ActionListener {
     private JPanel container = new JPanel();
 
     private JTextField writingField = new JTextField();
-
     private UsersManager UM;
 
     public ModifAliasWindow(UsersManager UM) {
