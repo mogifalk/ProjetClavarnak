@@ -13,9 +13,14 @@ import java.util.ArrayList;
 
 public class Main {
 
+    //this object allows us to save the conversations
     public static Logger logger = Logger.getLogger(Main.class.getName());
+
+    //listening port for the broadcast to get connected people
     public static final int configPort = 4242;
-    public static final String broadcastIP = "192.168.1.255";
+
+    public static final String broadcastIP = "255.255.255.255";
+
     public static String myAlias = "noPseudo";
     private static UsersManager UM = new UsersManager();
     public static ArrayList<String> conversationActive = new ArrayList<>();
@@ -25,12 +30,6 @@ public class Main {
         logger.setLevel(Level.FINE);
 
         UM.addUser("Adri", "127.0.0.1");
-        UM.addUser("Bast", "2.2.3.4");
-        UM.addUser("Joseph", "3.2.3.4");
-        UM.addUser("Banban", "4.2.3.4");
-        UM.addUser("Laurent", "5.2.3.4");
-        UM.addUser("Mathieu", "6.2.3.4");
-        UM.addUser("LeNoir", "3.2.3.4");
 
         UDPMessageReceiverService aliasListener = new UDPMessageReceiverService(configPort, UM);
         Thread aliasListenThread = new Thread(aliasListener);
@@ -47,7 +46,7 @@ public class Main {
         while (myAlias.compareTo("noPseudo") == 0) {Thread.sleep(500);}
 
 
-        Window test = new Window("menu", 400, 500, UM);
+        Window test = new Window(UM);
 
         aliasWindow.toFront();
 

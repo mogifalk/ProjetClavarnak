@@ -40,10 +40,8 @@ public class MasterListener implements IncomingMessageListener {
         TCPMessageReceiverService receiver = (TCPMessageReceiverService) this.messageReceiverServiceFactory.onTCP();
         receiver.setConnectionEnded(true);
 
-        ChatWindow chat = new ChatWindow(remoteUserName, 400, 500,
-                port2,port1,UM.getIpOf(remoteUserName));
-
-
+        ChatWindow chat = new ChatWindow(remoteUserName,port2,port1,UM.getIpOf(remoteUserName));
+        
     }
 
     public void launchListeningThread() {

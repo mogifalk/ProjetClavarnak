@@ -97,7 +97,7 @@ public class UsersWindow extends JFrame implements ActionListener {
                 //on libere la socket pour la reutiliser si besoin
                 sendInvitation.freeConnexion();
 
-                ChatWindow theWindow = new ChatWindow(source.toString(), 400, 500,
+                ChatWindow theWindow = new ChatWindow(source.toString(),
                         ports[0],ports[1],ip);
                 conversationActive.add(source.toString());
 

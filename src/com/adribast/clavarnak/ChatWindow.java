@@ -46,10 +46,13 @@ public class ChatWindow extends JFrame implements ActionListener {
 
     private String name;
 
+    private int width = 400;
+    private int height = 500;
 
 
 
-    public ChatWindow(String name, int width, int height, int listenPort, int sendPort, String ipDest) throws IOException {
+
+    public ChatWindow(String name, int listenPort, int sendPort, String ipDest) throws IOException {
 
         this.name = name;
         this.listenPort=listenPort;

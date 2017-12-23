@@ -28,45 +28,45 @@ public class Window extends JFrame implements ActionListener {
 
 
 
-    public Window (String name, int width, int height, UsersManager UM) throws VoidStringException, AliasAlreadyExistsException, IOException {
+    public Window (UsersManager UM) throws VoidStringException, AliasAlreadyExistsException, IOException {
 
         this.UM = UM ;
 
-        //Socket qui va ecouter sur le port 1620 si des gens veulent discuter avec nous
+        //This socket will listen on port 1620 to know if some people want to start
+        //a conversation
         MasterListener master= new MasterListener(this.UM);
         master.launchListeningThread();
 
-        //definition des layouts pour chaque conteneur
+        //definition of layouts for every container
         menu.setLayout(new BoxLayout(menu, BoxLayout.PAGE_AXIS));
 
         this.addMenuButton("Clavarder");
         this.addMenuButton("Changer pseudo");
-        this.addMenuButton("Chatter avec Bast");
 
-        //Définit un titre pour notre fenêtre
+        //Title of our window
 
-        this.setTitle(name);
+        this.setTitle("Menu");
 
-        //Définit sa taille : 400 pixels de large et 100 pixels de haut
+        //Size of the window : 400 x 500 pixels
 
-        this.setSize(width, height);
+        this.setSize(400, 500);
 
-        //Nous demandons maintenant à notre objet de se positionner au centre
+        //We set the position to the center
 
         this.setLocationRelativeTo(null);
 
-        //Termine le processus lorsqu'on clique sur la croix rouge
+        //Terminate the process if we click on the red cross
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Ajout de la Box "menu" au content pane de la fenetre
+        //We add the menu box to the content pane
         this.setContentPane(menu) ;
-        //Et enfin, la rendre visible
 
-
+        //Finally we set it visible
         this.setVisible(true);
 
-        //Nous permet d'effectuer des actions a la fermeture de la fenetre
+        //allows us to send a message to the other users when we close the window
+        //end finish the program
         MainWindowListener wListener;
         wListener = new MainWindowListener();
 
@@ -80,7 +80,7 @@ public class Window extends JFrame implements ActionListener {
         Button ourButton = new Button(title) ;
         ourButton.setAlignmentX(CENTER_ALIGNMENT);
 
-        //espace les cases de 8px
+        //8px between each button
         menu.add(ourButton) ;
         menu.add(Box.createVerticalStrut(10)); //espace les cases de 8px
 
@@ -105,14 +105,11 @@ public class Window extends JFrame implements ActionListener {
                 }
                 break;
 
-            case "Chatter avec Bast":
-                this.addMenuButton("Bast");
-                this.setVisible(true);
-                break;
 
         }
     }
 
+    //This function create a window with all the users that are connected
     public void buildUsersList () {
         UsersWindow usersWindow = new UsersWindow(this.UM);
     }
