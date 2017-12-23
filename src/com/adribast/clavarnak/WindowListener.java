@@ -20,7 +20,6 @@ public class WindowListener extends WindowAdapter {
         this.fh = fh;
     }
 
-
     public void windowClosing(WindowEvent e){
         try {
             System.out.println("ENDING CONNECTION\n");

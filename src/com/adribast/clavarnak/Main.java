@@ -33,7 +33,7 @@ public class Main {
 
         logger.setLevel(Level.FINE);
 
-        UM.addUser("Adri", "127.0.0.1");
+        UM.addUser("example", "127.0.0.1");
 
         //Listening socket for receiving the pseudo and ip of
         // new users connecting

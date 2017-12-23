@@ -2,6 +2,7 @@ package com.adribast.clavarnak;
 
 import com.adribast.clavarnak.sender_receiver.MasterListener;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class Window extends JFrame implements ActionListener {
 
         //Size of the window : 400 x 500 pixels
 
-        this.setSize(400, 500);
+        this.setSize(300, 200);
 
         //We set the position to the center
 
@@ -67,7 +68,7 @@ public class Window extends JFrame implements ActionListener {
         ourButton.setAlignmentX(CENTER_ALIGNMENT);
 
         //8px between each button
-        menu.add(ourButton) ;
+        menu.add(ourButton,BorderLayout.CENTER) ;
         menu.add(Box.createVerticalStrut(10)); //espace les cases de 8px
 
         ourButton.addActionListener(this);

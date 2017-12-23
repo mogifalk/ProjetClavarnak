@@ -22,7 +22,6 @@ public class Button extends JButton implements MouseListener{
 
     private Image img;
 
-
     public Button(String str){
 
         super(str);

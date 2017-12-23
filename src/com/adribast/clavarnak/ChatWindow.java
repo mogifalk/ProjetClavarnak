@@ -33,9 +33,7 @@ public class ChatWindow extends JFrame implements ActionListener {
 
     private ArrayList<JLabel> conversation = new ArrayList<>();
 
-    //port d'écoute
     private int listenPort;
-    //port d'envoie
     private int sendPort;
 
     private ReceiveUI receiveUI;
@@ -65,7 +63,7 @@ public class ChatWindow extends JFrame implements ActionListener {
         this.receiveUI = new ReceiveUI(this.listenPort,this, (SendUI) this.sendUI);
 
         //if the file exists it appends logs at the end, else it creates a file named with an alias
-        this.fh = new FileHandler(name+".txt",true);
+        this.fh = new FileHandler("logs/"+name+".txt",true);
 
         logger.addHandler(this.fh);
 
