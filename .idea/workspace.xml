@@ -2,44 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="953ec560-c441-448e-9c49-f5f45031f3f2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/ .txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Adri.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Adrien.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/COUCOCU.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/DADADA.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/PLGK.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/allllezlaa.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ar.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/azertyui.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dzxczdcse.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ecerc.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ecezfc.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/efdcef.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/efdfqzefr.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/erest.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/mogi.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/mogifalk.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/okjbv.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/scqerf.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/scqzdcqe.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sdcsc.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sdcsdcsdc.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sdcsqcqer.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sdcsvd.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sdveqrv.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ufjf.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ufjf.txt.1" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/you.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/you.txt.1" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/you.txt.2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/zcqerc.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/zczcqzc.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/zedfrgtrh.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/zefczefc.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/zfc&quot;rv.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/zfervtg.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/zfqerzve.txt" afterPath="" />
     </list>
     <ignored path="$USER_HOME$/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -127,7 +90,7 @@
       <file leaf-file-name="UsersManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-198">
+            <state relative-caret-position="-180">
               <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
@@ -801,7 +764,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514052092345</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="final commit">
+      <created>1514059282526</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1514059282526</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1110,7 +1080,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
+        <state relative-caret-position="-180">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
