@@ -2,28 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="953ec560-c441-448e-9c49-f5f45031f3f2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/DADADA.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/tests/UsersWindowTest.java" />
+      <change beforePath="$PROJECT_DIR$/ .txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Clavarnak.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/commit" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/Main.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/MainWindowListener.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/MainWindowListener.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ModifAliasWindow.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ModifAliasWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersWindow.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/UsersWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MasterListener.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MasterListener.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MessageReceiverService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MessageReceiverService.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageReceiverService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageReceiverService.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageSenderService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPMessageSenderService.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageReceiverServiceFactory.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageReceiverServiceFactory.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageSenderServiceFactory.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageSenderServiceFactory.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/CommunicationUI.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/CommunicationUI.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/SendUI.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/SendUI.java" />
+      <change beforePath="$PROJECT_DIR$/Adri.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Adrien.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/COUCOCU.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/DADADA.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/PLGK.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/allllezlaa.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ar.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/azertyui.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/dzxczdcse.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ecerc.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ecezfc.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/efdcef.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/efdfqzefr.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/erest.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mogi.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mogifalk.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/okjbv.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/scqerf.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/scqzdcqe.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sdcsc.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sdcsdcsdc.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sdcsqcqer.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sdcsvd.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sdveqrv.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ufjf.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ufjf.txt.1" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/you.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/you.txt.1" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/you.txt.2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/zcqerc.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/zczcqzc.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/zedfrgtrh.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/zefczefc.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/zfc&quot;rv.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/zfervtg.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/zfqerzve.txt" afterPath="" />
     </list>
     <ignored path="$USER_HOME$/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,18 +64,8 @@
       <file leaf-file-name="MasterListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MasterListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageReceiverServiceFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageReceiverServiceFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="162">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,18 +97,28 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-487">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="-451">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReceiveUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReceiveUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
+            <state relative-caret-position="216">
+              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Clavarnak.iml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/Clavarnak.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,8 +137,8 @@
       <file leaf-file-name="TCPMessageReceiverService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="107" column="21" lean-forward="false" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="21" />
+            <state relative-caret-position="155">
+              <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -269,6 +285,11 @@
             <path>
               <item name="ProjetClavarnak" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProjetClavarnak" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetClavarnak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjetClavarnak" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProjetClavarnak" type="b2602c69:ProjectViewProjectNode" />
@@ -858,7 +879,8 @@
     <MESSAGE value="new" />
     <MESSAGE value="only one window for each conv" />
     <MESSAGE value="affichage message dans chat window et ReceiveUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="affichage message dans chat window et ReceiveUI" />
+    <MESSAGE value="final commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="final commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -871,7 +893,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/GraphicDisplay.java" />
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/Pannel.java" />
     <entry file="file://$PROJECT_DIR$/commit">
       <provider selected="true" editor-type-id="text-editor">
@@ -1015,7 +1036,7 @@
         <state relative-caret-position="550">
           <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
-            <marker date="1513526170364" expanded="true" signature="2568:2574" ph="{...}" />
+            <marker date="1514052393000" expanded="true" signature="2148:2154" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1023,7 +1044,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/factory/MessageReceiverServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1054,8 +1075,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-487">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="-451">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1073,16 +1094,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MasterListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="162">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="107" column="21" lean-forward="false" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="21" />
+        <state relative-caret-position="155">
+          <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1113,8 +1134,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
+        <state relative-caret-position="216">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/Clavarnak.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
