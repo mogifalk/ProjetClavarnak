@@ -62,7 +62,7 @@ public class ChatWindow extends JFrame implements ActionListener {
         //On essaye d'avoir un port different en liste a chaque fois
         this.sendUI = new SendUI(ipDest,sendPort);
         this.receiveUI = new ReceiveUI(listenPort,this, (SendUI) this.sendUI);
-        this.fh = new FileHandler(name+".txt");
+        this.fh = new FileHandler(name+".txt",true);
 
         logger.addHandler(this.fh);
 

@@ -15,8 +15,7 @@ public class WindowListener extends WindowAdapter {
     private TCPMessageSenderService sendService;
     private String convName;
 
-    public WindowListener(TCPMessageSenderService sServ
-            , String convName){
+    public WindowListener(TCPMessageSenderService sServ, String convName){
 
         this.sendService = sServ;
         this.convName = convName;

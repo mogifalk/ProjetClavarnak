@@ -15,6 +15,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
+import static com.adribast.clavarnak.Main.conversationActive;
 import static com.adribast.clavarnak.Main.logger;
 
 public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
@@ -59,6 +60,7 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
     public void onNewIncomingMessage(String message) {
         if (message.toUpperCase().compareTo("CLOSE CONNECTION")==0) {
             this.chat.dispose();
+            conversationActive.remove(this.chat.getName());
         }
         else {
             System.out.println("NEW MESSAGE : " + message + "\n");
