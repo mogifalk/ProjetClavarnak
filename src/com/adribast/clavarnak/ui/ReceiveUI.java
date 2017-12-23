@@ -9,6 +9,7 @@ import com.adribast.clavarnak.sender_receiver.factory.MessageServiceFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.FileHandler;
@@ -63,16 +64,25 @@ public class ReceiveUI implements CommunicationUI, IncomingMessageListener {
             System.out.println("removinf conv : "+this.chat.getName());
             conversationActive.remove(this.chat.getName());
         }
+        else if(message == null || message.compareTo(" ")==0){
+
+        }
         else {
             System.out.println("NEW MESSAGE : " + message + "\n");
 
             LogRecord logRcvMess = new LogRecord(Level.FINE,  "RECEIVED : \n" + message);
             chat.fh.publish(logRcvMess);
 
-            this.conversation.add(new JLabel(date.toString()));
+            DateFormat longDateFormat = DateFormat.getDateTimeInstance(
+                    DateFormat.SHORT,
+                    DateFormat.SHORT);
+
+            this.conversation.add(new JLabel(longDateFormat.format(date)));
 
             //on transforme le message reçu en plusieurs qui ont pour longueur max une ligne
             this.chat.addWithReturn(message, conversation);
+            //We put a new line betwen next message and this one
+            this.chat.addWithReturn("\n",conversation);
 
             //on affiche la conversation dans la fenetre du cote gauche
             this.chat.printConversation(conversation, BorderLayout.WEST);

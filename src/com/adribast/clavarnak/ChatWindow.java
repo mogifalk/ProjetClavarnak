@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.FileHandler;
@@ -70,8 +71,6 @@ public class ChatWindow extends JFrame implements ActionListener {
 
         xlocation = xlocation +20;
         ylocation = ylocation + 20;
-
-        this.conversation.add(new JLabel(date.toString()));
 
         this.setTitle(name);
 
@@ -199,7 +198,15 @@ public class ChatWindow extends JFrame implements ActionListener {
         LogRecord logMess = new LogRecord(Level.FINE,"SENT : \n" +"\n"+mess);
         this.fh.publish(logMess);
 
+        DateFormat longDateFormat = DateFormat.getDateTimeInstance(
+                DateFormat.SHORT,
+                DateFormat.SHORT);
+        this.conversation.add(new JLabel(longDateFormat.format(date)));
+
         addWithReturn(mess,this.conversation);
+
+        //we put an empty line between this message and the next
+        this.conversation.add(new JLabel("\n"));
 
         printConversation(this.conversation,BorderLayout.EAST);
         //writingContainer.add(label);

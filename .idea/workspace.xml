@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="953ec560-c441-448e-9c49-f5f45031f3f2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java" />
     </list>
     <ignored path="$USER_HOME$/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +19,8 @@
       <file leaf-file-name="ChatWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2502">
-              <caret line="154" column="42" lean-forward="false" selection-start-line="154" selection-start-column="42" selection-end-line="154" selection-end-column="42" />
+            <state relative-caret-position="108">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,21 +91,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReceiveUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReceiveUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="63" column="57" lean-forward="false" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
+            <state relative-caret-position="162">
+              <caret line="66" column="54" lean-forward="true" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TCPMessageReceiverService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TCPMessageReceiverService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1782">
-              <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
+            <state relative-caret-position="137">
+              <caret line="107" column="21" lean-forward="false" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -143,12 +144,13 @@
       <find>close</find>
       <find>convers</find>
       <find>conver</find>
-      <find>addwith</find>
       <find>usersWindow</find>
       <find>fh</find>
       <find>recei</find>
       <find>win</find>
       <find>getN</find>
+      <find>addwith</find>
+      <find>date</find>
     </findStrings>
     <replaceStrings>
       <replace>writer</replace>
@@ -204,10 +206,10 @@
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/Main.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/MasterListener.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java" />
-        <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
+        <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
         <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java" />
-        <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" />
+        <option value="$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java" />
       </list>
     </option>
   </component>
@@ -740,7 +742,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514050146823</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="only one window for each conv">
+      <created>1514050622874</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1514050622874</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1045,14 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="63" column="57" lean-forward="false" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/WindowListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1061,18 +1062,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2502">
-          <caret line="154" column="42" lean-forward="false" selection-start-line="154" selection-start-column="42" selection-end-line="154" selection-end-column="42" />
+        <state relative-caret-position="137">
+          <caret line="107" column="21" lean-forward="false" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java">
+    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ChatWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1782">
-          <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
+        <state relative-caret-position="108">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/ui/ReceiveUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="66" column="54" lean-forward="true" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
           <folding />
         </state>
       </provider>
