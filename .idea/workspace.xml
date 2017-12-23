@@ -4,7 +4,6 @@
     <list default="true" id="953ec560-c441-448e-9c49-f5f45031f3f2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" afterPath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/UDPBroadcastReceiverService.java" afterPath="" />
     </list>
     <ignored path="$USER_HOME$/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,8 +103,8 @@
       <file leaf-file-name="TCPMessageReceiverService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2808">
-              <caret line="166" column="1" lean-forward="true" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
+            <state relative-caret-position="1782">
+              <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -734,7 +733,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514049537639</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="only one window for each conv">
+      <created>1514050146823</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1514050146823</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1065,8 +1071,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/adribast/clavarnak/sender_receiver/TCPMessageReceiverService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2808">
-          <caret line="166" column="1" lean-forward="true" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
+        <state relative-caret-position="1782">
+          <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
           <folding />
         </state>
       </provider>
