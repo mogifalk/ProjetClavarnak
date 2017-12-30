@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-23T22:05:21</date>
+  <millis>1514063121330</millis>
+  <sequence>0</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+YOYOYO
+</message>
+</record>
+<record>
+  <date>2017-12-23T22:05:27</date>
+  <millis>1514063127047</millis>
+  <sequence>1</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+Yooooo !</message>
+</record>
+<record>
+  <date>2017-12-23T22:05:33</date>
+  <millis>1514063133904</millis>
+  <sequence>2</sequence>
+  <level>FINE</level>
+  <thread>20</thread>
+  <message>RECEIVED : 
+ça roule mon pote ? </message>
+</record>
+<record>
+  <date>2017-12-23T22:05:36</date>
+  <millis>1514063136592</millis>
+  <sequence>3</sequence>
+  <level>FINE</level>
+  <thread>16</thread>
+  <message>SENT : 
+
+COOLASS
+</message>
+</record>
+</log>
